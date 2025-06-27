@@ -24,11 +24,6 @@ EventManager::EventManager()
 	event_list[EVENT_LED].executed = false;
 	event_list[EVENT_LED].event_period = INIT_EVENT_PERIOD;
 	
-	event_list[EVENT_POWER_VOLTAGE].event = EVENT_POWER_VOLTAGE;
-	event_list[EVENT_POWER_VOLTAGE].set = 0;
-	event_list[EVENT_POWER_VOLTAGE].executed = false;
-	event_list[EVENT_POWER_VOLTAGE].event_period = INIT_EVENT_PERIOD;
-	
 	event_list[EVENT_TIMER].event = EVENT_TIMER;
   event_list[EVENT_TIMER].set = 0;
   event_list[EVENT_TIMER].executed = false;

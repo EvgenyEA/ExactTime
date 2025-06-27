@@ -10,16 +10,12 @@
 
 DeviceClass Device;
 
-const uint32_t _100_MS_TIME = 100;
-
 /*! -------------------------------------------------------------------------
 \brief Device initialization function
 \details  
 */
 bool DeviceClass::InitDevice()
-{
-	bool function_failed = false;
-	
+{	
 	Phy.DelayMs(300);
 	Parameters.InitParameters();
 	Phy.SetDisplayBrightness(IrParamWords.brightness);
@@ -30,9 +26,8 @@ bool DeviceClass::InitDevice()
 	illumination_level = ILLUMINATION_UNDEFINED;
 	sount_times = 1;
 	
-	return function_failed;
+	return 0;
 }
-
 
 /*! -------------------------------------------------------------------------
 \brief Get current global time value
@@ -118,8 +113,7 @@ extern "C"
 					break;
 				}
 			}
-			Phy.DelayUs(100);
-			
+			Phy.DelayUs(100);	
 			Display.UpdateDisplay();
 			
 			for(uint32_t n = 0; n < 100; n++) {

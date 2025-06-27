@@ -8,15 +8,13 @@ const uint8_t EVENT_NONE	  					=	0;
 const uint8_t EVENT_BUTTON_MINUTES		=	1;
 const uint8_t EVENT_BUTTON_HOURS			= 2;
 const uint8_t EVENT_LED		 						= 3;
-const uint8_t EVENT_POWER_VOLTAGE			= 4;
-const uint8_t EVENT_BUZZER						= 5; 
-const uint8_t EVENT_TIMER							= 6;
-const uint8_t EVENT_WDT								= 7;
-const uint8_t EVENT_FLASH							= 8;
-const uint8_t EVENT_RTC								= 9;
+const uint8_t EVENT_BUZZER						= 4; 
+const uint8_t EVENT_TIMER							= 5;
+const uint8_t EVENT_WDT								= 6;
+const uint8_t EVENT_FLASH							= 7;
+const uint8_t EVENT_RTC								= 8;
 
-const uint8_t	NUMBER_OF_EVENTS		= 10;		// + 1 (zero event)
-
+const uint8_t	NUMBER_OF_EVENTS		    = 9;		// + 1 (zero event)
 
 struct events
 {
@@ -40,8 +38,7 @@ class EventManager
 	
 	private:
 		events event_list[NUMBER_OF_EVENTS];
-		static const uint16_t INIT_EVENT_PERIOD = 1000;
-		
+		static const uint16_t INIT_EVENT_PERIOD = 1000;	
 };
 
 extern EventManager Events;

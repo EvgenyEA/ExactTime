@@ -37,73 +37,6 @@ const uint8_t CLOCK_ADDRESS = 0x68 << 1;
 DS3231 RTC_DS3231;
 
 
-// Utilities from JeeLabs/Ladyada
-
-////////////////////////////////////////////////////////////////////////////////
-// utility code, some of this could be exposed in the DateTime API if needed
-
-// DS3231 is smart enough to know this, but keeping it for now so I don't have
-// to rewrite their code. -ADW
-static const uint8_t daysInMonth[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
-
-//// number of days since 2000/01/01, valid for 2001..2099
-//static uint16_t date2days(uint16_t y, uint8_t m, uint8_t d) {
-//    if (y >= 2000)
-//        y -= 2000;
-//    uint16_t days = d;
-//    for (uint8_t i = 1; i < m; ++i)
-//        days += (daysInMonth + i - 1);
-//    if (m > 2 && isleapYear(y))
-//        ++days;
-//    return days + 365 * y + (y + 3) / 4 - 1;
-//}
-
-//static long time2long(uint16_t days, uint8_t h, uint8_t m, uint8_t s) {
-//    return ((days * 24L + h) * 60 + m) * 60 + s;
-//}
-
-/*****************************************
-	Public Functions
- *****************************************/
-
-/*******************************************************************************
- * TO GET ALL DATE/TIME INFORMATION AT ONCE AND AVOID THE CHANCE OF ROLLOVER
- * DateTime implementation spliced in here from Jean-Claude Wippler's (JeeLabs)
- * RTClib, as modified by Limor Fried (Ladyada); source code at:
- * https://github.com/adafruit/RTClib
- ******************************************************************************/
-
-////////////////////////////////////////////////////////////////////////////////
-// DateTime implementation - ignores time zones and DST changes
-// NOTE: also ignores leap seconds, see http://en.wikipedia.org/wiki/Leap_second
-
-//DateTime::DateTime (uint32_t t) {
-//  t -= SECONDS_FROM_1970_TO_2000;    // bring to 2000 timestamp from 1970
-
-//    ss = t % 60;
-//    t /= 60;
-//    mm = t % 60;
-//    t /= 60;
-//    hh = t % 24;
-//    uint16_t days = t / 24;
-//    uint8_t leap;
-//    for (yOff = 0; ; ++yOff) {
-//        leap = isleapYear((uint16_t) yOff);
-//        if (days < (uint16_t)(365 + leap))
-//            break;
-//        days -= (365 + leap);
-//    }
-//    for (m = 1; ; ++m) {
-//        uint8_t daysPerMonth = (daysInMonth + m - 1);
-//        if (leap && m == 2)
-//            ++daysPerMonth;
-//        if (days < daysPerMonth)
-//            break;
-//        days -= daysPerMonth;
-//    }
-//    d = days + 1;
-//}
-
 DateTime::DateTime (uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t min, uint8_t sec) {
     if (year >= 2000)
         year -= 2000;
@@ -126,16 +59,6 @@ DateTime::DateTime(const char* date, const char* time) {
    sscanf(time, "%hhu:%hhu:%hhu", &hh, &mm, &ss);
 }
 
-// UNIX time: IS CORRECT ONLY WHEN SET TO UTC!!!
-uint32_t DateTime::unixtime(void) const {
-//  uint32_t t;
-//  uint16_t days = date2days(yOff, m, d);
-//  t = time2long(days, hh, mm, ss);
-//  t += SECONDS_FROM_1970_TO_2000;  // seconds from 1970 to 2000
-
-//  return t;
-}
-
 // Slightly modified from JeeLabs / Ladyada
 // Get all date/time at once to avoid rollover (e.g., minute/second don't match)
 static uint8_t bcd2bin (uint8_t val) { return val - 6 * (val >> 4); }
@@ -150,24 +73,6 @@ bool isleapYear(const uint16_t y) {
   //only check other, when first failed
   return (y % 100 || y % 400 == 0);
 }
-
-//DateTime RTClib::now(TwoWire & _Wire) {
-//  _Wire.beginTransmission(CLOCK_ADDRESS);
-//  _Wire.write(0);	// This is the first register address (Seconds)
-//  			// We'll read from here on for 7 bytes: secs reg, minutes reg, hours, days, months and years.
-//  _Wire.endTransmission();
-
-//  _Wire.requestFrom(CLOCK_ADDRESS, 7);
-//  uint16_t ss = bcd2bin(_Wire.read() & 0x7F);
-//  uint16_t mm = bcd2bin(_Wire.read());
-//  uint16_t hh = bcd2bin(_Wire.read());
-//  _Wire.read();
-//  uint16_t d = bcd2bin(_Wire.read());
-//  uint16_t m = bcd2bin(_Wire.read());
-//  uint16_t y = bcd2bin(_Wire.read()) + 2000;
-
-//  return DateTime (y, m, d, hh, mm, ss);
-//}
 
 
 /*! -------------------------------------------------------------------------
@@ -285,30 +190,6 @@ bool DS3231::getYear(uint8_t &year) {
 	}
 	return function_failed;
 }
-
-// setEpoch function gives the epoch as parameter and feeds the RTC
-// epoch = UnixTime and starts at 01.01.1970 00:00:00
-// HINT: => the AVR time.h Lib is based on the year 2000
-void DS3231::setEpoch(time_t epoch, bool flag_localtime) {
-//#if defined (__AVR__)
-//	epoch -= SECONDS_FROM_1970_TO_2000;
-//#endif
-//	struct tm tmnow;
-//	if (flag_localtime) {
-//		localtime_r(&epoch, &tmnow);
-//	}
-//	else {
-//		gmtime_r(&epoch, &tmnow);
-//	}
-//	setSecond(tmnow.tm_sec);
-//	setMinute(tmnow.tm_min);
-//	setHour(tmnow.tm_hour);
-//	setDoW(tmnow.tm_wday + 1U);
-//	setDate(tmnow.tm_mday);
-//	setMonth(tmnow.tm_mon + 1U);
-//	setYear(tmnow.tm_year - 100U);
-}
-
 
 /*! -------------------------------------------------------------------------
 \brief Set seconds to DS3231
@@ -451,7 +332,6 @@ temperature as a floating-point value.
 bool DS3231::getTemperature(float &temperature) {
 	bool function_failed = true;
 	uint8_t data[2];
-  float temp3231;
 
   // temp registers (11h-12h) get updated automatically every 64s
 	if(!Phy.ReadI2C1_DS3231(CLOCK_ADDRESS, DS3231_TEMPERATURE_MSB, data, 2)) {

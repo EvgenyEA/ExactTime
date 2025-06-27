@@ -1,7 +1,3 @@
-// ----------------------------------------------------------
-// Library to work with I2C for STM32F0
-// Made 29.10.2018. Autor: Emalyanov E.A.  
-// ----------------------------------------------------------
 #include "periphery.h" 
 
 uint16_t protection_counter = 1000;
@@ -31,28 +27,6 @@ bool Periphery::InitI2C1()
 	
 	I2C1->CR1 &= ~I2C_CR1_ANFOFF;															// Disable analog filter
 	I2C1->CR1 &= ~I2C_CR1_NOSTRETCH;													// Disable clock stretching
-	
-/*
-	I2C1->TIMINGR |= (I2C_TIMINGR_SCLL & 0x13);
-	I2C1->TIMINGR |= (I2C_TIMINGR_SCLH & (0x0F << I2C_TIMINGR_SCLH_Pos));
-	I2C1->TIMINGR |= (I2C_TIMINGR_SDADEL & (0x00 << I2C_TIMINGR_SDADEL_Pos));
-	I2C1->TIMINGR |= (I2C_TIMINGR_SCLDEL & (0x01 << I2C_TIMINGR_SCLDEL_Pos));
-	I2C1->TIMINGR |= (I2C_TIMINGR_PRESC & (0x0B << I2C_TIMINGR_PRESC_Pos));
-*/
-
-//	// 400 kHz @ 8MHz tick
-//	I2C1->TIMINGR|= (I2C_TIMINGR_SCLL & 0x08);
-//	I2C1->TIMINGR|= (I2C_TIMINGR_SCLH & (0x03 << I2C_TIMINGR_SCLH_Pos));
-//	I2C1->TIMINGR |= (I2C_TIMINGR_SDADEL & (0x00 << I2C_TIMINGR_SDADEL_Pos));
-//	I2C1->TIMINGR |= (I2C_TIMINGR_SCLDEL & (0x01 << I2C_TIMINGR_SCLDEL_Pos));
-//	I2C1->TIMINGR |= (I2C_TIMINGR_PRESC & (0x00 << I2C_TIMINGR_PRESC_Pos));
-	
-//	// 100 kHz @ 64 MHz tick
-//	I2C1->TIMINGR|= (I2C_TIMINGR_SCLL & 251);
-//	I2C1->TIMINGR|= (I2C_TIMINGR_SCLH & (61 << I2C_TIMINGR_SCLH_Pos));
-//	I2C1->TIMINGR |= (I2C_TIMINGR_SDADEL & (0 << I2C_TIMINGR_SDADEL_Pos));
-//	I2C1->TIMINGR |= (I2C_TIMINGR_SCLDEL & (6 << I2C_TIMINGR_SCLDEL_Pos));
-//	I2C1->TIMINGR |= (I2C_TIMINGR_PRESC & (1 << I2C_TIMINGR_PRESC_Pos));
 
 	// 400 kHz @ 64 MHz tick
 	I2C1->TIMINGR|= (I2C_TIMINGR_SCLL & 108);
@@ -60,18 +34,10 @@ bool Periphery::InitI2C1()
 	I2C1->TIMINGR |= (I2C_TIMINGR_SDADEL & (0 << I2C_TIMINGR_SDADEL_Pos));
 	I2C1->TIMINGR |= (I2C_TIMINGR_SCLDEL & (12 << I2C_TIMINGR_SCLDEL_Pos));
 	I2C1->TIMINGR |= (I2C_TIMINGR_PRESC & (0 << I2C_TIMINGR_PRESC_Pos));
-
-	
-	
-	// I2C1->CR1 |= I2C_CR1_RXIE; 														// Enable reciver interupt
-	// I2C1->CR1 |= I2C_CR1_TCIE;															// Enable tranciver interrupt
-	// I2C1->CR2 |= I2C_CR2_AUTOEND;													// Master send STOP condition automatically, when NBYTES[7:0] were transmitted
-	// I2C_BUS->CR2 &= ~I2C_CR2_RELOAD;												// Do not use reload mode
 	
 	I2C1->CR1 |= I2C_CR1_PE;																	// Enable I2C
 	uint16_t cnt2 = protection_counter;
-	while (!(I2C1->CR1 & I2C_CR1_PE))
-	{
+	while (!(I2C1->CR1 & I2C_CR1_PE)) {
 		cnt2++;
 		if(cnt2 == 0)
 		{
@@ -95,14 +61,9 @@ bool Periphery::I2C_StartDirectionAddressSize (I2C_Direction Direction, uint8_t 
 {	
 	bool function_failed = false;
 	
-	if (Direction) 
-	{ 
-		I2C1->CR2 |= I2C_CR2_RD_WRN;													// Receiver
-	}	
-	else 
-	{
-		I2C1->CR2 &= ~I2C_CR2_RD_WRN;													// Transmitter
-	}
+	(Direction) ? 
+	I2C1->CR2 |= I2C_CR2_RD_WRN :													  // Receiver
+	I2C1->CR2 &= ~I2C_CR2_RD_WRN;													  // Transmitter
 
 	I2C1->CR2 &= ~I2C_CR2_NBYTES;														// Clear data size
 	I2C1->CR2 |= Size << I2C_OFFSET_CR2_NBYTES;							// Set data size
@@ -113,8 +74,7 @@ bool Periphery::I2C_StartDirectionAddressSize (I2C_Direction Direction, uint8_t 
 	I2C1->CR2 |= I2C_CR2_START;															// Generate start condition
 	
 	uint16_t cnt1 = protection_counter;
-	while(!I2C1->ISR & I2C_ISR_BUSY)
-	{
+	while(!I2C1->ISR & I2C_ISR_BUSY) {
 		cnt1--;
 		if(cnt1 == 0)
 		{
@@ -132,27 +92,25 @@ bool Periphery::I2C_StartDirectionAddressSize (I2C_Direction Direction, uint8_t 
 bool Periphery::StopI2C1()
 {
 	bool function_failed = false;
-	I2C1->CR2 |= I2C_CR2_STOP;				// Выдать стоп на шину
+	I2C1->CR2 |= I2C_CR2_STOP;	
 	
 	uint16_t cnt1 = protection_counter;
-	while (I2C1->ISR & I2C_ISR_BUSY) 
-	{
+	while (I2C1->ISR & I2C_ISR_BUSY) {
 		cnt1--;
 		if(cnt1 == 0) 
 		{ 
 			function_failed = true; 
 			break; 
 		}
-	};		// Ожидать выдачу стопа
-	// Очищаю флаги - необходимо для дальнейшей работы шины
-	I2C1->ICR |= I2C_ICR_STOPCF;		// STOP флаг
-	I2C1->ICR |= I2C_ICR_NACKCF;		// NACK флаг
-	// Если есть ошибки на шине - очищаю флаги
-	if (I2C1->ISR & (I2C_ISR_ARLO | I2C_ISR_BERR))
-	{
+	};	
+
+	I2C1->ICR |= I2C_ICR_STOPCF;
+	I2C1->ICR |= I2C_ICR_NACKCF;
+
+	if(I2C1->ISR & (I2C_ISR_ARLO | I2C_ISR_BERR)) {
 		I2C1->ICR |= I2C_ICR_ARLOCF;
 		I2C1->ICR |= I2C_ICR_BERRCF;
-		function_failed = true; 										// Имеется какая-то ошибка
+		function_failed = true; 	
 	}
 	return function_failed;
 }
@@ -261,9 +219,6 @@ bool Periphery::ReadI2C1_DS3231(const uint8_t device_address, const uint8_t data
 	}
 	*(uint8_t *)&(I2C1->TXDR) = data_command;
 	
-
-	
-	/////////////
 	
 	// 3. Repeat start to prepear for data reception 
 	function_failed |= I2C_StartDirectionAddressSize (I2C_Receiver, device_address, data_amount);

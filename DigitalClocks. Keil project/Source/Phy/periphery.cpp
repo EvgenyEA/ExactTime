@@ -10,25 +10,16 @@ void Periphery::InitPhy()
 	InitTick();
 	InitGPIO();
 	InitSPI1();
-	InitDMACh1();
-	
-//	InitRTC();
-	
+	//InitDMACh1();
 	InitI2C1();
-	InitTim3Ms();
 	InitTim1Pwm();
+	InitTim3Ms();
 	InitTim14DisplayBrightness();
 	InitTim16Buzzer();
 	InitTim17DisplayUpdate();	
-	
-
-//	InitPowerMode();
 	InitSystemTimer();
 	InitADC();
 	InitInterrupts();
-					//	InitTemperatureSensor();
-//	InitIWDT();
-
 	InitDMACh2();
 }
 

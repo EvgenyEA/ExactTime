@@ -5,16 +5,14 @@
 /*! -------------------------------------------------------------------------
 \brief GPIO initialization for active mode
 \details  
+	MODER settings 00: input mode,	01: output mode, 10: alternate function mode, 11: analog mode
+	PUPDR settings: 00 - no pull-up, no pull-down; 01 - pull-up; 10 - pull-down; 11 - reserve 
 */
 void Periphery::InitGPIO()
 {
 	// Tick for GPIO
 	RCC->IOPENR |= ( RCC_IOPENR_GPIOAEN | RCC_IOPENR_GPIOBEN | RCC_IOPENR_GPIOCEN);							// IO port A clock enabled
 	RCC->APBENR2 |= RCC_APBENR2_SYSCFGEN;
-	
-	// MODER settings 00: input mode,	01: output mode, 10: alternate function mode, 11: analog mode
-	// PUPDR settings: 00 - no pull-up, no pull-down; 01 - pull-up; 10 - pull-down; 11 - reserve 
-	
 	
 	// ----------------- PORT A ----------------
 	// PA0 - MINUTES
@@ -51,11 +49,6 @@ void Periphery::InitGPIO()
 	GPIOA->OSPEEDR |= GPIO_OSPEEDR_OSPEED4_1;											// 11: very high speed
 	GPIOA->OSPEEDR |= GPIO_OSPEEDR_OSPEED4_0;	
 	GPIOA->AFR[0] |= (0x04 << 4*4);																// PA4 has AF4 alternate function (n_AF << N_PIN * 4)
-
-//	GPIOA->MODER |= GPIO_MODER_MODE4_0;														// 01: output mode
-//	GPIOA->MODER &= ~GPIO_MODER_MODE4_1;							
-//	GPIOA->OTYPER &= ~GPIO_OTYPER_OT4;														// push-pull mode	
-//	GPIOA->BSRR = GPIO_BSRR_BR4;
 	
 	// PA5 - SPI_SCK
 	GPIOA->MODER |= GPIO_MODER_MODE5_1;														// 10: alternate function mode AF0
@@ -134,13 +127,10 @@ void Periphery::InitGPIO()
 	// PB9
 	GPIOB->MODER |= GPIO_MODER_MODE9_1;							
 	GPIOB->MODER &= ~GPIO_MODER_MODE9_0;													// 10: alternate function mode
-	//GPIOB->OSPEEDR |= GPIO_OSPEEDR_OSPEED9_1;											// 11: very high speed
-	//GPIOB->OSPEEDR |= GPIO_OSPEEDR_OSPEED9_0;
 	GPIOB->AFR[1] |= (GPIO_AFRH_AFSEL9_1 | GPIO_AFRH_AFSEL9_2); 
 	GPIOB->OTYPER |= GPIO_OTYPER_OT9;															// 0: push-pull mode
 	GPIOB->PUPDR &= ~GPIO_PUPDR_PUPD9_1;											
 	GPIOB->PUPDR |= GPIO_PUPDR_PUPD9_0;														// 01: pull-up
-	
 	
 	// ----------------- PORT C ----------------
 	// PC15 - NC

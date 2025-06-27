@@ -38,22 +38,9 @@ Section Cross References
     buzzer.o(i._ZN11SoundBuzzer8PlayNoteEv) refers to periphery.o(.bss) for Phy
     buzzer.o(i._ZN11SoundBuzzer8PlayNoteEv) refers to buzzer.o(.constdata) for sin_value
     buzzer.o(i._ZN11SoundBuzzer8PlayNoteEv) refers to buzzer.o(.bss) for sound_sin
-    buzzer.o(i._ZN11SoundBuzzer9PlayMusicEPKhS1_hh) refers to aeabi_sdiv.o(.text) for __aeabi_idivmod
-    buzzer.o(i._ZN11SoundBuzzer9PlayMusicEPKhS1_hh) refers to buzzer.o(i._ZN11SoundBuzzer8PlayNoteEv) for SoundBuzzer::PlayNote()
-    buzzer.o(i._ZN11SoundBuzzer9SetTimersEtt) refers to tim1.o(i._ZN9Periphery10StopTimPWMEv) for Periphery::StopTimPWM()
-    buzzer.o(i._ZN11SoundBuzzer9SetTimersEtt) refers to tim1.o(i._ZN9Periphery12UpdateTimPWMEtt) for Periphery::UpdateTimPWM(unsigned short, unsigned short)
-    buzzer.o(i._ZN11SoundBuzzer9SetTimersEtt) refers to tim16.o(i._ZN9Periphery11UpdateTIM16Et) for Periphery::UpdateTIM16(unsigned short)
-    buzzer.o(i._ZN11SoundBuzzer9SetTimersEtt) refers to periphery.o(.bss) for Phy
-    buzzer.o(i._ZN11SoundBuzzer9StopMusicEv) refers to tim1.o(i._ZN9Periphery10StopTimPWMEv) for Periphery::StopTimPWM()
-    buzzer.o(i._ZN11SoundBuzzer9StopMusicEv) refers to tim16.o(i._ZN9Periphery9StopTIM16Ev) for Periphery::StopTIM16()
-    buzzer.o(i._ZN11SoundBuzzer9StopMusicEv) refers to periphery.o(.bss) for Phy
     buzzer.o(.ARM.exidx) refers to buzzer.o(i._ZN11SoundBuzzer10InitBuzzerEv) for i._ZN11SoundBuzzer10InitBuzzerEv
     buzzer.o(.ARM.exidx) refers to buzzer.o(i._ZN11SoundBuzzer8PlayNoteEv) for i._ZN11SoundBuzzer8PlayNoteEv
-    buzzer.o(.ARM.exidx) refers to buzzer.o(i._ZN11SoundBuzzer9PlayMusicEPKhS1_hh) for i._ZN11SoundBuzzer9PlayMusicEPKhS1_hh
     buzzer.o(.ARM.exidx) refers to buzzer.o(i._ZN11SoundBuzzer11ClearValuesEv) for i._ZN11SoundBuzzer11ClearValuesEv
-    buzzer.o(.ARM.exidx) refers to buzzer.o(i._ZN11SoundBuzzer9StopMusicEv) for i._ZN11SoundBuzzer9StopMusicEv
-    buzzer.o(.ARM.exidx) refers to buzzer.o(i._ZN11SoundBuzzer14GetBuzzerStateEv) for i._ZN11SoundBuzzer14GetBuzzerStateEv
-    buzzer.o(.ARM.exidx) refers to buzzer.o(i._ZN11SoundBuzzer9SetTimersEtt) for i._ZN11SoundBuzzer9SetTimersEtt
     device.o(i.EXTI0_1_IRQHandler) refers to button.o(i._ZN12Button_class20ButtonMinutesPressedEv) for Button_class::ButtonMinutesPressed()
     device.o(i.EXTI0_1_IRQHandler) refers to event_manager.o(i._ZN12EventManager8AddEventEhj) for EventManager::AddEvent(unsigned char, unsigned)
     device.o(i.EXTI0_1_IRQHandler) refers to button.o(.bss) for Buttons
@@ -65,7 +52,7 @@ Section Cross References
     device.o(i.SysTick_Handler) refers to event_handler.o(i._ZN11DeviceClass19IncrementGlobalTimeEv) for DeviceClass::IncrementGlobalTime()
     device.o(i.SysTick_Handler) refers to device.o(.bss) for Device
     device.o(i.TIM16_IRQHandler) refers to buzzer.o(i._ZN11SoundBuzzer8PlayNoteEv) for SoundBuzzer::PlayNote()
-    device.o(i.TIM16_IRQHandler) refers to buzzer.o(.bss) for Buzzer
+    device.o(i.TIM16_IRQHandler) refers to buzzer.o(.data) for Buzzer
     device.o(i.TIM17_IRQHandler) refers to periphery.o(i._ZN9Periphery7DelayUsEt) for Periphery::DelayUs(unsigned short)
     device.o(i.TIM17_IRQHandler) refers to display_segment.o(i._ZN19SevenSegmentDisplay13UpdateDisplayEv) for SevenSegmentDisplay::UpdateDisplay()
     device.o(i.TIM17_IRQHandler) refers to periphery.o(.bss) for Phy
@@ -103,7 +90,7 @@ Section Cross References
     event_handler.o(i._ZN11DeviceClass11EventBuzzerEv) refers to buzzer.o(i._ZN11SoundBuzzer8PlayNoteEv) for SoundBuzzer::PlayNote()
     event_handler.o(i._ZN11DeviceClass11EventBuzzerEv) refers to event_manager.o(i._ZN12EventManager8AddEventEhj) for EventManager::AddEvent(unsigned char, unsigned)
     event_handler.o(i._ZN11DeviceClass11EventBuzzerEv) refers to event_manager.o(i._ZN12EventManager10ClearEventEh) for EventManager::ClearEvent(unsigned char)
-    event_handler.o(i._ZN11DeviceClass11EventBuzzerEv) refers to buzzer.o(.bss) for Buzzer
+    event_handler.o(i._ZN11DeviceClass11EventBuzzerEv) refers to buzzer.o(.data) for Buzzer
     event_handler.o(i._ZN11DeviceClass11EventBuzzerEv) refers to event_manager.o(.bss) for Events
     event_handler.o(i._ZN11DeviceClass14IncrementHoursEv) refers to ds3231.o(i._ZN6DS32317setHourEh) for DS3231::setHour(unsigned char)
     event_handler.o(i._ZN11DeviceClass14IncrementHoursEv) refers to event_handler.o(i._ZN11DeviceClass13StartEventNowEh) for DeviceClass::StartEventNow(unsigned char)
@@ -155,14 +142,12 @@ Section Cross References
     event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv) refers to event_handler.o(i._ZN11DeviceClass16EventButtonHoursEv) for DeviceClass::EventButtonHours()
     event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv) refers to event_handler.o(i._ZN11DeviceClass11EventBuzzerEv) for DeviceClass::EventBuzzer()
     event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv) refers to event_handler.o(i._ZN11DeviceClass8EventLedEv) for DeviceClass::EventLed()
-    event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv) refers to event_handler.o(i._ZN11DeviceClass17EventPowerVoltageEv) for DeviceClass::EventPowerVoltage()
     event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv) refers to event_handler.o(i._ZN11DeviceClass10EventTimerEv) for DeviceClass::EventTimer()
     event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv) refers to event_handler.o(i._ZN11DeviceClass8EventWdtEv) for DeviceClass::EventWdt()
     event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv) refers to event_handler.o(i._ZN11DeviceClass10EventFlashEv) for DeviceClass::EventFlash()
     event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv) refers to event_handler.o(i._ZN11DeviceClass8EventRtcEv) for DeviceClass::EventRtc()
     event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv) refers to event_manager.o(i._ZN12EventManager19ClearExecutedEventsEv) for EventManager::ClearExecutedEvents()
     event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv) refers to event_manager.o(.bss) for Events
-    event_handler.o(i._ZN11DeviceClass17EventPowerVoltageEv) refers to event_handler.o(i._ZN11DeviceClass14CheckEventTimeERj) for DeviceClass::CheckEventTime(unsigned&)
     event_handler.o(i._ZN11DeviceClass18EventButtonMinutesEv) refers to event_handler.o(i._ZN11DeviceClass14CheckEventTimeERj) for DeviceClass::CheckEventTime(unsigned&)
     event_handler.o(i._ZN11DeviceClass18EventButtonMinutesEv) refers to fsm.o(i._ZN5State15GetCurrentStateEv) for State::GetCurrentState()
     event_handler.o(i._ZN11DeviceClass18EventButtonMinutesEv) refers to display_segment.o(i._ZN19SevenSegmentDisplay17ClearBlinkCounterEv) for SevenSegmentDisplay::ClearBlinkCounter()
@@ -213,7 +198,6 @@ Section Cross References
     event_handler.o(.ARM.exidx) refers to event_handler.o(i._ZN11DeviceClass10EventFlashEv) for i._ZN11DeviceClass10EventFlashEv
     event_handler.o(.ARM.exidx) refers to event_handler.o(i._ZN11DeviceClass8EventWdtEv) for i._ZN11DeviceClass8EventWdtEv
     event_handler.o(.ARM.exidx) refers to event_handler.o(i._ZN11DeviceClass10EventTimerEv) for i._ZN11DeviceClass10EventTimerEv
-    event_handler.o(.ARM.exidx) refers to event_handler.o(i._ZN11DeviceClass17EventPowerVoltageEv) for i._ZN11DeviceClass17EventPowerVoltageEv
     event_handler.o(.ARM.exidx) refers to event_handler.o(i._ZN11DeviceClass8EventLedEv) for i._ZN11DeviceClass8EventLedEv
     event_handler.o(.ARM.exidx) refers to event_handler.o(i._ZN11DeviceClass11EventBuzzerEv) for i._ZN11DeviceClass11EventBuzzerEv
     event_handler.o(.ARM.exidx) refers to event_handler.o(i._ZN11DeviceClass14TuneBrightnessEv) for i._ZN11DeviceClass14TuneBrightnessEv
@@ -245,7 +229,7 @@ Section Cross References
     main.o(i.main) refers to fsm.o(i._ZN5State11UpdateStateEv) for State::UpdateState()
     main.o(i.main) refers to event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv) for DeviceClass::CheckWaitingEvent()
     main.o(i.main) refers to periphery.o(.bss) for Phy
-    main.o(i.main) refers to buzzer.o(.bss) for Buzzer
+    main.o(i.main) refers to buzzer.o(.data) for Buzzer
     main.o(i.main) refers to device.o(.bss) for Device
     main.o(i.main) refers to fsm.o(.data) for Fsm
     main.o(.ARM.exidx) refers to main.o(i.main) for i.main
@@ -273,8 +257,6 @@ Section Cross References
     parameters.o(i._ZN11DataManager14InitParametersEv) refers to periphery.o(.bss) for Phy
     parameters.o(i._ZN11DataManager14InitParametersEv) refers to parameters.o(.bss) for IrParamWords
     parameters.o(.ARM.exidx) refers to parameters.o(i._ZN11DataManager14InitParametersEv) for i._ZN11DataManager14InitParametersEv
-    parameters.o(.ARM.exidx) refers to parameters.o(i._ZN11DataManager15CheckParametersEv) for i._ZN11DataManager15CheckParametersEv
-    parameters.o(.ARM.exidx) refers to parameters.o(i._ZN11DataManager21SaveParametersToFlashEv) for i._ZN11DataManager21SaveParametersToFlashEv
     parameters.o(.ARM.exidx) refers to parameters.o(i._ZN11DataManager17CheckCorrectValueEt) for i._ZN11DataManager17CheckCorrectValueEt
     fsm.o(i._ZN5State11UpdateStateEv) refers to fsm.o(i._ZN5State12SetStateWorkEv) for State::SetStateWork()
     fsm.o(i._ZN5State11UpdateStateEv) refers to fsm.o(i._ZN5State12SetStateTimeEv) for State::SetStateTime()
@@ -296,10 +278,9 @@ Section Cross References
     periphery.o(i._ZN9Periphery7InitPhyEv) refers to tick.o(i._ZN9Periphery8InitTickEv) for Periphery::InitTick()
     periphery.o(i._ZN9Periphery7InitPhyEv) refers to gpio.o(i._ZN9Periphery8InitGPIOEv) for Periphery::InitGPIO()
     periphery.o(i._ZN9Periphery7InitPhyEv) refers to spi1.o(i._ZN9Periphery8InitSPI1Ev) for Periphery::InitSPI1()
-    periphery.o(i._ZN9Periphery7InitPhyEv) refers to dma_spi1.o(i._ZN9Periphery10InitDMACh1Ev) for Periphery::InitDMACh1()
     periphery.o(i._ZN9Periphery7InitPhyEv) refers to i2c1.o(i._ZN9Periphery8InitI2C1Ev) for Periphery::InitI2C1()
-    periphery.o(i._ZN9Periphery7InitPhyEv) refers to tim3.o(i._ZN9Periphery10InitTim3MsEv) for Periphery::InitTim3Ms()
     periphery.o(i._ZN9Periphery7InitPhyEv) refers to tim1.o(i._ZN9Periphery11InitTim1PwmEv) for Periphery::InitTim1Pwm()
+    periphery.o(i._ZN9Periphery7InitPhyEv) refers to tim3.o(i._ZN9Periphery10InitTim3MsEv) for Periphery::InitTim3Ms()
     periphery.o(i._ZN9Periphery7InitPhyEv) refers to tim14.o(i._ZN9Periphery26InitTim14DisplayBrightnessEv) for Periphery::InitTim14DisplayBrightness()
     periphery.o(i._ZN9Periphery7InitPhyEv) refers to tim16.o(i._ZN9Periphery15InitTim16BuzzerEv) for Periphery::InitTim16Buzzer()
     periphery.o(i._ZN9Periphery7InitPhyEv) refers to tim17.o(i._ZN9Periphery22InitTim17DisplayUpdateEv) for Periphery::InitTim17DisplayUpdate()
@@ -353,15 +334,6 @@ Section Cross References
     interrupts.o(.ARM.exidx) refers to interrupts.o(i._Z18__NVIC_SetPriority9IRQn_Typej) for i._Z18__NVIC_SetPriority9IRQn_Typej
     interrupts.o(.ARM.exidx) refers to interrupts.o(i._ZN9Periphery14InitInterruptsEv) for i._ZN9Periphery14InitInterruptsEv
     interrupts.o(.ARM.exidx) refers to interrupts.o(i._Z16__NVIC_EnableIRQ9IRQn_Type) for i._Z16__NVIC_EnableIRQ9IRQn_Type
-    pwr.o(.ARM.exidx) refers to pwr.o(i._ZN9Periphery13EnterStopModeEv) for i._ZN9Periphery13EnterStopModeEv
-    pwr.o(.ARM.exidx) refers to pwr.o(i._ZN9Periphery13InitPowerModeEv) for i._ZN9Periphery13InitPowerModeEv
-    rtc.o(.ARM.exidx) refers to rtc.o(i._ZN9Periphery18RTCInterruptEnableEv) for i._ZN9Periphery18RTCInterruptEnableEv
-    rtc.o(.ARM.exidx) refers to rtc.o(i._ZN9Periphery7InitRTCEv) for i._ZN9Periphery7InitRTCEv
-    temp_sensor.o(i._ZN9Periphery14GetTemperatureEv) refers to adc.o(i._ZN9Periphery17GetAdcTemperatureEv) for Periphery::GetAdcTemperature()
-    temp_sensor.o(i._ZN9Periphery14GetTemperatureEv) refers to temp_sensor.o(i._ZN9Periphery18ComputeTemperatureEj) for Periphery::ComputeTemperature(unsigned)
-    temp_sensor.o(i._ZN9Periphery18ComputeTemperatureEj) refers to aeabi_sdiv.o(.text) for __aeabi_idivmod
-    temp_sensor.o(.ARM.exidx) refers to temp_sensor.o(i._ZN9Periphery18ComputeTemperatureEj) for i._ZN9Periphery18ComputeTemperatureEj
-    temp_sensor.o(.ARM.exidx) refers to temp_sensor.o(i._ZN9Periphery14GetTemperatureEv) for i._ZN9Periphery14GetTemperatureEv
     tick.o(.ARM.exidx) refers to tick.o(i._ZN9Periphery8InitTickEv) for i._ZN9Periphery8InitTickEv
     tim_system.o(.ARM.exidx) refers to tim_system.o(i._ZN9Periphery15StartSystemTickEv) for i._ZN9Periphery15StartSystemTickEv
     tim_system.o(.ARM.exidx) refers to tim_system.o(i._ZN9Periphery14StopSystemTickEv) for i._ZN9Periphery14StopSystemTickEv
@@ -383,10 +355,6 @@ Section Cross References
     spi1.o(.ARM.exidx) refers to spi1.o(i._ZN9Periphery9SPI1WriteEPKht) for i._ZN9Periphery9SPI1WriteEPKht
     spi1.o(.ARM.exidx) refers to spi1.o(i._ZN9Periphery9SPI1WriteEhRh) for i._ZN9Periphery9SPI1WriteEhRh
     spi1.o(.ARM.exidx) refers to spi1.o(i._ZN9Periphery8InitSPI1Ev) for i._ZN9Periphery8InitSPI1Ev
-    dma_spi1.o(i._ZN9Periphery10InitDMACh1Ev) refers to display_segment.o(.data) for display_data
-    dma_spi1.o(.ARM.exidx) refers to dma_spi1.o(i._ZN9Periphery16CheckDMACh1StateEv) for i._ZN9Periphery16CheckDMACh1StateEv
-    dma_spi1.o(.ARM.exidx) refers to dma_spi1.o(i._ZN9Periphery11StartDMACh1Et) for i._ZN9Periphery11StartDMACh1Et
-    dma_spi1.o(.ARM.exidx) refers to dma_spi1.o(i._ZN9Periphery10InitDMACh1Ev) for i._ZN9Periphery10InitDMACh1Ev
     dma_tim1.o(i._ZN9Periphery10InitDMACh2Ev) refers to buzzer.o(.bss) for sound_sin
     dma_tim1.o(.ARM.exidx) refers to dma_tim1.o(i._ZN9Periphery16CheckDMACh2StateEv) for i._ZN9Periphery16CheckDMACh2StateEv
     dma_tim1.o(.ARM.exidx) refers to dma_tim1.o(i._ZN9Periphery11StartDMACh2Et) for i._ZN9Periphery11StartDMACh2Et
@@ -491,7 +459,6 @@ Section Cross References
     ds3231.o(.ARM.exidx) refers to ds3231.o(i._Z10isleapYeart) for i._Z10isleapYeart
     ds3231.o(.ARM.exidx) refers to ds3231.o(i._ZN8DateTimeC1Ethhhhh) for i._ZN8DateTimeC1Ethhhhh
     ds3231.o(.ARM.exidx) refers to ds3231.o(i._ZN8DateTimeC1EPKcS1_) for i._ZN8DateTimeC1EPKcS1_
-    ds3231.o(.ARM.exidx) refers to ds3231.o(i._ZNK8DateTime8unixtimeEv) for i._ZNK8DateTime8unixtimeEv
     ds3231.o(.ARM.exidx) refers to ds3231.o(i._ZN6DS32318bcdToDecEh) for i._ZN6DS32318bcdToDecEh
     ds3231.o(.ARM.exidx) refers to ds3231.o(i._ZN6DS323110getSecondsERh) for i._ZN6DS323110getSecondsERh
     ds3231.o(.ARM.exidx) refers to ds3231.o(i._ZN6DS323110getMinutesERh) for i._ZN6DS323110getMinutesERh
@@ -500,7 +467,6 @@ Section Cross References
     ds3231.o(.ARM.exidx) refers to ds3231.o(i._ZN6DS32317getDateERh) for i._ZN6DS32317getDateERh
     ds3231.o(.ARM.exidx) refers to ds3231.o(i._ZN6DS32318getMonthERhRb) for i._ZN6DS32318getMonthERhRb
     ds3231.o(.ARM.exidx) refers to ds3231.o(i._ZN6DS32317getYearERh) for i._ZN6DS32317getYearERh
-    ds3231.o(.ARM.exidx) refers to ds3231.o(i._ZN6DS32318setEpochEjb) for i._ZN6DS32318setEpochEjb
     ds3231.o(.ARM.exidx) refers to ds3231.o(i._ZN6DS323116writeControlByteEhb) for i._ZN6DS323116writeControlByteEhb
     ds3231.o(.ARM.exidx) refers to ds3231.o(i._ZN6DS323115readControlByteERhb) for i._ZN6DS323115readControlByteERhb
     ds3231.o(.ARM.exidx) refers to ds3231.o(i._ZN6DS32318decToBcdEh) for i._ZN6DS32318decToBcdEh
@@ -714,14 +680,6 @@ Removing Unused input sections from the image.
     Removing button.o(.ARM.exidx), (8 bytes).
     Removing buzzer.o(.rev16_text), (4 bytes).
     Removing buzzer.o(.revsh_text), (4 bytes).
-    Removing buzzer.o(i._ZN11SoundBuzzer14GetBuzzerStateEv), (6 bytes).
-    Removing buzzer.o(i._ZN11SoundBuzzer9PlayMusicEPKhS1_hh), (60 bytes).
-    Removing buzzer.o(i._ZN11SoundBuzzer9SetTimersEtt), (52 bytes).
-    Removing buzzer.o(i._ZN11SoundBuzzer9StopMusicEv), (28 bytes).
-    Removing buzzer.o(.ARM.exidx), (8 bytes).
-    Removing buzzer.o(.ARM.exidx), (8 bytes).
-    Removing buzzer.o(.ARM.exidx), (8 bytes).
-    Removing buzzer.o(.ARM.exidx), (8 bytes).
     Removing buzzer.o(.ARM.exidx), (8 bytes).
     Removing buzzer.o(.ARM.exidx), (8 bytes).
     Removing buzzer.o(.ARM.exidx), (8 bytes).
@@ -737,7 +695,6 @@ Removing Unused input sections from the image.
     Removing device.o(.ARM.exidx), (8 bytes).
     Removing event_handler.o(.rev16_text), (4 bytes).
     Removing event_handler.o(.revsh_text), (4 bytes).
-    Removing event_handler.o(.ARM.exidx), (8 bytes).
     Removing event_handler.o(.ARM.exidx), (8 bytes).
     Removing event_handler.o(.ARM.exidx), (8 bytes).
     Removing event_handler.o(.ARM.exidx), (8 bytes).
@@ -778,11 +735,7 @@ Removing Unused input sections from the image.
     Removing display_segment.o(.ARM.exidx), (8 bytes).
     Removing parameters.o(.rev16_text), (4 bytes).
     Removing parameters.o(.revsh_text), (4 bytes).
-    Removing parameters.o(i._ZN11DataManager15CheckParametersEv), (8 bytes).
     Removing parameters.o(i._ZN11DataManager17CheckCorrectValueEt), (28 bytes).
-    Removing parameters.o(i._ZN11DataManager21SaveParametersToFlashEv), (6 bytes).
-    Removing parameters.o(.ARM.exidx), (8 bytes).
-    Removing parameters.o(.ARM.exidx), (8 bytes).
     Removing parameters.o(.ARM.exidx), (8 bytes).
     Removing parameters.o(.ARM.exidx), (8 bytes).
     Removing fsm.o(.rev16_text), (4 bytes).
@@ -836,24 +789,6 @@ Removing Unused input sections from the image.
     Removing interrupts.o(.ARM.exidx), (8 bytes).
     Removing interrupts.o(.ARM.exidx), (8 bytes).
     Removing interrupts.o(.ARM.exidx), (8 bytes).
-    Removing pwr.o(.rev16_text), (4 bytes).
-    Removing pwr.o(.revsh_text), (4 bytes).
-    Removing pwr.o(i._ZN9Periphery13EnterStopModeEv), (48 bytes).
-    Removing pwr.o(i._ZN9Periphery13InitPowerModeEv), (100 bytes).
-    Removing pwr.o(.ARM.exidx), (8 bytes).
-    Removing pwr.o(.ARM.exidx), (8 bytes).
-    Removing rtc.o(.rev16_text), (4 bytes).
-    Removing rtc.o(.revsh_text), (4 bytes).
-    Removing rtc.o(i._ZN9Periphery18RTCInterruptEnableEv), (168 bytes).
-    Removing rtc.o(i._ZN9Periphery7InitRTCEv), (240 bytes).
-    Removing rtc.o(.ARM.exidx), (8 bytes).
-    Removing rtc.o(.ARM.exidx), (8 bytes).
-    Removing temp_sensor.o(.rev16_text), (4 bytes).
-    Removing temp_sensor.o(.revsh_text), (4 bytes).
-    Removing temp_sensor.o(i._ZN9Periphery14GetTemperatureEv), (28 bytes).
-    Removing temp_sensor.o(i._ZN9Periphery18ComputeTemperatureEj), (32 bytes).
-    Removing temp_sensor.o(.ARM.exidx), (8 bytes).
-    Removing temp_sensor.o(.ARM.exidx), (8 bytes).
     Removing tick.o(.rev16_text), (4 bytes).
     Removing tick.o(.revsh_text), (4 bytes).
     Removing tick.o(.ARM.exidx), (8 bytes).
@@ -895,19 +830,12 @@ Removing Unused input sections from the image.
     Removing wdt.o(.ARM.exidx), (8 bytes).
     Removing spi1.o(.rev16_text), (4 bytes).
     Removing spi1.o(.revsh_text), (4 bytes).
-    Removing spi1.o(i._ZN9Periphery9SPI1WriteEh), (84 bytes).
-    Removing spi1.o(i._ZN9Periphery9SPI1WriteEhRh), (84 bytes).
+    Removing spi1.o(i._ZN9Periphery9SPI1WriteEh), (68 bytes).
+    Removing spi1.o(i._ZN9Periphery9SPI1WriteEhRh), (68 bytes).
     Removing spi1.o(.ARM.exidx), (8 bytes).
     Removing spi1.o(.ARM.exidx), (8 bytes).
     Removing spi1.o(.ARM.exidx), (8 bytes).
     Removing spi1.o(.ARM.exidx), (8 bytes).
-    Removing dma_spi1.o(.rev16_text), (4 bytes).
-    Removing dma_spi1.o(.revsh_text), (4 bytes).
-    Removing dma_spi1.o(i._ZN9Periphery11StartDMACh1Et), (40 bytes).
-    Removing dma_spi1.o(i._ZN9Periphery16CheckDMACh1StateEv), (28 bytes).
-    Removing dma_spi1.o(.ARM.exidx), (8 bytes).
-    Removing dma_spi1.o(.ARM.exidx), (8 bytes).
-    Removing dma_spi1.o(.ARM.exidx), (8 bytes).
     Removing dma_tim1.o(.rev16_text), (4 bytes).
     Removing dma_tim1.o(.revsh_text), (4 bytes).
     Removing dma_tim1.o(i._ZN9Periphery16CheckDMACh2StateEv), (28 bytes).
@@ -935,7 +863,6 @@ Removing Unused input sections from the image.
     Removing ds3231.o(i._ZN6DS32317setDateEh), (44 bytes).
     Removing ds3231.o(i._ZN6DS32317setYearEh), (44 bytes).
     Removing ds3231.o(i._ZN6DS32318getMonthERhRb), (68 bytes).
-    Removing ds3231.o(i._ZN6DS32318setEpochEjb), (2 bytes).
     Removing ds3231.o(i._ZN6DS32318setMonthEh), (44 bytes).
     Removing ds3231.o(i._ZN6DS32319getA1TimeERhS0_S0_S0_S0_RbS1_S1_), (268 bytes).
     Removing ds3231.o(i._ZN6DS32319getA1TimeERhS0_S0_S0_S0_RbS1_S1_b), (38 bytes).
@@ -945,9 +872,6 @@ Removing Unused input sections from the image.
     Removing ds3231.o(i._ZN6DS32319setA2TimeEhhhhbbb), (184 bytes).
     Removing ds3231.o(i._ZN8DateTimeC1EPKcS1_), (124 bytes).
     Removing ds3231.o(i._ZN8DateTimeC1Ethhhhh), (32 bytes).
-    Removing ds3231.o(i._ZNK8DateTime8unixtimeEv), (4 bytes).
-    Removing ds3231.o(.ARM.exidx), (8 bytes).
-    Removing ds3231.o(.ARM.exidx), (8 bytes).
     Removing ds3231.o(.ARM.exidx), (8 bytes).
     Removing ds3231.o(.ARM.exidx), (8 bytes).
     Removing ds3231.o(.ARM.exidx), (8 bytes).
@@ -994,7 +918,7 @@ Removing Unused input sections from the image.
     Removing system_stm32g0xx.o(.data), (4 bytes).
     Removing event_handler.o(.ARM.exidx), (8 bytes).
 
-289 unused section(s) (total 6123 bytes) removed from the image.
+247 unused section(s) (total 5065 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1005,71 +929,71 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
-    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_idiv0_sigfpe.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_idiv0.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_locale.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_ctype_table.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_locale_intlibspace.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_locale.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
     ../clib/angel/scatterp.s                 0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  tempstk.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  tempstk.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/arm_runtime.c                    0x00000000   Number         0  init_aeabi.o ABSOLUTE
     ../clib/arm_runtime.c                    0x00000000   Number         0  init_aeabi.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/ctype.c                          0x00000000   Number         0  isspace.o ABSOLUTE
-    ../clib/division.s                       0x00000000   Number         0  aeabi_sdiv_div0.o ABSOLUTE
     ../clib/division.s                       0x00000000   Number         0  aeabi_sdiv.o ABSOLUTE
+    ../clib/division.s                       0x00000000   Number         0  aeabi_sdiv_div0.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/locale.s                         0x00000000   Number         0  lc_ctype_c.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  _sgetc.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  _scanf.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  scanf_char.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  _chval.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  _scanf_int.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  _scanf_str.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  _scanf.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  scanf_char.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  _sgetc.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  _chval.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  __0sscanf.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../clib/string.c                         0x00000000   Number         0  strstr.o ABSOLUTE
@@ -1091,15 +1015,11 @@ Image Symbol Table
     RTE\\Device\\STM32G030F6Px\\system_stm32g0xx.c 0x00000000   Number         0  system_stm32g0xx.o ABSOLUTE
     Source\DS3231\DS3231.cpp                 0x00000000   Number         0  ds3231.o ABSOLUTE
     Source\Phy\ADC.cpp                       0x00000000   Number         0  adc.o ABSOLUTE
-    Source\Phy\DMA_SPI1.cpp                  0x00000000   Number         0  dma_spi1.o ABSOLUTE
     Source\Phy\DMA_TIM1.cpp                  0x00000000   Number         0  dma_tim1.o ABSOLUTE
     Source\Phy\FLASH.cpp                     0x00000000   Number         0  flash.o ABSOLUTE
     Source\Phy\GPIO.cpp                      0x00000000   Number         0  gpio.o ABSOLUTE
     Source\Phy\I2C1.cpp                      0x00000000   Number         0  i2c1.o ABSOLUTE
-    Source\Phy\PWR.cpp                       0x00000000   Number         0  pwr.o ABSOLUTE
-    Source\Phy\RTC.cpp                       0x00000000   Number         0  rtc.o ABSOLUTE
     Source\Phy\SPI1.cpp                      0x00000000   Number         0  spi1.o ABSOLUTE
-    Source\Phy\TEMP_SENSOR.cpp               0x00000000   Number         0  temp_sensor.o ABSOLUTE
     Source\Phy\TICK.cpp                      0x00000000   Number         0  tick.o ABSOLUTE
     Source\Phy\TIM1.cpp                      0x00000000   Number         0  tim1.o ABSOLUTE
     Source\Phy\TIM14.cpp                     0x00000000   Number         0  tim14.o ABSOLUTE
@@ -1112,15 +1032,11 @@ Image Symbol Table
     Source\Phy\periphery.cpp                 0x00000000   Number         0  periphery.o ABSOLUTE
     Source\\DS3231\\DS3231.cpp               0x00000000   Number         0  ds3231.o ABSOLUTE
     Source\\Phy\\ADC.cpp                     0x00000000   Number         0  adc.o ABSOLUTE
-    Source\\Phy\\DMA_SPI1.cpp                0x00000000   Number         0  dma_spi1.o ABSOLUTE
     Source\\Phy\\DMA_TIM1.cpp                0x00000000   Number         0  dma_tim1.o ABSOLUTE
     Source\\Phy\\FLASH.cpp                   0x00000000   Number         0  flash.o ABSOLUTE
     Source\\Phy\\GPIO.cpp                    0x00000000   Number         0  gpio.o ABSOLUTE
     Source\\Phy\\I2C1.cpp                    0x00000000   Number         0  i2c1.o ABSOLUTE
-    Source\\Phy\\PWR.cpp                     0x00000000   Number         0  pwr.o ABSOLUTE
-    Source\\Phy\\RTC.cpp                     0x00000000   Number         0  rtc.o ABSOLUTE
     Source\\Phy\\SPI1.cpp                    0x00000000   Number         0  spi1.o ABSOLUTE
-    Source\\Phy\\TEMP_SENSOR.cpp             0x00000000   Number         0  temp_sensor.o ABSOLUTE
     Source\\Phy\\TICK.cpp                    0x00000000   Number         0  tick.o ABSOLUTE
     Source\\Phy\\TIM1.cpp                    0x00000000   Number         0  tim1.o ABSOLUTE
     Source\\Phy\\TIM14.cpp                   0x00000000   Number         0  tim14.o ABSOLUTE
@@ -1222,148 +1138,146 @@ Image Symbol Table
     i.TIM16_IRQHandler                       0x08000d94   Section        0  device.o(i.TIM16_IRQHandler)
     i.TIM17_IRQHandler                       0x08000dc0   Section        0  device.o(i.TIM17_IRQHandler)
     i._Z16__NVIC_EnableIRQ9IRQn_Type         0x08000e58   Section        0  interrupts.o(i._Z16__NVIC_EnableIRQ9IRQn_Type)
-    __NVIC_EnableIRQ(IRQn_Type)              0x08000e59   Thumb Code    18  interrupts.o(i._Z16__NVIC_EnableIRQ9IRQn_Type)
-    i._Z18__NVIC_SetPriority9IRQn_Typej      0x08000e70   Section        0  interrupts.o(i._Z18__NVIC_SetPriority9IRQn_Typej)
-    __NVIC_SetPriority(IRQn_Type, unsigned)  0x08000e71   Thumb Code   110  interrupts.o(i._Z18__NVIC_SetPriority9IRQn_Typej)
-    i._ZN11DataManager14InitParametersEv     0x08000ee8   Section        0  parameters.o(i._ZN11DataManager14InitParametersEv)
-    i._ZN11DeviceClass10EventFlashEv         0x08000f3c   Section        0  event_handler.o(i._ZN11DeviceClass10EventFlashEv)
-    i._ZN11DeviceClass10EventTimerEv         0x08000fc4   Section        0  event_handler.o(i._ZN11DeviceClass10EventTimerEv)
-    i._ZN11DeviceClass10InitDeviceEv         0x08001018   Section        0  device.o(i._ZN11DeviceClass10InitDeviceEv)
-    i._ZN11DeviceClass11EventBuzzerEv        0x08001064   Section        0  event_handler.o(i._ZN11DeviceClass11EventBuzzerEv)
-    i._ZN11DeviceClass13GetGlobalTimeEv      0x080010c0   Section        0  device.o(i._ZN11DeviceClass13GetGlobalTimeEv)
-    i._ZN11DeviceClass13StartEventNowEh      0x080010c8   Section        0  event_handler.o(i._ZN11DeviceClass13StartEventNowEh)
-    i._ZN11DeviceClass14CheckEventTimeERj    0x080010f8   Section        0  event_handler.o(i._ZN11DeviceClass14CheckEventTimeERj)
-    i._ZN11DeviceClass14IncrementHoursEv     0x0800110c   Section        0  event_handler.o(i._ZN11DeviceClass14IncrementHoursEv)
-    i._ZN11DeviceClass14TuneBrightnessEv     0x0800115c   Section        0  event_handler.o(i._ZN11DeviceClass14TuneBrightnessEv)
-    i._ZN11DeviceClass16EventButtonHoursEv   0x080011c8   Section        0  event_handler.o(i._ZN11DeviceClass16EventButtonHoursEv)
-    i._ZN11DeviceClass16IncrementMinutesEv   0x08001358   Section        0  event_handler.o(i._ZN11DeviceClass16IncrementMinutesEv)
-    i._ZN11DeviceClass17CheckWaitingEventEv  0x080013bc   Section        0  event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv)
-    i._ZN11DeviceClass17EventPowerVoltageEv  0x08001464   Section        0  event_handler.o(i._ZN11DeviceClass17EventPowerVoltageEv)
-    i._ZN11DeviceClass18EventButtonMinutesEv 0x08001478   Section        0  event_handler.o(i._ZN11DeviceClass18EventButtonMinutesEv)
-    i._ZN11DeviceClass19IncrementGlobalTimeEv 0x08001610   Section        0  event_handler.o(i._ZN11DeviceClass19IncrementGlobalTimeEv)
-    i._ZN11DeviceClass8EventLedEv            0x080016b0   Section        0  event_handler.o(i._ZN11DeviceClass8EventLedEv)
-    i._ZN11DeviceClass8EventRtcEv            0x080017d4   Section        0  event_handler.o(i._ZN11DeviceClass8EventRtcEv)
-    i._ZN11DeviceClass8EventWdtEv            0x08001878   Section        0  event_handler.o(i._ZN11DeviceClass8EventWdtEv)
-    i._ZN11SoundBuzzer10InitBuzzerEv         0x0800188c   Section        0  buzzer.o(i._ZN11SoundBuzzer10InitBuzzerEv)
-    i._ZN11SoundBuzzer11ClearValuesEv        0x080018e0   Section        0  buzzer.o(i._ZN11SoundBuzzer11ClearValuesEv)
-    i._ZN11SoundBuzzer8PlayNoteEv            0x080018f4   Section        0  buzzer.o(i._ZN11SoundBuzzer8PlayNoteEv)
-    i._ZN12Button_class14CheckLastPressEv    0x080019e4   Section        0  button.o(i._ZN12Button_class14CheckLastPressEv)
-    i._ZN12Button_class18ButtonHoursPressedEv 0x080019ec   Section        0  button.o(i._ZN12Button_class18ButtonHoursPressedEv)
-    i._ZN12Button_class20ButtonMinutesPressedEv 0x08001a08   Section        0  button.o(i._ZN12Button_class20ButtonMinutesPressedEv)
-    i._ZN12Button_class5CheckEv              0x08001a28   Section        0  button.o(i._ZN12Button_class5CheckEv)
-    i._ZN12Button_classC1Ev                  0x08001c2c   Section        0  button.o(i._ZN12Button_classC1Ev)
-    i._ZN12EventManager10ClearEventEh        0x08001c3a   Section        0  event_manager.o(i._ZN12EventManager10ClearEventEh)
-    i._ZN12EventManager13CheckIfActiveEh     0x08001c5e   Section        0  event_manager.o(i._ZN12EventManager13CheckIfActiveEh)
-    i._ZN12EventManager15GetWaitingEventERhRj 0x08001c74   Section        0  event_manager.o(i._ZN12EventManager15GetWaitingEventERhRj)
-    i._ZN12EventManager19ClearExecutedEventsEv 0x08001cc6   Section        0  event_manager.o(i._ZN12EventManager19ClearExecutedEventsEv)
-    i._ZN12EventManager8AddEventEhj          0x08001ce2   Section        0  event_manager.o(i._ZN12EventManager8AddEventEhj)
-    i._ZN12EventManagerC1Ev                  0x08001d02   Section        0  event_manager.o(i._ZN12EventManagerC1Ev)
-    i._ZN19SevenSegmentDisplay13UpdateDisplayEv 0x08001db0   Section        0  display_segment.o(i._ZN19SevenSegmentDisplay13UpdateDisplayEv)
-    i._ZN19SevenSegmentDisplay17ClearBlinkCounterEv 0x08001e70   Section        0  display_segment.o(i._ZN19SevenSegmentDisplay17ClearBlinkCounterEv)
-    i._ZN19SevenSegmentDisplay8SetDigitEhh   0x08001e78   Section        0  display_segment.o(i._ZN19SevenSegmentDisplay8SetDigitEhh)
-    i._ZN19SevenSegmentDisplayC1Ev           0x08001f98   Section        0  display_segment.o(i._ZN19SevenSegmentDisplayC1Ev)
-    i._ZN5State11ChangeStateE8states_t       0x08001f9e   Section        0  fsm.o(i._ZN5State11ChangeStateE8states_t)
-    i._ZN5State11UpdateStateEv               0x08001fac   Section        0  fsm.o(i._ZN5State11UpdateStateEv)
-    i._ZN5State12SetStateTimeEv              0x0800200a   Section        0  fsm.o(i._ZN5State12SetStateTimeEv)
-    i._ZN5State12SetStateWorkEv              0x0800200c   Section        0  fsm.o(i._ZN5State12SetStateWorkEv)
-    i._ZN5State15GetCurrentStateEv           0x0800204c   Section        0  fsm.o(i._ZN5State15GetCurrentStateEv)
-    i._ZN5State18SetStateBrightnessEv        0x08002052   Section        0  fsm.o(i._ZN5State18SetStateBrightnessEv)
-    i._ZN5StateC1Ev                          0x08002054   Section        0  fsm.o(i._ZN5StateC1Ev)
-    i._ZN6DS323110getMinutesERh              0x08002060   Section        0  ds3231.o(i._ZN6DS323110getMinutesERh)
-    i._ZN6DS323110getSecondsERh              0x08002094   Section        0  ds3231.o(i._ZN6DS323110getSecondsERh)
-    i._ZN6DS323115oscillatorCheckERb         0x080020c8   Section        0  ds3231.o(i._ZN6DS323115oscillatorCheckERb)
-    i._ZN6DS323115readControlByteERhb        0x080020fc   Section        0  ds3231.o(i._ZN6DS323115readControlByteERhb)
-    i._ZN6DS323116writeControlByteEhb        0x08002138   Section        0  ds3231.o(i._ZN6DS323116writeControlByteEhb)
-    i._ZN6DS32317setHourEh                   0x08002178   Section        0  ds3231.o(i._ZN6DS32317setHourEh)
-    i._ZN6DS32318bcdToDecEh                  0x0800220c   Section        0  ds3231.o(i._ZN6DS32318bcdToDecEh)
-    i._ZN6DS32318decToBcdEh                  0x08002230   Section        0  ds3231.o(i._ZN6DS32318decToBcdEh)
-    i._ZN6DS32318getHoursERhRbS1_            0x08002250   Section        0  ds3231.o(i._ZN6DS32318getHoursERhRbS1_)
-    i._ZN6DS32319setMinuteEh                 0x080022bc   Section        0  ds3231.o(i._ZN6DS32319setMinuteEh)
-    i._ZN6DS32319setSecondEh                 0x080022e8   Section        0  ds3231.o(i._ZN6DS32319setSecondEh)
-    i._ZN9Periphery10FlashWriteEjPKht        0x0800233c   Section        0  flash.o(i._ZN9Periphery10FlashWriteEjPKht)
-    i._ZN9Periphery10InitDMACh1Ev            0x08002434   Section        0  dma_spi1.o(i._ZN9Periphery10InitDMACh1Ev)
-    i._ZN9Periphery10InitDMACh2Ev            0x080024e0   Section        0  dma_tim1.o(i._ZN9Periphery10InitDMACh2Ev)
-    i._ZN9Periphery10InitTim3MsEv            0x0800258c   Section        0  tim3.o(i._ZN9Periphery10InitTim3MsEv)
-    i._ZN9Periphery10StopDMACh2Ev            0x080025bc   Section        0  dma_tim1.o(i._ZN9Periphery10StopDMACh2Ev)
-    i._ZN9Periphery11FlashUnlockEv           0x080025ec   Section        0  flash.o(i._ZN9Periphery11FlashUnlockEv)
-    i._ZN9Periphery11InitTim1PwmEv           0x08002620   Section        0  tim1.o(i._ZN9Periphery11InitTim1PwmEv)
-    i._ZN9Periphery11StartDMACh2Et           0x080026d0   Section        0  dma_tim1.o(i._ZN9Periphery11StartDMACh2Et)
-    i._ZN9Periphery11UpdateTIM16Et           0x08002708   Section        0  tim16.o(i._ZN9Periphery11UpdateTIM16Et)
-    i._ZN9Periphery13FlashWaitBusyEv         0x08002750   Section        0  flash.o(i._ZN9Periphery13FlashWaitBusyEv)
-    i._ZN9Periphery14FlashErasePageEh        0x0800278c   Section        0  flash.o(i._ZN9Periphery14FlashErasePageEh)
-    i._ZN9Periphery14InitInterruptsEv        0x08002820   Section        0  interrupts.o(i._ZN9Periphery14InitInterruptsEv)
-    i._ZN9Periphery15InitSystemTimerEv       0x080028e8   Section        0  tim_system.o(i._ZN9Periphery15InitSystemTimerEv)
-    i._ZN9Periphery15InitTim16BuzzerEv       0x08002920   Section        0  tim16.o(i._ZN9Periphery15InitTim16BuzzerEv)
-    i._ZN9Periphery15ReadI2C1_DS3231EhhPhh   0x08002970   Section        0  i2c1.o(i._ZN9Periphery15ReadI2C1_DS3231EhhPhh)
-    i._ZN9Periphery16WriteI2C1_DS3231EhhPhh  0x08002a40   Section        0  i2c1.o(i._ZN9Periphery16WriteI2C1_DS3231EhhPhh)
-    i._ZN9Periphery20SetDisplayBrightnessEh  0x08002b04   Section        0  tim14.o(i._ZN9Periphery20SetDisplayBrightnessEh)
-    i._ZN9Periphery22InitTim17DisplayUpdateEv 0x08002b54   Section        0  tim17.o(i._ZN9Periphery22InitTim17DisplayUpdateEv)
-    i._ZN9Periphery23GetIlluminationAdcValueERt 0x08002ba4   Section        0  adc.o(i._ZN9Periphery23GetIlluminationAdcValueERt)
-    i._ZN9Periphery26InitTim14DisplayBrightnessEv 0x08002c30   Section        0  tim14.o(i._ZN9Periphery26InitTim14DisplayBrightnessEv)
-    i._ZN9Periphery29I2C_StartDirectionAddressSizeE14_I2C_Directionhh 0x08002cac   Section        0  i2c1.o(i._ZN9Periphery29I2C_StartDirectionAddressSizeE14_I2C_Directionhh)
-    i._ZN9Periphery7DelayMsEt                0x08002d44   Section        0  tim3.o(i._ZN9Periphery7DelayMsEt)
-    i._ZN9Periphery7DelayUsEt                0x08002dc0   Section        0  periphery.o(i._ZN9Periphery7DelayUsEt)
-    i._ZN9Periphery7InitADCEv                0x08002ddc   Section        0  adc.o(i._ZN9Periphery7InitADCEv)
-    i._ZN9Periphery7InitPhyEv                0x08002f40   Section        0  periphery.o(i._ZN9Periphery7InitPhyEv)
-    i._ZN9Periphery8InitGPIOEv               0x08002f9c   Section        0  gpio.o(i._ZN9Periphery8InitGPIOEv)
-    i._ZN9Periphery8InitI2C1Ev               0x08003320   Section        0  i2c1.o(i._ZN9Periphery8InitI2C1Ev)
-    i._ZN9Periphery8InitSPI1Ev               0x080033ec   Section        0  spi1.o(i._ZN9Periphery8InitSPI1Ev)
-    i._ZN9Periphery8InitTickEv               0x08003470   Section        0  tick.o(i._ZN9Periphery8InitTickEv)
-    i._ZN9Periphery8StopI2C1Ev               0x0800356c   Section        0  i2c1.o(i._ZN9Periphery8StopI2C1Ev)
-    i._ZN9Periphery9FlashLockEv              0x080035f0   Section        0  flash.o(i._ZN9Periphery9FlashLockEv)
-    i._ZN9Periphery9FlashReadEjPht           0x08003620   Section        0  flash.o(i._ZN9Periphery9FlashReadEjPht)
-    i._ZN9Periphery9SPI1WriteEPKht           0x0800369c   Section        0  spi1.o(i._ZN9Periphery9SPI1WriteEPKht)
-    i._ZN9Periphery9StopTIM16Ev              0x080036e8   Section        0  tim16.o(i._ZN9Periphery9StopTIM16Ev)
-    i.__ARM_common_switch8                   0x080036fc   Section        0  event_handler.o(i.__ARM_common_switch8)
-    i.__sti___10_button_cpp_Buttons          0x08003718   Section        0  button.o(i.__sti___10_button_cpp_Buttons)
-    __sti___10_button_cpp_Buttons            0x08003719   Thumb Code    10  button.o(i.__sti___10_button_cpp_Buttons)
-    i.__sti___17_event_manager_cpp_Events    0x08003728   Section        0  event_manager.o(i.__sti___17_event_manager_cpp_Events)
-    __sti___17_event_manager_cpp_Events      0x08003729   Thumb Code    10  event_manager.o(i.__sti___17_event_manager_cpp_Events)
-    i.__sti___19_display_segment_cpp_Display 0x08003738   Section        0  display_segment.o(i.__sti___19_display_segment_cpp_Display)
-    __sti___19_display_segment_cpp_Display   0x08003739   Thumb Code    10  display_segment.o(i.__sti___19_display_segment_cpp_Display)
-    i.__sti___7_fsm_cpp_Fsm                  0x08003748   Section        0  fsm.o(i.__sti___7_fsm_cpp_Fsm)
-    __sti___7_fsm_cpp_Fsm                    0x08003749   Thumb Code    10  fsm.o(i.__sti___7_fsm_cpp_Fsm)
-    i.main                                   0x08003758   Section        0  main.o(i.main)
-    x$fpl$fadd                               0x0800378c   Section      140  faddsub.o(x$fpl$fadd)
-    _fadd1                                   0x08003799   Thumb Code     0  faddsub.o(x$fpl$fadd)
-    x$fpl$fmul                               0x08003818   Section      176  fmul.o(x$fpl$fmul)
-    x$fpl$fsub                               0x080038c8   Section      208  faddsub.o(x$fpl$fsub)
-    _fsub1                                   0x080038d5   Thumb Code     0  faddsub.o(x$fpl$fsub)
-    .constdata                               0x08003998   Section     5856  buzzer.o(.constdata)
-    x$fpl$usenofp                            0x08003998   Section        0  usenofp.o(x$fpl$usenofp)
-    NOTES_FRQ                                0x08003998   Data          96  buzzer.o(.constdata)
-    sin_value                                0x080039f8   Data        5760  buzzer.o(.constdata)
-    .constdata                               0x08005078   Section       20  event_handler.o(.constdata)
-    BRIGHTNESS                               0x08005078   Data          20  event_handler.o(.constdata)
-    .constdata                               0x0800508c   Section      128  ddiv.o(.constdata)
-    ddiv_reciptbl                            0x0800508c   Data         128  ddiv.o(.constdata)
-    .constdata                               0x0800510c   Section       64  fdiv.o(.constdata)
-    fdiv_tab                                 0x0800510c   Data          64  fdiv.o(.constdata)
-    .init_array                              0x0800516c   Section        4  button.o(.init_array)
-    .init_array                              0x08005170   Section        4  event_manager.o(.init_array)
-    .init_array                              0x08005174   Section        4  display_segment.o(.init_array)
-    .init_array                              0x08005178   Section        4  fsm.o(.init_array)
-    .init_array                              0x0800517c   Section        0  init_aeabi.o(.init_array)
-    .data                                    0x20000000   Section      102  buzzer.o(.data)
-    .data                                    0x20000066   Section        1  event_handler.o(.data)
-    .data                                    0x20000068   Section       10  display_segment.o(.data)
-    .data                                    0x20000074   Section        8  parameters.o(.data)
-    .data                                    0x2000007c   Section        3  fsm.o(.data)
-    .data                                    0x20000080   Section        2  i2c1.o(.data)
-    .data                                    0x20000082   Section        5  ds3231.o(.data)
-    buff                                     0x20000083   Data           4  ds3231.o(.data)
-    .bss                                     0x20000088   Section       16  button.o(.bss)
-    .bss                                     0x20000098   Section      612  buzzer.o(.bss)
-    .bss                                     0x200002fc   Section       56  device.o(.bss)
-    .bss                                     0x20000334   Section      120  event_manager.o(.bss)
-    .bss                                     0x200003ac   Section       38  parameters.o(.bss)
-    .bss                                     0x200003d4   Section       16  periphery.o(.bss)
-    .bss                                     0x200003e4   Section       96  libspace.o(.bss)
-    HEAP                                     0x20000448   Section      512  startup_stm32g030xx.o(HEAP)
-    Heap_Mem                                 0x20000448   Data         512  startup_stm32g030xx.o(HEAP)
-    STACK                                    0x20000648   Section     1024  startup_stm32g030xx.o(STACK)
-    Stack_Mem                                0x20000648   Data        1024  startup_stm32g030xx.o(STACK)
-    __initial_sp                             0x20000a48   Data           0  startup_stm32g030xx.o(STACK)
+    __NVIC_EnableIRQ(IRQn_Type)              0x08000e59   Thumb Code    26  interrupts.o(i._Z16__NVIC_EnableIRQ9IRQn_Type)
+    i._Z18__NVIC_SetPriority9IRQn_Typej      0x08000e78   Section        0  interrupts.o(i._Z18__NVIC_SetPriority9IRQn_Typej)
+    __NVIC_SetPriority(IRQn_Type, unsigned)  0x08000e79   Thumb Code   110  interrupts.o(i._Z18__NVIC_SetPriority9IRQn_Typej)
+    i._ZN11DataManager14InitParametersEv     0x08000ef0   Section        0  parameters.o(i._ZN11DataManager14InitParametersEv)
+    i._ZN11DeviceClass10EventFlashEv         0x08000f44   Section        0  event_handler.o(i._ZN11DeviceClass10EventFlashEv)
+    i._ZN11DeviceClass10EventTimerEv         0x08000fc8   Section        0  event_handler.o(i._ZN11DeviceClass10EventTimerEv)
+    i._ZN11DeviceClass10InitDeviceEv         0x0800101c   Section        0  device.o(i._ZN11DeviceClass10InitDeviceEv)
+    i._ZN11DeviceClass11EventBuzzerEv        0x08001068   Section        0  event_handler.o(i._ZN11DeviceClass11EventBuzzerEv)
+    i._ZN11DeviceClass13GetGlobalTimeEv      0x080010c4   Section        0  device.o(i._ZN11DeviceClass13GetGlobalTimeEv)
+    i._ZN11DeviceClass13StartEventNowEh      0x080010cc   Section        0  event_handler.o(i._ZN11DeviceClass13StartEventNowEh)
+    i._ZN11DeviceClass14CheckEventTimeERj    0x080010f0   Section        0  event_handler.o(i._ZN11DeviceClass14CheckEventTimeERj)
+    i._ZN11DeviceClass14IncrementHoursEv     0x08001104   Section        0  event_handler.o(i._ZN11DeviceClass14IncrementHoursEv)
+    i._ZN11DeviceClass14TuneBrightnessEv     0x08001154   Section        0  event_handler.o(i._ZN11DeviceClass14TuneBrightnessEv)
+    i._ZN11DeviceClass16EventButtonHoursEv   0x080011c0   Section        0  event_handler.o(i._ZN11DeviceClass16EventButtonHoursEv)
+    i._ZN11DeviceClass16IncrementMinutesEv   0x08001350   Section        0  event_handler.o(i._ZN11DeviceClass16IncrementMinutesEv)
+    i._ZN11DeviceClass17CheckWaitingEventEv  0x080013b4   Section        0  event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv)
+    i._ZN11DeviceClass18EventButtonMinutesEv 0x08001450   Section        0  event_handler.o(i._ZN11DeviceClass18EventButtonMinutesEv)
+    i._ZN11DeviceClass19IncrementGlobalTimeEv 0x080015e8   Section        0  event_handler.o(i._ZN11DeviceClass19IncrementGlobalTimeEv)
+    i._ZN11DeviceClass8EventLedEv            0x08001678   Section        0  event_handler.o(i._ZN11DeviceClass8EventLedEv)
+    i._ZN11DeviceClass8EventRtcEv            0x0800179c   Section        0  event_handler.o(i._ZN11DeviceClass8EventRtcEv)
+    i._ZN11DeviceClass8EventWdtEv            0x08001840   Section        0  event_handler.o(i._ZN11DeviceClass8EventWdtEv)
+    i._ZN11SoundBuzzer10InitBuzzerEv         0x08001854   Section        0  buzzer.o(i._ZN11SoundBuzzer10InitBuzzerEv)
+    i._ZN11SoundBuzzer11ClearValuesEv        0x080018a8   Section        0  buzzer.o(i._ZN11SoundBuzzer11ClearValuesEv)
+    i._ZN11SoundBuzzer8PlayNoteEv            0x080018bc   Section        0  buzzer.o(i._ZN11SoundBuzzer8PlayNoteEv)
+    i._ZN12Button_class14CheckLastPressEv    0x080019ac   Section        0  button.o(i._ZN12Button_class14CheckLastPressEv)
+    i._ZN12Button_class18ButtonHoursPressedEv 0x080019b4   Section        0  button.o(i._ZN12Button_class18ButtonHoursPressedEv)
+    i._ZN12Button_class20ButtonMinutesPressedEv 0x080019d0   Section        0  button.o(i._ZN12Button_class20ButtonMinutesPressedEv)
+    i._ZN12Button_class5CheckEv              0x080019f0   Section        0  button.o(i._ZN12Button_class5CheckEv)
+    i._ZN12Button_classC1Ev                  0x08001bf4   Section        0  button.o(i._ZN12Button_classC1Ev)
+    i._ZN12EventManager10ClearEventEh        0x08001c02   Section        0  event_manager.o(i._ZN12EventManager10ClearEventEh)
+    i._ZN12EventManager13CheckIfActiveEh     0x08001c26   Section        0  event_manager.o(i._ZN12EventManager13CheckIfActiveEh)
+    i._ZN12EventManager15GetWaitingEventERhRj 0x08001c3c   Section        0  event_manager.o(i._ZN12EventManager15GetWaitingEventERhRj)
+    i._ZN12EventManager19ClearExecutedEventsEv 0x08001c8e   Section        0  event_manager.o(i._ZN12EventManager19ClearExecutedEventsEv)
+    i._ZN12EventManager8AddEventEhj          0x08001caa   Section        0  event_manager.o(i._ZN12EventManager8AddEventEhj)
+    i._ZN12EventManagerC1Ev                  0x08001cca   Section        0  event_manager.o(i._ZN12EventManagerC1Ev)
+    i._ZN19SevenSegmentDisplay13UpdateDisplayEv 0x08001d64   Section        0  display_segment.o(i._ZN19SevenSegmentDisplay13UpdateDisplayEv)
+    i._ZN19SevenSegmentDisplay17ClearBlinkCounterEv 0x08001e24   Section        0  display_segment.o(i._ZN19SevenSegmentDisplay17ClearBlinkCounterEv)
+    i._ZN19SevenSegmentDisplay8SetDigitEhh   0x08001e2c   Section        0  display_segment.o(i._ZN19SevenSegmentDisplay8SetDigitEhh)
+    i._ZN19SevenSegmentDisplayC1Ev           0x08001f4c   Section        0  display_segment.o(i._ZN19SevenSegmentDisplayC1Ev)
+    i._ZN5State11ChangeStateE8states_t       0x08001f52   Section        0  fsm.o(i._ZN5State11ChangeStateE8states_t)
+    i._ZN5State11UpdateStateEv               0x08001f60   Section        0  fsm.o(i._ZN5State11UpdateStateEv)
+    i._ZN5State12SetStateTimeEv              0x08001fbe   Section        0  fsm.o(i._ZN5State12SetStateTimeEv)
+    i._ZN5State12SetStateWorkEv              0x08001fc0   Section        0  fsm.o(i._ZN5State12SetStateWorkEv)
+    i._ZN5State15GetCurrentStateEv           0x08002000   Section        0  fsm.o(i._ZN5State15GetCurrentStateEv)
+    i._ZN5State18SetStateBrightnessEv        0x08002006   Section        0  fsm.o(i._ZN5State18SetStateBrightnessEv)
+    i._ZN5StateC1Ev                          0x08002008   Section        0  fsm.o(i._ZN5StateC1Ev)
+    i._ZN6DS323110getMinutesERh              0x08002014   Section        0  ds3231.o(i._ZN6DS323110getMinutesERh)
+    i._ZN6DS323110getSecondsERh              0x08002048   Section        0  ds3231.o(i._ZN6DS323110getSecondsERh)
+    i._ZN6DS323115oscillatorCheckERb         0x0800207c   Section        0  ds3231.o(i._ZN6DS323115oscillatorCheckERb)
+    i._ZN6DS323115readControlByteERhb        0x080020b0   Section        0  ds3231.o(i._ZN6DS323115readControlByteERhb)
+    i._ZN6DS323116writeControlByteEhb        0x080020ec   Section        0  ds3231.o(i._ZN6DS323116writeControlByteEhb)
+    i._ZN6DS32317setHourEh                   0x0800212c   Section        0  ds3231.o(i._ZN6DS32317setHourEh)
+    i._ZN6DS32318bcdToDecEh                  0x080021c0   Section        0  ds3231.o(i._ZN6DS32318bcdToDecEh)
+    i._ZN6DS32318decToBcdEh                  0x080021e4   Section        0  ds3231.o(i._ZN6DS32318decToBcdEh)
+    i._ZN6DS32318getHoursERhRbS1_            0x08002204   Section        0  ds3231.o(i._ZN6DS32318getHoursERhRbS1_)
+    i._ZN6DS32319setMinuteEh                 0x08002270   Section        0  ds3231.o(i._ZN6DS32319setMinuteEh)
+    i._ZN6DS32319setSecondEh                 0x0800229c   Section        0  ds3231.o(i._ZN6DS32319setSecondEh)
+    i._ZN9Periphery10FlashWriteEjPKht        0x080022f0   Section        0  flash.o(i._ZN9Periphery10FlashWriteEjPKht)
+    i._ZN9Periphery10InitDMACh2Ev            0x080023e8   Section        0  dma_tim1.o(i._ZN9Periphery10InitDMACh2Ev)
+    i._ZN9Periphery10InitTim3MsEv            0x08002494   Section        0  tim3.o(i._ZN9Periphery10InitTim3MsEv)
+    i._ZN9Periphery10StopDMACh2Ev            0x080024c4   Section        0  dma_tim1.o(i._ZN9Periphery10StopDMACh2Ev)
+    i._ZN9Periphery11FlashUnlockEv           0x080024f4   Section        0  flash.o(i._ZN9Periphery11FlashUnlockEv)
+    i._ZN9Periphery11InitTim1PwmEv           0x08002528   Section        0  tim1.o(i._ZN9Periphery11InitTim1PwmEv)
+    i._ZN9Periphery11StartDMACh2Et           0x080025d8   Section        0  dma_tim1.o(i._ZN9Periphery11StartDMACh2Et)
+    i._ZN9Periphery11UpdateTIM16Et           0x08002610   Section        0  tim16.o(i._ZN9Periphery11UpdateTIM16Et)
+    i._ZN9Periphery13FlashWaitBusyEv         0x08002658   Section        0  flash.o(i._ZN9Periphery13FlashWaitBusyEv)
+    i._ZN9Periphery14FlashErasePageEh        0x08002694   Section        0  flash.o(i._ZN9Periphery14FlashErasePageEh)
+    i._ZN9Periphery14InitInterruptsEv        0x08002728   Section        0  interrupts.o(i._ZN9Periphery14InitInterruptsEv)
+    i._ZN9Periphery15InitSystemTimerEv       0x080027f0   Section        0  tim_system.o(i._ZN9Periphery15InitSystemTimerEv)
+    i._ZN9Periphery15InitTim16BuzzerEv       0x08002828   Section        0  tim16.o(i._ZN9Periphery15InitTim16BuzzerEv)
+    i._ZN9Periphery15ReadI2C1_DS3231EhhPhh   0x08002878   Section        0  i2c1.o(i._ZN9Periphery15ReadI2C1_DS3231EhhPhh)
+    i._ZN9Periphery16WriteI2C1_DS3231EhhPhh  0x08002948   Section        0  i2c1.o(i._ZN9Periphery16WriteI2C1_DS3231EhhPhh)
+    i._ZN9Periphery20SetDisplayBrightnessEh  0x08002a0c   Section        0  tim14.o(i._ZN9Periphery20SetDisplayBrightnessEh)
+    i._ZN9Periphery22InitTim17DisplayUpdateEv 0x08002a5c   Section        0  tim17.o(i._ZN9Periphery22InitTim17DisplayUpdateEv)
+    i._ZN9Periphery23GetIlluminationAdcValueERt 0x08002aac   Section        0  adc.o(i._ZN9Periphery23GetIlluminationAdcValueERt)
+    i._ZN9Periphery26InitTim14DisplayBrightnessEv 0x08002b38   Section        0  tim14.o(i._ZN9Periphery26InitTim14DisplayBrightnessEv)
+    i._ZN9Periphery29I2C_StartDirectionAddressSizeE14_I2C_Directionhh 0x08002bb4   Section        0  i2c1.o(i._ZN9Periphery29I2C_StartDirectionAddressSizeE14_I2C_Directionhh)
+    i._ZN9Periphery7DelayMsEt                0x08002c4c   Section        0  tim3.o(i._ZN9Periphery7DelayMsEt)
+    i._ZN9Periphery7DelayUsEt                0x08002cc8   Section        0  periphery.o(i._ZN9Periphery7DelayUsEt)
+    i._ZN9Periphery7InitADCEv                0x08002ce4   Section        0  adc.o(i._ZN9Periphery7InitADCEv)
+    i._ZN9Periphery7InitPhyEv                0x08002e48   Section        0  periphery.o(i._ZN9Periphery7InitPhyEv)
+    i._ZN9Periphery8InitGPIOEv               0x08002e9c   Section        0  gpio.o(i._ZN9Periphery8InitGPIOEv)
+    i._ZN9Periphery8InitI2C1Ev               0x08003220   Section        0  i2c1.o(i._ZN9Periphery8InitI2C1Ev)
+    i._ZN9Periphery8InitSPI1Ev               0x080032ec   Section        0  spi1.o(i._ZN9Periphery8InitSPI1Ev)
+    i._ZN9Periphery8InitTickEv               0x08003358   Section        0  tick.o(i._ZN9Periphery8InitTickEv)
+    i._ZN9Periphery8StopI2C1Ev               0x08003454   Section        0  i2c1.o(i._ZN9Periphery8StopI2C1Ev)
+    i._ZN9Periphery9FlashLockEv              0x080034d8   Section        0  flash.o(i._ZN9Periphery9FlashLockEv)
+    i._ZN9Periphery9FlashReadEjPht           0x08003508   Section        0  flash.o(i._ZN9Periphery9FlashReadEjPht)
+    i._ZN9Periphery9SPI1WriteEPKht           0x08003584   Section        0  spi1.o(i._ZN9Periphery9SPI1WriteEPKht)
+    i._ZN9Periphery9StopTIM16Ev              0x080035d8   Section        0  tim16.o(i._ZN9Periphery9StopTIM16Ev)
+    i.__ARM_common_switch8                   0x080035ec   Section        0  event_handler.o(i.__ARM_common_switch8)
+    i.__sti___10_button_cpp_Buttons          0x08003608   Section        0  button.o(i.__sti___10_button_cpp_Buttons)
+    __sti___10_button_cpp_Buttons            0x08003609   Thumb Code    10  button.o(i.__sti___10_button_cpp_Buttons)
+    i.__sti___17_event_manager_cpp_Events    0x08003618   Section        0  event_manager.o(i.__sti___17_event_manager_cpp_Events)
+    __sti___17_event_manager_cpp_Events      0x08003619   Thumb Code    10  event_manager.o(i.__sti___17_event_manager_cpp_Events)
+    i.__sti___19_display_segment_cpp_Display 0x08003628   Section        0  display_segment.o(i.__sti___19_display_segment_cpp_Display)
+    __sti___19_display_segment_cpp_Display   0x08003629   Thumb Code    10  display_segment.o(i.__sti___19_display_segment_cpp_Display)
+    i.__sti___7_fsm_cpp_Fsm                  0x08003638   Section        0  fsm.o(i.__sti___7_fsm_cpp_Fsm)
+    __sti___7_fsm_cpp_Fsm                    0x08003639   Thumb Code    10  fsm.o(i.__sti___7_fsm_cpp_Fsm)
+    i.main                                   0x08003648   Section        0  main.o(i.main)
+    x$fpl$fadd                               0x0800367c   Section      140  faddsub.o(x$fpl$fadd)
+    _fadd1                                   0x08003689   Thumb Code     0  faddsub.o(x$fpl$fadd)
+    x$fpl$fmul                               0x08003708   Section      176  fmul.o(x$fpl$fmul)
+    x$fpl$fsub                               0x080037b8   Section      208  faddsub.o(x$fpl$fsub)
+    _fsub1                                   0x080037c5   Thumb Code     0  faddsub.o(x$fpl$fsub)
+    .constdata                               0x08003888   Section     5856  buzzer.o(.constdata)
+    x$fpl$usenofp                            0x08003888   Section        0  usenofp.o(x$fpl$usenofp)
+    NOTES_FRQ                                0x08003888   Data          96  buzzer.o(.constdata)
+    sin_value                                0x080038e8   Data        5760  buzzer.o(.constdata)
+    .constdata                               0x08004f68   Section       20  event_handler.o(.constdata)
+    BRIGHTNESS                               0x08004f68   Data          20  event_handler.o(.constdata)
+    .constdata                               0x08004f7c   Section      128  ddiv.o(.constdata)
+    ddiv_reciptbl                            0x08004f7c   Data         128  ddiv.o(.constdata)
+    .constdata                               0x08004ffc   Section       64  fdiv.o(.constdata)
+    fdiv_tab                                 0x08004ffc   Data          64  fdiv.o(.constdata)
+    .init_array                              0x0800505c   Section        4  button.o(.init_array)
+    .init_array                              0x08005060   Section        4  event_manager.o(.init_array)
+    .init_array                              0x08005064   Section        4  display_segment.o(.init_array)
+    .init_array                              0x08005068   Section        4  fsm.o(.init_array)
+    .init_array                              0x0800506c   Section        0  init_aeabi.o(.init_array)
+    .data                                    0x20000000   Section        7  buzzer.o(.data)
+    .data                                    0x20000007   Section        1  event_handler.o(.data)
+    .data                                    0x20000008   Section       10  display_segment.o(.data)
+    .data                                    0x20000012   Section        2  parameters.o(.data)
+    .data                                    0x20000014   Section        3  fsm.o(.data)
+    .data                                    0x20000018   Section        2  i2c1.o(.data)
+    .data                                    0x2000001a   Section        5  ds3231.o(.data)
+    buff                                     0x2000001b   Data           4  ds3231.o(.data)
+    .bss                                     0x20000020   Section       16  button.o(.bss)
+    .bss                                     0x20000030   Section      596  buzzer.o(.bss)
+    .bss                                     0x20000284   Section       48  device.o(.bss)
+    .bss                                     0x200002b4   Section      108  event_manager.o(.bss)
+    .bss                                     0x20000320   Section       38  parameters.o(.bss)
+    .bss                                     0x20000348   Section       16  periphery.o(.bss)
+    .bss                                     0x20000358   Section       96  libspace.o(.bss)
+    HEAP                                     0x200003b8   Section      512  startup_stm32g030xx.o(HEAP)
+    Heap_Mem                                 0x200003b8   Data         512  startup_stm32g030xx.o(HEAP)
+    STACK                                    0x200005b8   Section     1024  startup_stm32g030xx.o(STACK)
+    Stack_Mem                                0x200005b8   Data        1024  startup_stm32g030xx.o(STACK)
+    __initial_sp                             0x200009b8   Data           0  startup_stm32g030xx.o(STACK)
 
     Global Symbols
 
@@ -1523,134 +1437,131 @@ Image Symbol Table
     SystemInit                               0x08000d91   Thumb Code     2  system_stm32g0xx.o(i.SystemInit)
     TIM16_IRQHandler                         0x08000d95   Thumb Code    34  device.o(i.TIM16_IRQHandler)
     TIM17_IRQHandler                         0x08000dc1   Thumb Code   140  device.o(i.TIM17_IRQHandler)
-    DataManager::InitParameters()            0x08000ee9   Thumb Code    72  parameters.o(i._ZN11DataManager14InitParametersEv)
-    DeviceClass::EventFlash()                0x08000f3d   Thumb Code   120  event_handler.o(i._ZN11DeviceClass10EventFlashEv)
-    DeviceClass::EventTimer()                0x08000fc5   Thumb Code    74  event_handler.o(i._ZN11DeviceClass10EventTimerEv)
-    DeviceClass::InitDevice()                0x08001019   Thumb Code    64  device.o(i._ZN11DeviceClass10InitDeviceEv)
-    DeviceClass::EventBuzzer()               0x08001065   Thumb Code    82  event_handler.o(i._ZN11DeviceClass11EventBuzzerEv)
-    DeviceClass::GetGlobalTime()             0x080010c1   Thumb Code     6  device.o(i._ZN11DeviceClass13GetGlobalTimeEv)
-    DeviceClass::StartEventNow(unsigned char) 0x080010c9   Thumb Code    42  event_handler.o(i._ZN11DeviceClass13StartEventNowEh)
-    DeviceClass::CheckEventTime(unsigned&)   0x080010f9   Thumb Code    20  event_handler.o(i._ZN11DeviceClass14CheckEventTimeERj)
-    DeviceClass::IncrementHours()            0x0800110d   Thumb Code    60  event_handler.o(i._ZN11DeviceClass14IncrementHoursEv)
-    DeviceClass::TuneBrightness()            0x0800115d   Thumb Code    94  event_handler.o(i._ZN11DeviceClass14TuneBrightnessEv)
-    DeviceClass::EventButtonHours()          0x080011c9   Thumb Code   364  event_handler.o(i._ZN11DeviceClass16EventButtonHoursEv)
-    DeviceClass::IncrementMinutes()          0x08001359   Thumb Code    74  event_handler.o(i._ZN11DeviceClass16IncrementMinutesEv)
-    DeviceClass::CheckWaitingEvent()         0x080013bd   Thumb Code   162  event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv)
-    DeviceClass::EventPowerVoltage()         0x08001465   Thumb Code    18  event_handler.o(i._ZN11DeviceClass17EventPowerVoltageEv)
-    DeviceClass::EventButtonMinutes()        0x08001479   Thumb Code   370  event_handler.o(i._ZN11DeviceClass18EventButtonMinutesEv)
-    DeviceClass::IncrementGlobalTime()       0x08001611   Thumb Code   156  event_handler.o(i._ZN11DeviceClass19IncrementGlobalTimeEv)
-    DeviceClass::EventLed()                  0x080016b1   Thumb Code   270  event_handler.o(i._ZN11DeviceClass8EventLedEv)
-    DeviceClass::EventRtc()                  0x080017d5   Thumb Code   154  event_handler.o(i._ZN11DeviceClass8EventRtcEv)
-    DeviceClass::EventWdt()                  0x08001879   Thumb Code    12  event_handler.o(i._ZN11DeviceClass8EventWdtEv)
-    SoundBuzzer::InitBuzzer()                0x0800188d   Thumb Code    62  buzzer.o(i._ZN11SoundBuzzer10InitBuzzerEv)
-    SoundBuzzer::ClearValues()               0x080018e1   Thumb Code    12  buzzer.o(i._ZN11SoundBuzzer11ClearValuesEv)
-    SoundBuzzer::PlayNote()                  0x080018f5   Thumb Code   200  buzzer.o(i._ZN11SoundBuzzer8PlayNoteEv)
-    Button_class::CheckLastPress()           0x080019e5   Thumb Code     6  button.o(i._ZN12Button_class14CheckLastPressEv)
-    Button_class::ButtonHoursPressed()       0x080019ed   Thumb Code    24  button.o(i._ZN12Button_class18ButtonHoursPressedEv)
-    Button_class::ButtonMinutesPressed()     0x08001a09   Thumb Code    26  button.o(i._ZN12Button_class20ButtonMinutesPressedEv)
-    Button_class::Check()                    0x08001a29   Thumb Code   508  button.o(i._ZN12Button_class5CheckEv)
-    Button_class::Button_class()             0x08001c2d   Thumb Code    14  button.o(i._ZN12Button_classC1Ev)
-    Button_class::Button_class__sub_object() 0x08001c2d   Thumb Code     0  button.o(i._ZN12Button_classC1Ev)
-    EventManager::ClearEvent(unsigned char)  0x08001c3b   Thumb Code    36  event_manager.o(i._ZN12EventManager10ClearEventEh)
-    EventManager::CheckIfActive(unsigned char) 0x08001c5f   Thumb Code    22  event_manager.o(i._ZN12EventManager13CheckIfActiveEh)
-    EventManager::GetWaitingEvent(unsigned char&, unsigned&) 0x08001c75   Thumb Code    82  event_manager.o(i._ZN12EventManager15GetWaitingEventERhRj)
-    EventManager::ClearExecutedEvents()      0x08001cc7   Thumb Code    28  event_manager.o(i._ZN12EventManager19ClearExecutedEventsEv)
-    EventManager::AddEvent(unsigned char, unsigned) 0x08001ce3   Thumb Code    32  event_manager.o(i._ZN12EventManager8AddEventEhj)
-    EventManager::EventManager()             0x08001d03   Thumb Code   174  event_manager.o(i._ZN12EventManagerC1Ev)
-    EventManager::EventManager__sub_object() 0x08001d03   Thumb Code     0  event_manager.o(i._ZN12EventManagerC1Ev)
-    SevenSegmentDisplay::UpdateDisplay()     0x08001db1   Thumb Code   188  display_segment.o(i._ZN19SevenSegmentDisplay13UpdateDisplayEv)
-    SevenSegmentDisplay::ClearBlinkCounter() 0x08001e71   Thumb Code     6  display_segment.o(i._ZN19SevenSegmentDisplay17ClearBlinkCounterEv)
-    SevenSegmentDisplay::SetDigit(unsigned char, unsigned char) 0x08001e79   Thumb Code   276  display_segment.o(i._ZN19SevenSegmentDisplay8SetDigitEhh)
-    SevenSegmentDisplay::SevenSegmentDisplay() 0x08001f99   Thumb Code     6  display_segment.o(i._ZN19SevenSegmentDisplayC1Ev)
-    SevenSegmentDisplay::SevenSegmentDisplay__sub_object() 0x08001f99   Thumb Code     0  display_segment.o(i._ZN19SevenSegmentDisplayC1Ev)
-    State::ChangeState(states_t)             0x08001f9f   Thumb Code    14  fsm.o(i._ZN5State11ChangeStateE8states_t)
-    State::UpdateState()                     0x08001fad   Thumb Code    94  fsm.o(i._ZN5State11UpdateStateEv)
-    State::SetStateTime()                    0x0800200b   Thumb Code     2  fsm.o(i._ZN5State12SetStateTimeEv)
-    State::SetStateWork()                    0x0800200d   Thumb Code    56  fsm.o(i._ZN5State12SetStateWorkEv)
-    State::GetCurrentState()                 0x0800204d   Thumb Code     6  fsm.o(i._ZN5State15GetCurrentStateEv)
-    State::SetStateBrightness()              0x08002053   Thumb Code     2  fsm.o(i._ZN5State18SetStateBrightnessEv)
-    State::State()                           0x08002055   Thumb Code    10  fsm.o(i._ZN5StateC1Ev)
-    State::State__sub_object()               0x08002055   Thumb Code     0  fsm.o(i._ZN5StateC1Ev)
-    DS3231::getMinutes(unsigned char&)       0x08002061   Thumb Code    46  ds3231.o(i._ZN6DS323110getMinutesERh)
-    DS3231::getSeconds(unsigned char&)       0x08002095   Thumb Code    46  ds3231.o(i._ZN6DS323110getSecondsERh)
-    DS3231::oscillatorCheck(bool&)           0x080020c9   Thumb Code    50  ds3231.o(i._ZN6DS323115oscillatorCheckERb)
-    DS3231::readControlByte(unsigned char&, bool) 0x080020fd   Thumb Code    56  ds3231.o(i._ZN6DS323115readControlByteERhb)
-    DS3231::writeControlByte(unsigned char, bool) 0x08002139   Thumb Code    58  ds3231.o(i._ZN6DS323116writeControlByteEhb)
-    DS3231::setHour(unsigned char)           0x08002179   Thumb Code   144  ds3231.o(i._ZN6DS32317setHourEh)
-    DS3231::bcdToDec(unsigned char)          0x0800220d   Thumb Code    36  ds3231.o(i._ZN6DS32318bcdToDecEh)
-    DS3231::decToBcd(unsigned char)          0x08002231   Thumb Code    30  ds3231.o(i._ZN6DS32318decToBcdEh)
-    DS3231::getHours(unsigned char&, bool&, bool&) 0x08002251   Thumb Code   104  ds3231.o(i._ZN6DS32318getHoursERhRbS1_)
-    DS3231::setMinute(unsigned char)         0x080022bd   Thumb Code    38  ds3231.o(i._ZN6DS32319setMinuteEh)
-    DS3231::setSecond(unsigned char)         0x080022e9   Thumb Code    78  ds3231.o(i._ZN6DS32319setSecondEh)
-    Periphery::FlashWrite(unsigned, const unsigned char*, unsigned short) 0x0800233d   Thumb Code   238  flash.o(i._ZN9Periphery10FlashWriteEjPKht)
-    Periphery::InitDMACh1()                  0x08002435   Thumb Code   150  dma_spi1.o(i._ZN9Periphery10InitDMACh1Ev)
-    Periphery::InitDMACh2()                  0x080024e1   Thumb Code   152  dma_tim1.o(i._ZN9Periphery10InitDMACh2Ev)
-    Periphery::InitTim3Ms()                  0x0800258d   Thumb Code    36  tim3.o(i._ZN9Periphery10InitTim3MsEv)
-    Periphery::StopDMACh2()                  0x080025bd   Thumb Code    40  dma_tim1.o(i._ZN9Periphery10StopDMACh2Ev)
-    Periphery::FlashUnlock()                 0x080025ed   Thumb Code    40  flash.o(i._ZN9Periphery11FlashUnlockEv)
-    Periphery::InitTim1Pwm()                 0x08002621   Thumb Code   162  tim1.o(i._ZN9Periphery11InitTim1PwmEv)
-    Periphery::StartDMACh2(unsigned short)   0x080026d1   Thumb Code    46  dma_tim1.o(i._ZN9Periphery11StartDMACh2Et)
-    Periphery::UpdateTIM16(unsigned short)   0x08002709   Thumb Code    64  tim16.o(i._ZN9Periphery11UpdateTIM16Et)
-    Periphery::FlashWaitBusy()               0x08002751   Thumb Code    50  flash.o(i._ZN9Periphery13FlashWaitBusyEv)
-    Periphery::FlashErasePage(unsigned char) 0x0800278d   Thumb Code   138  flash.o(i._ZN9Periphery14FlashErasePageEh)
-    Periphery::InitInterrupts()              0x08002821   Thumb Code   190  interrupts.o(i._ZN9Periphery14InitInterruptsEv)
-    Periphery::InitSystemTimer()             0x080028e9   Thumb Code    46  tim_system.o(i._ZN9Periphery15InitSystemTimerEv)
-    Periphery::InitTim16Buzzer()             0x08002921   Thumb Code    68  tim16.o(i._ZN9Periphery15InitTim16BuzzerEv)
-    Periphery::ReadI2C1_DS3231(unsigned char, unsigned char, unsigned char*, unsigned char) 0x08002971   Thumb Code   196  i2c1.o(i._ZN9Periphery15ReadI2C1_DS3231EhhPhh)
-    Periphery::WriteI2C1_DS3231(unsigned char, unsigned char, unsigned char*, unsigned char) 0x08002a41   Thumb Code   186  i2c1.o(i._ZN9Periphery16WriteI2C1_DS3231EhhPhh)
-    Periphery::SetDisplayBrightness(unsigned char) 0x08002b05   Thumb Code    76  tim14.o(i._ZN9Periphery20SetDisplayBrightnessEh)
-    Periphery::InitTim17DisplayUpdate()      0x08002b55   Thumb Code    68  tim17.o(i._ZN9Periphery22InitTim17DisplayUpdateEv)
-    Periphery::GetIlluminationAdcValue(unsigned short&) 0x08002ba5   Thumb Code   132  adc.o(i._ZN9Periphery23GetIlluminationAdcValueERt)
-    Periphery::InitTim14DisplayBrightness()  0x08002c31   Thumb Code   116  tim14.o(i._ZN9Periphery26InitTim14DisplayBrightnessEv)
-    Periphery::I2C_StartDirectionAddressSize(_I2C_Direction, unsigned char, unsigned char) 0x08002cad   Thumb Code   144  i2c1.o(i._ZN9Periphery29I2C_StartDirectionAddressSizeE14_I2C_Directionhh)
-    Periphery::DelayMs(unsigned short)       0x08002d45   Thumb Code   110  tim3.o(i._ZN9Periphery7DelayMsEt)
-    Periphery::DelayUs(unsigned short)       0x08002dc1   Thumb Code    26  periphery.o(i._ZN9Periphery7DelayUsEt)
-    Periphery::InitADC()                     0x08002ddd   Thumb Code   340  adc.o(i._ZN9Periphery7InitADCEv)
-    Periphery::InitPhy()                     0x08002f41   Thumb Code    90  periphery.o(i._ZN9Periphery7InitPhyEv)
-    Periphery::InitGPIO()                    0x08002f9d   Thumb Code   884  gpio.o(i._ZN9Periphery8InitGPIOEv)
-    Periphery::InitI2C1()                    0x08003321   Thumb Code   190  i2c1.o(i._ZN9Periphery8InitI2C1Ev)
-    Periphery::InitSPI1()                    0x080033ed   Thumb Code   124  spi1.o(i._ZN9Periphery8InitSPI1Ev)
-    Periphery::InitTick()                    0x08003471   Thumb Code   240  tick.o(i._ZN9Periphery8InitTickEv)
-    Periphery::StopI2C1()                    0x0800356d   Thumb Code   122  i2c1.o(i._ZN9Periphery8StopI2C1Ev)
-    Periphery::FlashLock()                   0x080035f1   Thumb Code    42  flash.o(i._ZN9Periphery9FlashLockEv)
-    Periphery::FlashRead(unsigned, unsigned char*, unsigned short) 0x08003621   Thumb Code   122  flash.o(i._ZN9Periphery9FlashReadEjPht)
-    Periphery::SPI1Write(const unsigned char*, unsigned short) 0x0800369d   Thumb Code    70  spi1.o(i._ZN9Periphery9SPI1WriteEPKht)
-    Periphery::StopTIM16()                   0x080036e9   Thumb Code    14  tim16.o(i._ZN9Periphery9StopTIM16Ev)
-    __ARM_common_switch8                     0x080036fd   Thumb Code    28  event_handler.o(i.__ARM_common_switch8)
-    main                                     0x08003759   Thumb Code    34  main.o(i.main)
-    __aeabi_fadd                             0x0800378d   Thumb Code     0  faddsub.o(x$fpl$fadd)
-    _fadd                                    0x0800378d   Thumb Code   134  faddsub.o(x$fpl$fadd)
-    __aeabi_fmul                             0x08003819   Thumb Code     0  fmul.o(x$fpl$fmul)
-    _fmul                                    0x08003819   Thumb Code   172  fmul.o(x$fpl$fmul)
-    __aeabi_fsub                             0x080038c9   Thumb Code     0  faddsub.o(x$fpl$fsub)
-    _fsub                                    0x080038c9   Thumb Code   204  faddsub.o(x$fpl$fsub)
-    __I$use$fp                               0x08003998   Number         0  usenofp.o(x$fpl$usenofp)
-    Region$$Table$$Base                      0x0800514c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0800516c   Number         0  anon$$obj.o(Region$$Table)
-    SHT$$INIT_ARRAY$$Base                    0x0800516c   Number         0  button.o(.init_array)
-    SHT$$INIT_ARRAY$$Limit                   0x0800517c   Number         0  init_aeabi.o(.init_array)
-    A                                        0x20000000   Data           1  buzzer.o(.data)
-    step                                     0x20000001   Data           1  buzzer.o(.data)
-    selected_note_dotes                      0x20000002   Data           2  buzzer.o(.data)
-    fading                                   0x20000004   Data           1  buzzer.o(.data)
-    tone                                     0x20000006   Data          96  buzzer.o(.data)
-    button_long                              0x20000066   Data           1  event_handler.o(.data)
-    Display                                  0x20000068   Data           8  display_segment.o(.data)
-    display_data                             0x20000070   Data           2  display_segment.o(.data)
-    Parameters                               0x20000074   Data           8  parameters.o(.data)
-    Fsm                                      0x2000007c   Data           3  fsm.o(.data)
-    protection_counter                       0x20000080   Data           2  i2c1.o(.data)
-    RTC_DS3231                               0x20000082   Data           1  ds3231.o(.data)
-    Buttons                                  0x20000088   Data          16  button.o(.bss)
-    Buzzer                                   0x20000098   Data          16  buzzer.o(.bss)
-    notes_dots                               0x200000a8   Data          96  buzzer.o(.bss)
-    sound_sin                                0x20000108   Data         500  buzzer.o(.bss)
-    Device                                   0x200002fc   Data          56  device.o(.bss)
-    Events                                   0x20000334   Data         120  event_manager.o(.bss)
-    IrParamWords                             0x200003ac   Data          38  parameters.o(.bss)
-    Phy                                      0x200003d4   Data          16  periphery.o(.bss)
-    __libspace_start                         0x200003e4   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x20000444   Data           0  libspace.o(.bss)
+    DataManager::InitParameters()            0x08000ef1   Thumb Code    72  parameters.o(i._ZN11DataManager14InitParametersEv)
+    DeviceClass::EventFlash()                0x08000f45   Thumb Code   114  event_handler.o(i._ZN11DeviceClass10EventFlashEv)
+    DeviceClass::EventTimer()                0x08000fc9   Thumb Code    74  event_handler.o(i._ZN11DeviceClass10EventTimerEv)
+    DeviceClass::InitDevice()                0x0800101d   Thumb Code    62  device.o(i._ZN11DeviceClass10InitDeviceEv)
+    DeviceClass::EventBuzzer()               0x08001069   Thumb Code    82  event_handler.o(i._ZN11DeviceClass11EventBuzzerEv)
+    DeviceClass::GetGlobalTime()             0x080010c5   Thumb Code     6  device.o(i._ZN11DeviceClass13GetGlobalTimeEv)
+    DeviceClass::StartEventNow(unsigned char) 0x080010cd   Thumb Code    32  event_handler.o(i._ZN11DeviceClass13StartEventNowEh)
+    DeviceClass::CheckEventTime(unsigned&)   0x080010f1   Thumb Code    20  event_handler.o(i._ZN11DeviceClass14CheckEventTimeERj)
+    DeviceClass::IncrementHours()            0x08001105   Thumb Code    60  event_handler.o(i._ZN11DeviceClass14IncrementHoursEv)
+    DeviceClass::TuneBrightness()            0x08001155   Thumb Code    94  event_handler.o(i._ZN11DeviceClass14TuneBrightnessEv)
+    DeviceClass::EventButtonHours()          0x080011c1   Thumb Code   364  event_handler.o(i._ZN11DeviceClass16EventButtonHoursEv)
+    DeviceClass::IncrementMinutes()          0x08001351   Thumb Code    74  event_handler.o(i._ZN11DeviceClass16IncrementMinutesEv)
+    DeviceClass::CheckWaitingEvent()         0x080013b5   Thumb Code   152  event_handler.o(i._ZN11DeviceClass17CheckWaitingEventEv)
+    DeviceClass::EventButtonMinutes()        0x08001451   Thumb Code   370  event_handler.o(i._ZN11DeviceClass18EventButtonMinutesEv)
+    DeviceClass::IncrementGlobalTime()       0x080015e9   Thumb Code   138  event_handler.o(i._ZN11DeviceClass19IncrementGlobalTimeEv)
+    DeviceClass::EventLed()                  0x08001679   Thumb Code   270  event_handler.o(i._ZN11DeviceClass8EventLedEv)
+    DeviceClass::EventRtc()                  0x0800179d   Thumb Code   154  event_handler.o(i._ZN11DeviceClass8EventRtcEv)
+    DeviceClass::EventWdt()                  0x08001841   Thumb Code    12  event_handler.o(i._ZN11DeviceClass8EventWdtEv)
+    SoundBuzzer::InitBuzzer()                0x08001855   Thumb Code    62  buzzer.o(i._ZN11SoundBuzzer10InitBuzzerEv)
+    SoundBuzzer::ClearValues()               0x080018a9   Thumb Code    12  buzzer.o(i._ZN11SoundBuzzer11ClearValuesEv)
+    SoundBuzzer::PlayNote()                  0x080018bd   Thumb Code   200  buzzer.o(i._ZN11SoundBuzzer8PlayNoteEv)
+    Button_class::CheckLastPress()           0x080019ad   Thumb Code     6  button.o(i._ZN12Button_class14CheckLastPressEv)
+    Button_class::ButtonHoursPressed()       0x080019b5   Thumb Code    24  button.o(i._ZN12Button_class18ButtonHoursPressedEv)
+    Button_class::ButtonMinutesPressed()     0x080019d1   Thumb Code    26  button.o(i._ZN12Button_class20ButtonMinutesPressedEv)
+    Button_class::Check()                    0x080019f1   Thumb Code   508  button.o(i._ZN12Button_class5CheckEv)
+    Button_class::Button_class()             0x08001bf5   Thumb Code    14  button.o(i._ZN12Button_classC1Ev)
+    Button_class::Button_class__sub_object() 0x08001bf5   Thumb Code     0  button.o(i._ZN12Button_classC1Ev)
+    EventManager::ClearEvent(unsigned char)  0x08001c03   Thumb Code    36  event_manager.o(i._ZN12EventManager10ClearEventEh)
+    EventManager::CheckIfActive(unsigned char) 0x08001c27   Thumb Code    22  event_manager.o(i._ZN12EventManager13CheckIfActiveEh)
+    EventManager::GetWaitingEvent(unsigned char&, unsigned&) 0x08001c3d   Thumb Code    82  event_manager.o(i._ZN12EventManager15GetWaitingEventERhRj)
+    EventManager::ClearExecutedEvents()      0x08001c8f   Thumb Code    28  event_manager.o(i._ZN12EventManager19ClearExecutedEventsEv)
+    EventManager::AddEvent(unsigned char, unsigned) 0x08001cab   Thumb Code    32  event_manager.o(i._ZN12EventManager8AddEventEhj)
+    EventManager::EventManager()             0x08001ccb   Thumb Code   154  event_manager.o(i._ZN12EventManagerC1Ev)
+    EventManager::EventManager__sub_object() 0x08001ccb   Thumb Code     0  event_manager.o(i._ZN12EventManagerC1Ev)
+    SevenSegmentDisplay::UpdateDisplay()     0x08001d65   Thumb Code   188  display_segment.o(i._ZN19SevenSegmentDisplay13UpdateDisplayEv)
+    SevenSegmentDisplay::ClearBlinkCounter() 0x08001e25   Thumb Code     6  display_segment.o(i._ZN19SevenSegmentDisplay17ClearBlinkCounterEv)
+    SevenSegmentDisplay::SetDigit(unsigned char, unsigned char) 0x08001e2d   Thumb Code   276  display_segment.o(i._ZN19SevenSegmentDisplay8SetDigitEhh)
+    SevenSegmentDisplay::SevenSegmentDisplay() 0x08001f4d   Thumb Code     6  display_segment.o(i._ZN19SevenSegmentDisplayC1Ev)
+    SevenSegmentDisplay::SevenSegmentDisplay__sub_object() 0x08001f4d   Thumb Code     0  display_segment.o(i._ZN19SevenSegmentDisplayC1Ev)
+    State::ChangeState(states_t)             0x08001f53   Thumb Code    14  fsm.o(i._ZN5State11ChangeStateE8states_t)
+    State::UpdateState()                     0x08001f61   Thumb Code    94  fsm.o(i._ZN5State11UpdateStateEv)
+    State::SetStateTime()                    0x08001fbf   Thumb Code     2  fsm.o(i._ZN5State12SetStateTimeEv)
+    State::SetStateWork()                    0x08001fc1   Thumb Code    56  fsm.o(i._ZN5State12SetStateWorkEv)
+    State::GetCurrentState()                 0x08002001   Thumb Code     6  fsm.o(i._ZN5State15GetCurrentStateEv)
+    State::SetStateBrightness()              0x08002007   Thumb Code     2  fsm.o(i._ZN5State18SetStateBrightnessEv)
+    State::State()                           0x08002009   Thumb Code    10  fsm.o(i._ZN5StateC1Ev)
+    State::State__sub_object()               0x08002009   Thumb Code     0  fsm.o(i._ZN5StateC1Ev)
+    DS3231::getMinutes(unsigned char&)       0x08002015   Thumb Code    46  ds3231.o(i._ZN6DS323110getMinutesERh)
+    DS3231::getSeconds(unsigned char&)       0x08002049   Thumb Code    46  ds3231.o(i._ZN6DS323110getSecondsERh)
+    DS3231::oscillatorCheck(bool&)           0x0800207d   Thumb Code    50  ds3231.o(i._ZN6DS323115oscillatorCheckERb)
+    DS3231::readControlByte(unsigned char&, bool) 0x080020b1   Thumb Code    56  ds3231.o(i._ZN6DS323115readControlByteERhb)
+    DS3231::writeControlByte(unsigned char, bool) 0x080020ed   Thumb Code    58  ds3231.o(i._ZN6DS323116writeControlByteEhb)
+    DS3231::setHour(unsigned char)           0x0800212d   Thumb Code   144  ds3231.o(i._ZN6DS32317setHourEh)
+    DS3231::bcdToDec(unsigned char)          0x080021c1   Thumb Code    36  ds3231.o(i._ZN6DS32318bcdToDecEh)
+    DS3231::decToBcd(unsigned char)          0x080021e5   Thumb Code    30  ds3231.o(i._ZN6DS32318decToBcdEh)
+    DS3231::getHours(unsigned char&, bool&, bool&) 0x08002205   Thumb Code   104  ds3231.o(i._ZN6DS32318getHoursERhRbS1_)
+    DS3231::setMinute(unsigned char)         0x08002271   Thumb Code    38  ds3231.o(i._ZN6DS32319setMinuteEh)
+    DS3231::setSecond(unsigned char)         0x0800229d   Thumb Code    78  ds3231.o(i._ZN6DS32319setSecondEh)
+    Periphery::FlashWrite(unsigned, const unsigned char*, unsigned short) 0x080022f1   Thumb Code   238  flash.o(i._ZN9Periphery10FlashWriteEjPKht)
+    Periphery::InitDMACh2()                  0x080023e9   Thumb Code   152  dma_tim1.o(i._ZN9Periphery10InitDMACh2Ev)
+    Periphery::InitTim3Ms()                  0x08002495   Thumb Code    36  tim3.o(i._ZN9Periphery10InitTim3MsEv)
+    Periphery::StopDMACh2()                  0x080024c5   Thumb Code    40  dma_tim1.o(i._ZN9Periphery10StopDMACh2Ev)
+    Periphery::FlashUnlock()                 0x080024f5   Thumb Code    40  flash.o(i._ZN9Periphery11FlashUnlockEv)
+    Periphery::InitTim1Pwm()                 0x08002529   Thumb Code   162  tim1.o(i._ZN9Periphery11InitTim1PwmEv)
+    Periphery::StartDMACh2(unsigned short)   0x080025d9   Thumb Code    46  dma_tim1.o(i._ZN9Periphery11StartDMACh2Et)
+    Periphery::UpdateTIM16(unsigned short)   0x08002611   Thumb Code    64  tim16.o(i._ZN9Periphery11UpdateTIM16Et)
+    Periphery::FlashWaitBusy()               0x08002659   Thumb Code    50  flash.o(i._ZN9Periphery13FlashWaitBusyEv)
+    Periphery::FlashErasePage(unsigned char) 0x08002695   Thumb Code   138  flash.o(i._ZN9Periphery14FlashErasePageEh)
+    Periphery::InitInterrupts()              0x08002729   Thumb Code   190  interrupts.o(i._ZN9Periphery14InitInterruptsEv)
+    Periphery::InitSystemTimer()             0x080027f1   Thumb Code    46  tim_system.o(i._ZN9Periphery15InitSystemTimerEv)
+    Periphery::InitTim16Buzzer()             0x08002829   Thumb Code    68  tim16.o(i._ZN9Periphery15InitTim16BuzzerEv)
+    Periphery::ReadI2C1_DS3231(unsigned char, unsigned char, unsigned char*, unsigned char) 0x08002879   Thumb Code   196  i2c1.o(i._ZN9Periphery15ReadI2C1_DS3231EhhPhh)
+    Periphery::WriteI2C1_DS3231(unsigned char, unsigned char, unsigned char*, unsigned char) 0x08002949   Thumb Code   186  i2c1.o(i._ZN9Periphery16WriteI2C1_DS3231EhhPhh)
+    Periphery::SetDisplayBrightness(unsigned char) 0x08002a0d   Thumb Code    76  tim14.o(i._ZN9Periphery20SetDisplayBrightnessEh)
+    Periphery::InitTim17DisplayUpdate()      0x08002a5d   Thumb Code    68  tim17.o(i._ZN9Periphery22InitTim17DisplayUpdateEv)
+    Periphery::GetIlluminationAdcValue(unsigned short&) 0x08002aad   Thumb Code   132  adc.o(i._ZN9Periphery23GetIlluminationAdcValueERt)
+    Periphery::InitTim14DisplayBrightness()  0x08002b39   Thumb Code   116  tim14.o(i._ZN9Periphery26InitTim14DisplayBrightnessEv)
+    Periphery::I2C_StartDirectionAddressSize(_I2C_Direction, unsigned char, unsigned char) 0x08002bb5   Thumb Code   144  i2c1.o(i._ZN9Periphery29I2C_StartDirectionAddressSizeE14_I2C_Directionhh)
+    Periphery::DelayMs(unsigned short)       0x08002c4d   Thumb Code   110  tim3.o(i._ZN9Periphery7DelayMsEt)
+    Periphery::DelayUs(unsigned short)       0x08002cc9   Thumb Code    26  periphery.o(i._ZN9Periphery7DelayUsEt)
+    Periphery::InitADC()                     0x08002ce5   Thumb Code   340  adc.o(i._ZN9Periphery7InitADCEv)
+    Periphery::InitPhy()                     0x08002e49   Thumb Code    84  periphery.o(i._ZN9Periphery7InitPhyEv)
+    Periphery::InitGPIO()                    0x08002e9d   Thumb Code   884  gpio.o(i._ZN9Periphery8InitGPIOEv)
+    Periphery::InitI2C1()                    0x08003221   Thumb Code   190  i2c1.o(i._ZN9Periphery8InitI2C1Ev)
+    Periphery::InitSPI1()                    0x080032ed   Thumb Code   100  spi1.o(i._ZN9Periphery8InitSPI1Ev)
+    Periphery::InitTick()                    0x08003359   Thumb Code   240  tick.o(i._ZN9Periphery8InitTickEv)
+    Periphery::StopI2C1()                    0x08003455   Thumb Code   122  i2c1.o(i._ZN9Periphery8StopI2C1Ev)
+    Periphery::FlashLock()                   0x080034d9   Thumb Code    42  flash.o(i._ZN9Periphery9FlashLockEv)
+    Periphery::FlashRead(unsigned, unsigned char*, unsigned short) 0x08003509   Thumb Code   122  flash.o(i._ZN9Periphery9FlashReadEjPht)
+    Periphery::SPI1Write(const unsigned char*, unsigned short) 0x08003585   Thumb Code    78  spi1.o(i._ZN9Periphery9SPI1WriteEPKht)
+    Periphery::StopTIM16()                   0x080035d9   Thumb Code    14  tim16.o(i._ZN9Periphery9StopTIM16Ev)
+    __ARM_common_switch8                     0x080035ed   Thumb Code    28  event_handler.o(i.__ARM_common_switch8)
+    main                                     0x08003649   Thumb Code    34  main.o(i.main)
+    __aeabi_fadd                             0x0800367d   Thumb Code     0  faddsub.o(x$fpl$fadd)
+    _fadd                                    0x0800367d   Thumb Code   134  faddsub.o(x$fpl$fadd)
+    __aeabi_fmul                             0x08003709   Thumb Code     0  fmul.o(x$fpl$fmul)
+    _fmul                                    0x08003709   Thumb Code   172  fmul.o(x$fpl$fmul)
+    __aeabi_fsub                             0x080037b9   Thumb Code     0  faddsub.o(x$fpl$fsub)
+    _fsub                                    0x080037b9   Thumb Code   204  faddsub.o(x$fpl$fsub)
+    __I$use$fp                               0x08003888   Number         0  usenofp.o(x$fpl$usenofp)
+    Region$$Table$$Base                      0x0800503c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800505c   Number         0  anon$$obj.o(Region$$Table)
+    SHT$$INIT_ARRAY$$Base                    0x0800505c   Number         0  button.o(.init_array)
+    SHT$$INIT_ARRAY$$Limit                   0x0800506c   Number         0  init_aeabi.o(.init_array)
+    Buzzer                                   0x20000000   Data           1  buzzer.o(.data)
+    A                                        0x20000001   Data           1  buzzer.o(.data)
+    step                                     0x20000002   Data           1  buzzer.o(.data)
+    selected_note_dotes                      0x20000004   Data           2  buzzer.o(.data)
+    fading                                   0x20000006   Data           1  buzzer.o(.data)
+    button_long                              0x20000007   Data           1  event_handler.o(.data)
+    Display                                  0x20000008   Data           8  display_segment.o(.data)
+    display_data                             0x20000010   Data           2  display_segment.o(.data)
+    Parameters                               0x20000012   Data           2  parameters.o(.data)
+    Fsm                                      0x20000014   Data           3  fsm.o(.data)
+    protection_counter                       0x20000018   Data           2  i2c1.o(.data)
+    RTC_DS3231                               0x2000001a   Data           1  ds3231.o(.data)
+    Buttons                                  0x20000020   Data          16  button.o(.bss)
+    notes_dots                               0x20000030   Data          96  buzzer.o(.bss)
+    sound_sin                                0x20000090   Data         500  buzzer.o(.bss)
+    Device                                   0x20000284   Data          48  device.o(.bss)
+    Events                                   0x200002b4   Data         108  event_manager.o(.bss)
+    IrParamWords                             0x20000320   Data          38  parameters.o(.bss)
+    Phy                                      0x20000348   Data          16  periphery.o(.bss)
+    __libspace_start                         0x20000358   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x200003b8   Data           0  libspace.o(.bss)
 
 
 
@@ -1660,236 +1571,229 @@ Memory Map of the image
 
   Image Entry point : 0x080000c1
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00005204, Max: 0x00008000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000508c, Max: 0x00008000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0000517c, Max: 0x00008000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0000506c, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x08000000   0x000000c0   Data   RO         1765    RESET               startup_stm32g030xx.o
-    0x080000c0   0x080000c0   0x00000008   Code   RO         1844  * !!!main             c_p.l(__main.o)
-    0x080000c8   0x080000c8   0x0000003c   Code   RO         2068    !!!scatter          c_p.l(__scatter.o)
-    0x08000104   0x08000104   0x0000001a   Code   RO         2070    !!handler_copy      c_p.l(__scatter_copy.o)
+    0x08000000   0x08000000   0x000000c0   Data   RO         1555    RESET               startup_stm32g030xx.o
+    0x080000c0   0x080000c0   0x00000008   Code   RO         1634  * !!!main             c_p.l(__main.o)
+    0x080000c8   0x080000c8   0x0000003c   Code   RO         1858    !!!scatter          c_p.l(__scatter.o)
+    0x08000104   0x08000104   0x0000001a   Code   RO         1860    !!handler_copy      c_p.l(__scatter_copy.o)
     0x0800011e   0x0800011e   0x00000002   PAD
-    0x08000120   0x08000120   0x0000001c   Code   RO         2072    !!handler_zi        c_p.l(__scatter_zi.o)
-    0x0800013c   0x0800013c   0x00000002   Code   RO         1980    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1890    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1892    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1895    .ARM.Collect$$libinit$$0000000A  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1897    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1899    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1902    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1904    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1906    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1908    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1910    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1912    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1914    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1916    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1918    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1920    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1922    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1926    .ARM.Collect$$libinit$$0000002C  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1928    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000000   Code   RO         1930    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
-    0x0800013e   0x0800013e   0x00000004   Code   RO         1931    .ARM.Collect$$libinit$$00000031  c_p.l(libinit2.o)
-    0x08000142   0x08000142   0x00000000   Code   RO         1932    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
-    0x08000142   0x08000142   0x00000002   Code   RO         1933    .ARM.Collect$$libinit$$00000033  c_p.l(libinit2.o)
-    0x08000144   0x08000144   0x00000002   Code   RO         2035    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
-    0x08000146   0x08000146   0x00000000   Code   RO         2051    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
-    0x08000146   0x08000146   0x00000000   Code   RO         2053    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
-    0x08000146   0x08000146   0x00000000   Code   RO         2056    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
-    0x08000146   0x08000146   0x00000000   Code   RO         2059    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
-    0x08000146   0x08000146   0x00000000   Code   RO         2061    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
-    0x08000146   0x08000146   0x00000000   Code   RO         2064    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
-    0x08000146   0x08000146   0x00000002   Code   RO         2065    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
-    0x08000148   0x08000148   0x00000000   Code   RO         1878    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
-    0x08000148   0x08000148   0x00000000   Code   RO         1936    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
-    0x08000148   0x08000148   0x00000006   Code   RO         1948    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
-    0x0800014e   0x0800014e   0x00000000   Code   RO         1938    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
-    0x0800014e   0x0800014e   0x00000004   Code   RO         1939    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
-    0x08000152   0x08000152   0x00000000   Code   RO         1941    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
-    0x08000152   0x08000152   0x00000008   Code   RO         1942    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
-    0x0800015a   0x0800015a   0x00000002   Code   RO         1987    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
-    0x0800015c   0x0800015c   0x00000000   Code   RO         2015    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
-    0x0800015c   0x0800015c   0x00000004   Code   RO         2016    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
-    0x08000160   0x08000160   0x00000006   Code   RO         2017    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
+    0x08000120   0x08000120   0x0000001c   Code   RO         1862    !!handler_zi        c_p.l(__scatter_zi.o)
+    0x0800013c   0x0800013c   0x00000002   Code   RO         1770    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1680    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1682    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1685    .ARM.Collect$$libinit$$0000000A  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1687    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1689    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1692    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1694    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1696    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1698    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1700    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1702    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1704    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1706    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1708    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1710    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1712    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1716    .ARM.Collect$$libinit$$0000002C  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1718    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000000   Code   RO         1720    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
+    0x0800013e   0x0800013e   0x00000004   Code   RO         1721    .ARM.Collect$$libinit$$00000031  c_p.l(libinit2.o)
+    0x08000142   0x08000142   0x00000000   Code   RO         1722    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
+    0x08000142   0x08000142   0x00000002   Code   RO         1723    .ARM.Collect$$libinit$$00000033  c_p.l(libinit2.o)
+    0x08000144   0x08000144   0x00000002   Code   RO         1825    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
+    0x08000146   0x08000146   0x00000000   Code   RO         1841    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
+    0x08000146   0x08000146   0x00000000   Code   RO         1843    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
+    0x08000146   0x08000146   0x00000000   Code   RO         1846    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
+    0x08000146   0x08000146   0x00000000   Code   RO         1849    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
+    0x08000146   0x08000146   0x00000000   Code   RO         1851    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
+    0x08000146   0x08000146   0x00000000   Code   RO         1854    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
+    0x08000146   0x08000146   0x00000002   Code   RO         1855    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
+    0x08000148   0x08000148   0x00000000   Code   RO         1668    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
+    0x08000148   0x08000148   0x00000000   Code   RO         1726    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
+    0x08000148   0x08000148   0x00000006   Code   RO         1738    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
+    0x0800014e   0x0800014e   0x00000000   Code   RO         1728    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
+    0x0800014e   0x0800014e   0x00000004   Code   RO         1729    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
+    0x08000152   0x08000152   0x00000000   Code   RO         1731    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
+    0x08000152   0x08000152   0x00000008   Code   RO         1732    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
+    0x0800015a   0x0800015a   0x00000002   Code   RO         1777    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
+    0x0800015c   0x0800015c   0x00000000   Code   RO         1805    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
+    0x0800015c   0x0800015c   0x00000004   Code   RO         1806    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
+    0x08000160   0x08000160   0x00000006   Code   RO         1807    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
     0x08000166   0x08000166   0x00000002   PAD
-    0x08000168   0x08000168   0x00000038   Code   RO         1766    .text               startup_stm32g030xx.o
-    0x080001a0   0x080001a0   0x0000015a   Code   RO         1838    .text               c_p.l(aeabi_sdiv.o)
-    0x080002fa   0x080002fa   0x00000006   Code   RO         1842    .text               c_p.l(heapauxi.o)
-    0x08000300   0x08000300   0x00000024   Code   RO         1849    .text               c_p.l(init_aeabi.o)
-    0x08000324   0x08000324   0x0000007c   Code   RO         1852    .text               fz_ps.l(d2f.o)
-    0x080003a0   0x080003a0   0x00000448   Code   RO         1854    .text               fz_ps.l(ddiv.o)
-    0x080007e8   0x080007e8   0x00000058   Code   RO         1857    .text               fz_ps.l(dflti.o)
-    0x08000840   0x08000840   0x00000248   Code   RO         1859    .text               fz_ps.l(dmul.o)
-    0x08000a88   0x08000a88   0x00000160   Code   RO         1869    .text               fz_ps.l(fdiv.o)
-    0x08000be8   0x08000be8   0x00000030   Code   RO         1872    .text               fz_ps.l(ffixui.o)
-    0x08000c18   0x08000c18   0x0000005e   Code   RO         1874    .text               fz_ps.l(fflti.o)
-    0x08000c76   0x08000c76   0x0000003e   Code   RO         1960    .text               c_p.l(sys_stackheap_outer.o)
-    0x08000cb4   0x08000cb4   0x00000010   Code   RO         1965    .text               c_p.l(exit.o)
-    0x08000cc4   0x08000cc4   0x00000008   Code   RO         1983    .text               c_p.l(libspace.o)
-    0x08000ccc   0x08000ccc   0x0000000c   Code   RO         2009    .text               c_p.l(sys_exit.o)
-    0x08000cd8   0x08000cd8   0x00000002   Code   RO         2011    .text               c_p.l(use_no_semi.o)
-    0x08000cda   0x08000cda   0x00000000   Code   RO         2013    .text               c_p.l(indicate_semi.o)
+    0x08000168   0x08000168   0x00000038   Code   RO         1556    .text               startup_stm32g030xx.o
+    0x080001a0   0x080001a0   0x0000015a   Code   RO         1628    .text               c_p.l(aeabi_sdiv.o)
+    0x080002fa   0x080002fa   0x00000006   Code   RO         1632    .text               c_p.l(heapauxi.o)
+    0x08000300   0x08000300   0x00000024   Code   RO         1639    .text               c_p.l(init_aeabi.o)
+    0x08000324   0x08000324   0x0000007c   Code   RO         1642    .text               fz_ps.l(d2f.o)
+    0x080003a0   0x080003a0   0x00000448   Code   RO         1644    .text               fz_ps.l(ddiv.o)
+    0x080007e8   0x080007e8   0x00000058   Code   RO         1647    .text               fz_ps.l(dflti.o)
+    0x08000840   0x08000840   0x00000248   Code   RO         1649    .text               fz_ps.l(dmul.o)
+    0x08000a88   0x08000a88   0x00000160   Code   RO         1659    .text               fz_ps.l(fdiv.o)
+    0x08000be8   0x08000be8   0x00000030   Code   RO         1662    .text               fz_ps.l(ffixui.o)
+    0x08000c18   0x08000c18   0x0000005e   Code   RO         1664    .text               fz_ps.l(fflti.o)
+    0x08000c76   0x08000c76   0x0000003e   Code   RO         1750    .text               c_p.l(sys_stackheap_outer.o)
+    0x08000cb4   0x08000cb4   0x00000010   Code   RO         1755    .text               c_p.l(exit.o)
+    0x08000cc4   0x08000cc4   0x00000008   Code   RO         1773    .text               c_p.l(libspace.o)
+    0x08000ccc   0x08000ccc   0x0000000c   Code   RO         1799    .text               c_p.l(sys_exit.o)
+    0x08000cd8   0x08000cd8   0x00000002   Code   RO         1801    .text               c_p.l(use_no_semi.o)
+    0x08000cda   0x08000cda   0x00000000   Code   RO         1803    .text               c_p.l(indicate_semi.o)
     0x08000cda   0x08000cda   0x00000002   PAD
-    0x08000cdc   0x08000cdc   0x00000038   Code   RO          186    i.DMA1_Channel1_IRQHandler  device.o
-    0x08000d14   0x08000d14   0x00000034   Code   RO          187    i.EXTI0_1_IRQHandler  device.o
-    0x08000d48   0x08000d48   0x00000038   Code   RO          188    i.EXTI4_15_IRQHandler  device.o
-    0x08000d80   0x08000d80   0x00000010   Code   RO          189    i.SysTick_Handler   device.o
-    0x08000d90   0x08000d90   0x00000002   Code   RO         1773    i.SystemInit        system_stm32g0xx.o
+    0x08000cdc   0x08000cdc   0x00000038   Code   RO          162    i.DMA1_Channel1_IRQHandler  device.o
+    0x08000d14   0x08000d14   0x00000034   Code   RO          163    i.EXTI0_1_IRQHandler  device.o
+    0x08000d48   0x08000d48   0x00000038   Code   RO          164    i.EXTI4_15_IRQHandler  device.o
+    0x08000d80   0x08000d80   0x00000010   Code   RO          165    i.SysTick_Handler   device.o
+    0x08000d90   0x08000d90   0x00000002   Code   RO         1563    i.SystemInit        system_stm32g0xx.o
     0x08000d92   0x08000d92   0x00000002   PAD
-    0x08000d94   0x08000d94   0x0000002c   Code   RO          190    i.TIM16_IRQHandler  device.o
-    0x08000dc0   0x08000dc0   0x00000098   Code   RO          191    i.TIM17_IRQHandler  device.o
-    0x08000e58   0x08000e58   0x00000018   Code   RO         1053    i._Z16__NVIC_EnableIRQ9IRQn_Type  interrupts.o
-    0x08000e70   0x08000e70   0x00000078   Code   RO         1054    i._Z18__NVIC_SetPriority9IRQn_Typej  interrupts.o
-    0x08000ee8   0x08000ee8   0x00000054   Code   RO          655    i._ZN11DataManager14InitParametersEv  parameters.o
-    0x08000f3c   0x08000f3c   0x00000088   Code   RO          313    i._ZN11DeviceClass10EventFlashEv  event_handler.o
-    0x08000fc4   0x08000fc4   0x00000054   Code   RO          314    i._ZN11DeviceClass10EventTimerEv  event_handler.o
-    0x08001018   0x08001018   0x0000004c   Code   RO          192    i._ZN11DeviceClass10InitDeviceEv  device.o
-    0x08001064   0x08001064   0x0000005c   Code   RO          315    i._ZN11DeviceClass11EventBuzzerEv  event_handler.o
-    0x080010c0   0x080010c0   0x00000006   Code   RO          193    i._ZN11DeviceClass13GetGlobalTimeEv  device.o
-    0x080010c6   0x080010c6   0x00000002   PAD
-    0x080010c8   0x080010c8   0x00000030   Code   RO          316    i._ZN11DeviceClass13StartEventNowEh  event_handler.o
-    0x080010f8   0x080010f8   0x00000014   Code   RO          317    i._ZN11DeviceClass14CheckEventTimeERj  event_handler.o
-    0x0800110c   0x0800110c   0x00000050   Code   RO          318    i._ZN11DeviceClass14IncrementHoursEv  event_handler.o
-    0x0800115c   0x0800115c   0x0000006c   Code   RO          319    i._ZN11DeviceClass14TuneBrightnessEv  event_handler.o
-    0x080011c8   0x080011c8   0x00000190   Code   RO          320    i._ZN11DeviceClass16EventButtonHoursEv  event_handler.o
-    0x08001358   0x08001358   0x00000064   Code   RO          321    i._ZN11DeviceClass16IncrementMinutesEv  event_handler.o
-    0x080013bc   0x080013bc   0x000000a8   Code   RO          322    i._ZN11DeviceClass17CheckWaitingEventEv  event_handler.o
-    0x08001464   0x08001464   0x00000012   Code   RO          323    i._ZN11DeviceClass17EventPowerVoltageEv  event_handler.o
-    0x08001476   0x08001476   0x00000002   PAD
-    0x08001478   0x08001478   0x00000198   Code   RO          324    i._ZN11DeviceClass18EventButtonMinutesEv  event_handler.o
-    0x08001610   0x08001610   0x000000a0   Code   RO          325    i._ZN11DeviceClass19IncrementGlobalTimeEv  event_handler.o
-    0x080016b0   0x080016b0   0x00000124   Code   RO          326    i._ZN11DeviceClass8EventLedEv  event_handler.o
-    0x080017d4   0x080017d4   0x000000a4   Code   RO          327    i._ZN11DeviceClass8EventRtcEv  event_handler.o
-    0x08001878   0x08001878   0x00000014   Code   RO          328    i._ZN11DeviceClass8EventWdtEv  event_handler.o
-    0x0800188c   0x0800188c   0x00000054   Code   RO           93    i._ZN11SoundBuzzer10InitBuzzerEv  buzzer.o
-    0x080018e0   0x080018e0   0x00000014   Code   RO           94    i._ZN11SoundBuzzer11ClearValuesEv  buzzer.o
-    0x080018f4   0x080018f4   0x000000f0   Code   RO           96    i._ZN11SoundBuzzer8PlayNoteEv  buzzer.o
-    0x080019e4   0x080019e4   0x00000006   Code   RO            3    i._ZN12Button_class14CheckLastPressEv  button.o
-    0x080019ea   0x080019ea   0x00000002   PAD
-    0x080019ec   0x080019ec   0x0000001c   Code   RO            4    i._ZN12Button_class18ButtonHoursPressedEv  button.o
-    0x08001a08   0x08001a08   0x00000020   Code   RO            5    i._ZN12Button_class20ButtonMinutesPressedEv  button.o
-    0x08001a28   0x08001a28   0x00000204   Code   RO            6    i._ZN12Button_class5CheckEv  button.o
-    0x08001c2c   0x08001c2c   0x0000000e   Code   RO            7    i._ZN12Button_classC1Ev  button.o
-    0x08001c3a   0x08001c3a   0x00000024   Code   RO          445    i._ZN12EventManager10ClearEventEh  event_manager.o
-    0x08001c5e   0x08001c5e   0x00000016   Code   RO          446    i._ZN12EventManager13CheckIfActiveEh  event_manager.o
-    0x08001c74   0x08001c74   0x00000052   Code   RO          448    i._ZN12EventManager15GetWaitingEventERhRj  event_manager.o
-    0x08001cc6   0x08001cc6   0x0000001c   Code   RO          450    i._ZN12EventManager19ClearExecutedEventsEv  event_manager.o
-    0x08001ce2   0x08001ce2   0x00000020   Code   RO          451    i._ZN12EventManager8AddEventEhj  event_manager.o
-    0x08001d02   0x08001d02   0x000000ae   Code   RO          452    i._ZN12EventManagerC1Ev  event_manager.o
-    0x08001db0   0x08001db0   0x000000c0   Code   RO          572    i._ZN19SevenSegmentDisplay13UpdateDisplayEv  display_segment.o
-    0x08001e70   0x08001e70   0x00000006   Code   RO          573    i._ZN19SevenSegmentDisplay17ClearBlinkCounterEv  display_segment.o
-    0x08001e76   0x08001e76   0x00000002   PAD
-    0x08001e78   0x08001e78   0x00000120   Code   RO          574    i._ZN19SevenSegmentDisplay8SetDigitEhh  display_segment.o
-    0x08001f98   0x08001f98   0x00000006   Code   RO          575    i._ZN19SevenSegmentDisplayC1Ev  display_segment.o
-    0x08001f9e   0x08001f9e   0x0000000e   Code   RO          735    i._ZN5State11ChangeStateE8states_t  fsm.o
-    0x08001fac   0x08001fac   0x0000005e   Code   RO          736    i._ZN5State11UpdateStateEv  fsm.o
-    0x0800200a   0x0800200a   0x00000002   Code   RO          737    i._ZN5State12SetStateTimeEv  fsm.o
-    0x0800200c   0x0800200c   0x00000040   Code   RO          738    i._ZN5State12SetStateWorkEv  fsm.o
-    0x0800204c   0x0800204c   0x00000006   Code   RO          739    i._ZN5State15GetCurrentStateEv  fsm.o
-    0x08002052   0x08002052   0x00000002   Code   RO          740    i._ZN5State18SetStateBrightnessEv  fsm.o
-    0x08002054   0x08002054   0x0000000a   Code   RO          741    i._ZN5StateC1Ev     fsm.o
-    0x0800205e   0x0800205e   0x00000002   PAD
-    0x08002060   0x08002060   0x00000034   Code   RO         1498    i._ZN6DS323110getMinutesERh  ds3231.o
-    0x08002094   0x08002094   0x00000034   Code   RO         1499    i._ZN6DS323110getSecondsERh  ds3231.o
-    0x080020c8   0x080020c8   0x00000032   Code   RO         1507    i._ZN6DS323115oscillatorCheckERb  ds3231.o
-    0x080020fa   0x080020fa   0x00000002   PAD
-    0x080020fc   0x080020fc   0x0000003c   Code   RO         1508    i._ZN6DS323115readControlByteERhb  ds3231.o
-    0x08002138   0x08002138   0x00000040   Code   RO         1510    i._ZN6DS323116writeControlByteEhb  ds3231.o
-    0x08002178   0x08002178   0x00000094   Code   RO         1517    i._ZN6DS32317setHourEh  ds3231.o
-    0x0800220c   0x0800220c   0x00000024   Code   RO         1519    i._ZN6DS32318bcdToDecEh  ds3231.o
-    0x08002230   0x08002230   0x0000001e   Code   RO         1520    i._ZN6DS32318decToBcdEh  ds3231.o
-    0x0800224e   0x0800224e   0x00000002   PAD
-    0x08002250   0x08002250   0x0000006c   Code   RO         1521    i._ZN6DS32318getHoursERhRbS1_  ds3231.o
-    0x080022bc   0x080022bc   0x0000002c   Code   RO         1531    i._ZN6DS32319setMinuteEh  ds3231.o
-    0x080022e8   0x080022e8   0x00000054   Code   RO         1532    i._ZN6DS32319setSecondEh  ds3231.o
-    0x0800233c   0x0800233c   0x000000f8   Code   RO          924    i._ZN9Periphery10FlashWriteEjPKht  flash.o
-    0x08002434   0x08002434   0x000000ac   Code   RO         1418    i._ZN9Periphery10InitDMACh1Ev  dma_spi1.o
-    0x080024e0   0x080024e0   0x000000ac   Code   RO         1458    i._ZN9Periphery10InitDMACh2Ev  dma_tim1.o
-    0x0800258c   0x0800258c   0x00000030   Code   RO         1250    i._ZN9Periphery10InitTim3MsEv  tim3.o
-    0x080025bc   0x080025bc   0x00000030   Code   RO         1459    i._ZN9Periphery10StopDMACh2Ev  dma_tim1.o
-    0x080025ec   0x080025ec   0x00000034   Code   RO          925    i._ZN9Periphery11FlashUnlockEv  flash.o
-    0x08002620   0x08002620   0x000000b0   Code   RO         1219    i._ZN9Periphery11InitTim1PwmEv  tim1.o
-    0x080026d0   0x080026d0   0x00000038   Code   RO         1460    i._ZN9Periphery11StartDMACh2Et  dma_tim1.o
-    0x08002708   0x08002708   0x00000048   Code   RO         1302    i._ZN9Periphery11UpdateTIM16Et  tim16.o
-    0x08002750   0x08002750   0x0000003c   Code   RO          926    i._ZN9Periphery13FlashWaitBusyEv  flash.o
-    0x0800278c   0x0800278c   0x00000094   Code   RO          927    i._ZN9Periphery14FlashErasePageEh  flash.o
-    0x08002820   0x08002820   0x000000c8   Code   RO         1055    i._ZN9Periphery14InitInterruptsEv  interrupts.o
-    0x080028e8   0x080028e8   0x00000038   Code   RO         1187    i._ZN9Periphery15InitSystemTimerEv  tim_system.o
-    0x08002920   0x08002920   0x00000050   Code   RO         1303    i._ZN9Periphery15InitTim16BuzzerEv  tim16.o
-    0x08002970   0x08002970   0x000000d0   Code   RO         1000    i._ZN9Periphery15ReadI2C1_DS3231EhhPhh  i2c1.o
-    0x08002a40   0x08002a40   0x000000c4   Code   RO         1001    i._ZN9Periphery16WriteI2C1_DS3231EhhPhh  i2c1.o
-    0x08002b04   0x08002b04   0x00000050   Code   RO         1276    i._ZN9Periphery20SetDisplayBrightnessEh  tim14.o
-    0x08002b54   0x08002b54   0x00000050   Code   RO         1334    i._ZN9Periphery22InitTim17DisplayUpdateEv  tim17.o
-    0x08002ba4   0x08002ba4   0x0000008c   Code   RO          879    i._ZN9Periphery23GetIlluminationAdcValueERt  adc.o
-    0x08002c30   0x08002c30   0x0000007c   Code   RO         1277    i._ZN9Periphery26InitTim14DisplayBrightnessEv  tim14.o
-    0x08002cac   0x08002cac   0x00000098   Code   RO         1002    i._ZN9Periphery29I2C_StartDirectionAddressSizeE14_I2C_Directionhh  i2c1.o
-    0x08002d44   0x08002d44   0x0000007c   Code   RO         1251    i._ZN9Periphery7DelayMsEt  tim3.o
-    0x08002dc0   0x08002dc0   0x0000001a   Code   RO          824    i._ZN9Periphery7DelayUsEt  periphery.o
-    0x08002dda   0x08002dda   0x00000002   PAD
-    0x08002ddc   0x08002ddc   0x00000164   Code   RO          880    i._ZN9Periphery7InitADCEv  adc.o
-    0x08002f40   0x08002f40   0x0000005a   Code   RO          825    i._ZN9Periphery7InitPhyEv  periphery.o
-    0x08002f9a   0x08002f9a   0x00000002   PAD
-    0x08002f9c   0x08002f9c   0x00000384   Code   RO          980    i._ZN9Periphery8InitGPIOEv  gpio.o
-    0x08003320   0x08003320   0x000000cc   Code   RO         1003    i._ZN9Periphery8InitI2C1Ev  i2c1.o
-    0x080033ec   0x080033ec   0x00000084   Code   RO         1380    i._ZN9Periphery8InitSPI1Ev  spi1.o
-    0x08003470   0x08003470   0x000000fc   Code   RO         1166    i._ZN9Periphery8InitTickEv  tick.o
-    0x0800356c   0x0800356c   0x00000084   Code   RO         1004    i._ZN9Periphery8StopI2C1Ev  i2c1.o
-    0x080035f0   0x080035f0   0x00000030   Code   RO          929    i._ZN9Periphery9FlashLockEv  flash.o
-    0x08003620   0x08003620   0x0000007a   Code   RO          930    i._ZN9Periphery9FlashReadEjPht  flash.o
-    0x0800369a   0x0800369a   0x00000002   PAD
-    0x0800369c   0x0800369c   0x0000004c   Code   RO         1381    i._ZN9Periphery9SPI1WriteEPKht  spi1.o
-    0x080036e8   0x080036e8   0x00000014   Code   RO         1304    i._ZN9Periphery9StopTIM16Ev  tim16.o
-    0x080036fc   0x080036fc   0x0000001c   Code   RO          422    i.__ARM_common_switch8  event_handler.o
-    0x08003718   0x08003718   0x00000010   Code   RO            8    i.__sti___10_button_cpp_Buttons  button.o
-    0x08003728   0x08003728   0x00000010   Code   RO          453    i.__sti___17_event_manager_cpp_Events  event_manager.o
-    0x08003738   0x08003738   0x00000010   Code   RO          576    i.__sti___19_display_segment_cpp_Display  display_segment.o
-    0x08003748   0x08003748   0x00000010   Code   RO          742    i.__sti___7_fsm_cpp_Fsm  fsm.o
-    0x08003758   0x08003758   0x00000034   Code   RO          536    i.main              main.o
-    0x0800378c   0x0800378c   0x0000008c   Code   RO         1863    x$fpl$fadd          fz_ps.l(faddsub.o)
-    0x08003818   0x08003818   0x000000b0   Code   RO         1876    x$fpl$fmul          fz_ps.l(fmul.o)
-    0x080038c8   0x080038c8   0x000000d0   Code   RO         1865    x$fpl$fsub          fz_ps.l(faddsub.o)
-    0x08003998   0x08003998   0x00000000   Code   RO         1934    x$fpl$usenofp       fz_ps.l(usenofp.o)
-    0x08003998   0x08003998   0x000016e0   Data   RO          108    .constdata          buzzer.o
-    0x08005078   0x08005078   0x00000014   Data   RO          345    .constdata          event_handler.o
-    0x0800508c   0x0800508c   0x00000080   Data   RO         1855    .constdata          fz_ps.l(ddiv.o)
-    0x0800510c   0x0800510c   0x00000040   Data   RO         1870    .constdata          fz_ps.l(fdiv.o)
-    0x0800514c   0x0800514c   0x00000020   Data   RO         2066    Region$$Table       anon$$obj.o
-    0x0800516c   0x0800516c   0x00000004   Data   RO           16    .init_array         button.o
-    0x08005170   0x0800516c   0x00000004   Data   RO          464    .init_array         event_manager.o
-    0x08005174   0x0800516c   0x00000004   Data   RO          583    .init_array         display_segment.o
-    0x08005178   0x0800516c   0x00000004   Data   RO          752    .init_array         fsm.o
-    0x0800517c   0x0800516c   0x00000000   Data   RO         1847    .init_array         c_p.l(init_aeabi.o)
+    0x08000d94   0x08000d94   0x0000002c   Code   RO          166    i.TIM16_IRQHandler  device.o
+    0x08000dc0   0x08000dc0   0x00000098   Code   RO          167    i.TIM17_IRQHandler  device.o
+    0x08000e58   0x08000e58   0x00000020   Code   RO          973    i._Z16__NVIC_EnableIRQ9IRQn_Type  interrupts.o
+    0x08000e78   0x08000e78   0x00000078   Code   RO          974    i._Z18__NVIC_SetPriority9IRQn_Typej  interrupts.o
+    0x08000ef0   0x08000ef0   0x00000054   Code   RO          618    i._ZN11DataManager14InitParametersEv  parameters.o
+    0x08000f44   0x08000f44   0x00000084   Code   RO          289    i._ZN11DeviceClass10EventFlashEv  event_handler.o
+    0x08000fc8   0x08000fc8   0x00000054   Code   RO          290    i._ZN11DeviceClass10EventTimerEv  event_handler.o
+    0x0800101c   0x0800101c   0x0000004c   Code   RO          168    i._ZN11DeviceClass10InitDeviceEv  device.o
+    0x08001068   0x08001068   0x0000005c   Code   RO          291    i._ZN11DeviceClass11EventBuzzerEv  event_handler.o
+    0x080010c4   0x080010c4   0x00000006   Code   RO          169    i._ZN11DeviceClass13GetGlobalTimeEv  device.o
+    0x080010ca   0x080010ca   0x00000002   PAD
+    0x080010cc   0x080010cc   0x00000024   Code   RO          292    i._ZN11DeviceClass13StartEventNowEh  event_handler.o
+    0x080010f0   0x080010f0   0x00000014   Code   RO          293    i._ZN11DeviceClass14CheckEventTimeERj  event_handler.o
+    0x08001104   0x08001104   0x00000050   Code   RO          294    i._ZN11DeviceClass14IncrementHoursEv  event_handler.o
+    0x08001154   0x08001154   0x0000006c   Code   RO          295    i._ZN11DeviceClass14TuneBrightnessEv  event_handler.o
+    0x080011c0   0x080011c0   0x00000190   Code   RO          296    i._ZN11DeviceClass16EventButtonHoursEv  event_handler.o
+    0x08001350   0x08001350   0x00000064   Code   RO          297    i._ZN11DeviceClass16IncrementMinutesEv  event_handler.o
+    0x080013b4   0x080013b4   0x0000009c   Code   RO          298    i._ZN11DeviceClass17CheckWaitingEventEv  event_handler.o
+    0x08001450   0x08001450   0x00000198   Code   RO          299    i._ZN11DeviceClass18EventButtonMinutesEv  event_handler.o
+    0x080015e8   0x080015e8   0x00000090   Code   RO          300    i._ZN11DeviceClass19IncrementGlobalTimeEv  event_handler.o
+    0x08001678   0x08001678   0x00000124   Code   RO          301    i._ZN11DeviceClass8EventLedEv  event_handler.o
+    0x0800179c   0x0800179c   0x000000a4   Code   RO          302    i._ZN11DeviceClass8EventRtcEv  event_handler.o
+    0x08001840   0x08001840   0x00000014   Code   RO          303    i._ZN11DeviceClass8EventWdtEv  event_handler.o
+    0x08001854   0x08001854   0x00000054   Code   RO           93    i._ZN11SoundBuzzer10InitBuzzerEv  buzzer.o
+    0x080018a8   0x080018a8   0x00000014   Code   RO           94    i._ZN11SoundBuzzer11ClearValuesEv  buzzer.o
+    0x080018bc   0x080018bc   0x000000f0   Code   RO           95    i._ZN11SoundBuzzer8PlayNoteEv  buzzer.o
+    0x080019ac   0x080019ac   0x00000006   Code   RO            3    i._ZN12Button_class14CheckLastPressEv  button.o
+    0x080019b2   0x080019b2   0x00000002   PAD
+    0x080019b4   0x080019b4   0x0000001c   Code   RO            4    i._ZN12Button_class18ButtonHoursPressedEv  button.o
+    0x080019d0   0x080019d0   0x00000020   Code   RO            5    i._ZN12Button_class20ButtonMinutesPressedEv  button.o
+    0x080019f0   0x080019f0   0x00000204   Code   RO            6    i._ZN12Button_class5CheckEv  button.o
+    0x08001bf4   0x08001bf4   0x0000000e   Code   RO            7    i._ZN12Button_classC1Ev  button.o
+    0x08001c02   0x08001c02   0x00000024   Code   RO          415    i._ZN12EventManager10ClearEventEh  event_manager.o
+    0x08001c26   0x08001c26   0x00000016   Code   RO          416    i._ZN12EventManager13CheckIfActiveEh  event_manager.o
+    0x08001c3c   0x08001c3c   0x00000052   Code   RO          418    i._ZN12EventManager15GetWaitingEventERhRj  event_manager.o
+    0x08001c8e   0x08001c8e   0x0000001c   Code   RO          420    i._ZN12EventManager19ClearExecutedEventsEv  event_manager.o
+    0x08001caa   0x08001caa   0x00000020   Code   RO          421    i._ZN12EventManager8AddEventEhj  event_manager.o
+    0x08001cca   0x08001cca   0x0000009a   Code   RO          422    i._ZN12EventManagerC1Ev  event_manager.o
+    0x08001d64   0x08001d64   0x000000c0   Code   RO          535    i._ZN19SevenSegmentDisplay13UpdateDisplayEv  display_segment.o
+    0x08001e24   0x08001e24   0x00000006   Code   RO          536    i._ZN19SevenSegmentDisplay17ClearBlinkCounterEv  display_segment.o
+    0x08001e2a   0x08001e2a   0x00000002   PAD
+    0x08001e2c   0x08001e2c   0x00000120   Code   RO          537    i._ZN19SevenSegmentDisplay8SetDigitEhh  display_segment.o
+    0x08001f4c   0x08001f4c   0x00000006   Code   RO          538    i._ZN19SevenSegmentDisplayC1Ev  display_segment.o
+    0x08001f52   0x08001f52   0x0000000e   Code   RO          674    i._ZN5State11ChangeStateE8states_t  fsm.o
+    0x08001f60   0x08001f60   0x0000005e   Code   RO          675    i._ZN5State11UpdateStateEv  fsm.o
+    0x08001fbe   0x08001fbe   0x00000002   Code   RO          676    i._ZN5State12SetStateTimeEv  fsm.o
+    0x08001fc0   0x08001fc0   0x00000040   Code   RO          677    i._ZN5State12SetStateWorkEv  fsm.o
+    0x08002000   0x08002000   0x00000006   Code   RO          678    i._ZN5State15GetCurrentStateEv  fsm.o
+    0x08002006   0x08002006   0x00000002   Code   RO          679    i._ZN5State18SetStateBrightnessEv  fsm.o
+    0x08002008   0x08002008   0x0000000a   Code   RO          680    i._ZN5StateC1Ev     fsm.o
+    0x08002012   0x08002012   0x00000002   PAD
+    0x08002014   0x08002014   0x00000034   Code   RO         1300    i._ZN6DS323110getMinutesERh  ds3231.o
+    0x08002048   0x08002048   0x00000034   Code   RO         1301    i._ZN6DS323110getSecondsERh  ds3231.o
+    0x0800207c   0x0800207c   0x00000032   Code   RO         1309    i._ZN6DS323115oscillatorCheckERb  ds3231.o
+    0x080020ae   0x080020ae   0x00000002   PAD
+    0x080020b0   0x080020b0   0x0000003c   Code   RO         1310    i._ZN6DS323115readControlByteERhb  ds3231.o
+    0x080020ec   0x080020ec   0x00000040   Code   RO         1312    i._ZN6DS323116writeControlByteEhb  ds3231.o
+    0x0800212c   0x0800212c   0x00000094   Code   RO         1319    i._ZN6DS32317setHourEh  ds3231.o
+    0x080021c0   0x080021c0   0x00000024   Code   RO         1321    i._ZN6DS32318bcdToDecEh  ds3231.o
+    0x080021e4   0x080021e4   0x0000001e   Code   RO         1322    i._ZN6DS32318decToBcdEh  ds3231.o
+    0x08002202   0x08002202   0x00000002   PAD
+    0x08002204   0x08002204   0x0000006c   Code   RO         1323    i._ZN6DS32318getHoursERhRbS1_  ds3231.o
+    0x08002270   0x08002270   0x0000002c   Code   RO         1332    i._ZN6DS32319setMinuteEh  ds3231.o
+    0x0800229c   0x0800229c   0x00000054   Code   RO         1333    i._ZN6DS32319setSecondEh  ds3231.o
+    0x080022f0   0x080022f0   0x000000f8   Code   RO          844    i._ZN9Periphery10FlashWriteEjPKht  flash.o
+    0x080023e8   0x080023e8   0x000000ac   Code   RO         1260    i._ZN9Periphery10InitDMACh2Ev  dma_tim1.o
+    0x08002494   0x08002494   0x00000030   Code   RO         1092    i._ZN9Periphery10InitTim3MsEv  tim3.o
+    0x080024c4   0x080024c4   0x00000030   Code   RO         1261    i._ZN9Periphery10StopDMACh2Ev  dma_tim1.o
+    0x080024f4   0x080024f4   0x00000034   Code   RO          845    i._ZN9Periphery11FlashUnlockEv  flash.o
+    0x08002528   0x08002528   0x000000b0   Code   RO         1061    i._ZN9Periphery11InitTim1PwmEv  tim1.o
+    0x080025d8   0x080025d8   0x00000038   Code   RO         1262    i._ZN9Periphery11StartDMACh2Et  dma_tim1.o
+    0x08002610   0x08002610   0x00000048   Code   RO         1144    i._ZN9Periphery11UpdateTIM16Et  tim16.o
+    0x08002658   0x08002658   0x0000003c   Code   RO          846    i._ZN9Periphery13FlashWaitBusyEv  flash.o
+    0x08002694   0x08002694   0x00000094   Code   RO          847    i._ZN9Periphery14FlashErasePageEh  flash.o
+    0x08002728   0x08002728   0x000000c8   Code   RO          975    i._ZN9Periphery14InitInterruptsEv  interrupts.o
+    0x080027f0   0x080027f0   0x00000038   Code   RO         1029    i._ZN9Periphery15InitSystemTimerEv  tim_system.o
+    0x08002828   0x08002828   0x00000050   Code   RO         1145    i._ZN9Periphery15InitTim16BuzzerEv  tim16.o
+    0x08002878   0x08002878   0x000000d0   Code   RO          920    i._ZN9Periphery15ReadI2C1_DS3231EhhPhh  i2c1.o
+    0x08002948   0x08002948   0x000000c4   Code   RO          921    i._ZN9Periphery16WriteI2C1_DS3231EhhPhh  i2c1.o
+    0x08002a0c   0x08002a0c   0x00000050   Code   RO         1118    i._ZN9Periphery20SetDisplayBrightnessEh  tim14.o
+    0x08002a5c   0x08002a5c   0x00000050   Code   RO         1176    i._ZN9Periphery22InitTim17DisplayUpdateEv  tim17.o
+    0x08002aac   0x08002aac   0x0000008c   Code   RO          799    i._ZN9Periphery23GetIlluminationAdcValueERt  adc.o
+    0x08002b38   0x08002b38   0x0000007c   Code   RO         1119    i._ZN9Periphery26InitTim14DisplayBrightnessEv  tim14.o
+    0x08002bb4   0x08002bb4   0x00000098   Code   RO          922    i._ZN9Periphery29I2C_StartDirectionAddressSizeE14_I2C_Directionhh  i2c1.o
+    0x08002c4c   0x08002c4c   0x0000007c   Code   RO         1093    i._ZN9Periphery7DelayMsEt  tim3.o
+    0x08002cc8   0x08002cc8   0x0000001a   Code   RO          763    i._ZN9Periphery7DelayUsEt  periphery.o
+    0x08002ce2   0x08002ce2   0x00000002   PAD
+    0x08002ce4   0x08002ce4   0x00000164   Code   RO          800    i._ZN9Periphery7InitADCEv  adc.o
+    0x08002e48   0x08002e48   0x00000054   Code   RO          764    i._ZN9Periphery7InitPhyEv  periphery.o
+    0x08002e9c   0x08002e9c   0x00000384   Code   RO          900    i._ZN9Periphery8InitGPIOEv  gpio.o
+    0x08003220   0x08003220   0x000000cc   Code   RO          923    i._ZN9Periphery8InitI2C1Ev  i2c1.o
+    0x080032ec   0x080032ec   0x0000006c   Code   RO         1222    i._ZN9Periphery8InitSPI1Ev  spi1.o
+    0x08003358   0x08003358   0x000000fc   Code   RO         1008    i._ZN9Periphery8InitTickEv  tick.o
+    0x08003454   0x08003454   0x00000084   Code   RO          924    i._ZN9Periphery8StopI2C1Ev  i2c1.o
+    0x080034d8   0x080034d8   0x00000030   Code   RO          849    i._ZN9Periphery9FlashLockEv  flash.o
+    0x08003508   0x08003508   0x0000007a   Code   RO          850    i._ZN9Periphery9FlashReadEjPht  flash.o
+    0x08003582   0x08003582   0x00000002   PAD
+    0x08003584   0x08003584   0x00000054   Code   RO         1223    i._ZN9Periphery9SPI1WriteEPKht  spi1.o
+    0x080035d8   0x080035d8   0x00000014   Code   RO         1146    i._ZN9Periphery9StopTIM16Ev  tim16.o
+    0x080035ec   0x080035ec   0x0000001c   Code   RO          392    i.__ARM_common_switch8  event_handler.o
+    0x08003608   0x08003608   0x00000010   Code   RO            8    i.__sti___10_button_cpp_Buttons  button.o
+    0x08003618   0x08003618   0x00000010   Code   RO          423    i.__sti___17_event_manager_cpp_Events  event_manager.o
+    0x08003628   0x08003628   0x00000010   Code   RO          539    i.__sti___19_display_segment_cpp_Display  display_segment.o
+    0x08003638   0x08003638   0x00000010   Code   RO          681    i.__sti___7_fsm_cpp_Fsm  fsm.o
+    0x08003648   0x08003648   0x00000034   Code   RO          506    i.main              main.o
+    0x0800367c   0x0800367c   0x0000008c   Code   RO         1653    x$fpl$fadd          fz_ps.l(faddsub.o)
+    0x08003708   0x08003708   0x000000b0   Code   RO         1666    x$fpl$fmul          fz_ps.l(fmul.o)
+    0x080037b8   0x080037b8   0x000000d0   Code   RO         1655    x$fpl$fsub          fz_ps.l(faddsub.o)
+    0x08003888   0x08003888   0x00000000   Code   RO         1724    x$fpl$usenofp       fz_ps.l(usenofp.o)
+    0x08003888   0x08003888   0x000016e0   Data   RO          100    .constdata          buzzer.o
+    0x08004f68   0x08004f68   0x00000014   Data   RO          319    .constdata          event_handler.o
+    0x08004f7c   0x08004f7c   0x00000080   Data   RO         1645    .constdata          fz_ps.l(ddiv.o)
+    0x08004ffc   0x08004ffc   0x00000040   Data   RO         1660    .constdata          fz_ps.l(fdiv.o)
+    0x0800503c   0x0800503c   0x00000020   Data   RO         1856    Region$$Table       anon$$obj.o
+    0x0800505c   0x0800505c   0x00000004   Data   RO           16    .init_array         button.o
+    0x08005060   0x0800505c   0x00000004   Data   RO          434    .init_array         event_manager.o
+    0x08005064   0x0800505c   0x00000004   Data   RO          546    .init_array         display_segment.o
+    0x08005068   0x0800505c   0x00000004   Data   RO          691    .init_array         fsm.o
+    0x0800506c   0x0800505c   0x00000000   Data   RO         1637    .init_array         c_p.l(init_aeabi.o)
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800517c, Size: 0x00000a48, Max: 0x00002000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800506c, Size: 0x000009b8, Max: 0x00002000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x0800517c   0x00000066   Data   RW          109    .data               buzzer.o
-    0x20000066   0x080051e2   0x00000001   Data   RW          346    .data               event_handler.o
-    0x20000067   0x080051e3   0x00000001   PAD
-    0x20000068   0x080051e4   0x0000000a   Data   RW          582    .data               display_segment.o
-    0x20000072   0x080051ee   0x00000002   PAD
-    0x20000074   0x080051f0   0x00000008   Data   RW          664    .data               parameters.o
-    0x2000007c   0x080051f8   0x00000003   Data   RW          751    .data               fsm.o
-    0x2000007f   0x080051fb   0x00000001   PAD
-    0x20000080   0x080051fc   0x00000002   Data   RW         1012    .data               i2c1.o
-    0x20000082   0x080051fe   0x00000005   Data   RW         1577    .data               ds3231.o
-    0x20000087   0x08005203   0x00000001   PAD
-    0x20000088        -       0x00000010   Zero   RW           15    .bss                button.o
-    0x20000098        -       0x00000264   Zero   RW          107    .bss                buzzer.o
-    0x200002fc        -       0x00000038   Zero   RW          202    .bss                device.o
-    0x20000334        -       0x00000078   Zero   RW          463    .bss                event_manager.o
-    0x200003ac        -       0x00000026   Zero   RW          663    .bss                parameters.o
-    0x200003d2   0x08005203   0x00000002   PAD
-    0x200003d4        -       0x00000010   Zero   RW          828    .bss                periphery.o
-    0x200003e4        -       0x00000060   Zero   RW         1984    .bss                c_p.l(libspace.o)
-    0x20000444   0x08005203   0x00000004   PAD
-    0x20000448        -       0x00000200   Zero   RW         1764    HEAP                startup_stm32g030xx.o
-    0x20000648        -       0x00000400   Zero   RW         1763    STACK               startup_stm32g030xx.o
+    0x20000000   0x0800506c   0x00000007   Data   RW          101    .data               buzzer.o
+    0x20000007   0x08005073   0x00000001   Data   RW          320    .data               event_handler.o
+    0x20000008   0x08005074   0x0000000a   Data   RW          545    .data               display_segment.o
+    0x20000012   0x0800507e   0x00000002   Data   RW          623    .data               parameters.o
+    0x20000014   0x08005080   0x00000003   Data   RW          690    .data               fsm.o
+    0x20000017   0x08005083   0x00000001   PAD
+    0x20000018   0x08005084   0x00000002   Data   RW          932    .data               i2c1.o
+    0x2000001a   0x08005086   0x00000005   Data   RW         1375    .data               ds3231.o
+    0x2000001f   0x0800508b   0x00000001   PAD
+    0x20000020        -       0x00000010   Zero   RW           15    .bss                button.o
+    0x20000030        -       0x00000254   Zero   RW           99    .bss                buzzer.o
+    0x20000284        -       0x00000030   Zero   RW          178    .bss                device.o
+    0x200002b4        -       0x0000006c   Zero   RW          433    .bss                event_manager.o
+    0x20000320        -       0x00000026   Zero   RW          622    .bss                parameters.o
+    0x20000346   0x0800508b   0x00000002   PAD
+    0x20000348        -       0x00000010   Zero   RW          767    .bss                periphery.o
+    0x20000358        -       0x00000060   Zero   RW         1774    .bss                c_p.l(libspace.o)
+    0x200003b8        -       0x00000200   Zero   RW         1554    HEAP                startup_stm32g030xx.o
+    0x200005b8        -       0x00000400   Zero   RW         1553    STACK               startup_stm32g030xx.o
 
 
 ==============================================================================
@@ -1899,39 +1803,38 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       496         24          0          0          0       5564   adc.o
-       612         24          4          0         16       9486   button.o
-       344         70       5856        102        612       6781   buzzer.o
-       458         74          0          0         56       8981   device.o
-       508         52          4         10          0       6375   display_segment.o
-       172         22          0          0          0       4044   dma_spi1.o
-       276         38          0          0          0       1608   dma_tim1.o
-       728         42          0          5          0      12801   ds3231.o
-      2326        262         20          1          0      15447   event_handler.o
-       390          6          4          0        120       7033   event_manager.o
-       678         48          0          0          0       5252   flash.o
-       208         14          4          3          0       5938   fsm.o
-       900         16          0          0          0        744   gpio.o
-       892         54          0          2          0       4981   i2c1.o
-       344         26          0          0          0      11220   interrupts.o
-        52         18          0          0          0        511   main.o
-        84         12          0          8         38       4202   parameters.o
-       116          0          0          0         16     261190   periphery.o
-       208         14          0          0          0       1724   spi1.o
-        56         26        192          0       1536        700   startup_stm32g030xx.o
-         2          0          0          0          0       1965   system_stm32g0xx.o
-       252         12          0          0          0        712   tick.o
-       176         14          0          0          0        548   tim1.o
-       204         12          0          0          0       1132   tim14.o
-       172         26          0          0          0       1616   tim16.o
-        80         12          0          0          0        516   tim17.o
-       172         26          0          0          0       1248   tim3.o
-        56         10          0          0          0        504   tim_system.o
+       496         24          0          0          0       5496   adc.o
+       612         24          4          0         16       9434   button.o
+       344         70       5856          7        596     261400   buzzer.o
+       458         76          0          0         48       8705   device.o
+       508         52          4         10          0       6331   display_segment.o
+       276         38          0          0          0       1592   dma_tim1.o
+       728         42          0          5          0      12609   ds3231.o
+      2264        262         20          1          0      13627   event_handler.o
+       370          6          4          0        108       6929   event_manager.o
+       678         48          0          0          0       5204   flash.o
+       208         14          4          3          0       5874   fsm.o
+       900         16          0          0          0        736   gpio.o
+       892         54          0          2          0       4913   i2c1.o
+       352         26          0          0          0      11300   interrupts.o
+        52         18          0          0          0        503   main.o
+        84         12          0          2         38       3594   parameters.o
+       110          0          0          0         16       4934   periphery.o
+       192         14          0          0          0       1680   spi1.o
+        56         26        192          0       1536        692   startup_stm32g030xx.o
+         2          0          0          0          0       1961   system_stm32g0xx.o
+       252         12          0          0          0        704   tick.o
+       176         14          0          0          0        544   tim1.o
+       204         12          0          0          0       1120   tim14.o
+       172         26          0          0          0       1592   tim16.o
+        80         12          0          0          0        508   tim17.o
+       172         26          0          0          0       1236   tim3.o
+        56         10          0          0          0        496   tim_system.o
 
     ----------------------------------------------------------------------
-     10984        954       6116        136       2396     382823   Object Totals
+     10712        934       6116         32       2360     373714   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        22          0          0          5          2          0   (incl. Padding)
+        18          0          0          2          2          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1971,8 +1874,8 @@ Image component sizes
          0          0          0          0          0          0   usenofp.o
 
     ----------------------------------------------------------------------
-      3568        104        192          0        100       1556   Library Totals
-         6          0          0          0          4          0   (incl. Padding)
+      3568        104        192          0         96       1556   Library Totals
+         6          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1982,7 +1885,7 @@ Image component sizes
       2910         78        192          0          0        844   fz_ps.l
 
     ----------------------------------------------------------------------
-      3568        104        192          0        100       1556   Library Totals
+      3568        104        192          0         96       1556   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1991,15 +1894,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     14552       1058       6308        136       2496     379327   Grand Totals
-     14552       1058       6308        136       2496     379327   ELF Image Totals
-     14552       1058       6308        136          0          0   ROM Totals
+     14280       1038       6308         32       2456     370306   Grand Totals
+     14280       1038       6308         32       2456     370306   ELF Image Totals
+     14280       1038       6308         32          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                20860 (  20.37kB)
-    Total RW  Size (RW Data + ZI Data)              2632 (   2.57kB)
-    Total ROM Size (Code + RO Data + RW Data)      20996 (  20.50kB)
+    Total RO  Size (Code + RO Data)                20588 (  20.11kB)
+    Total RW  Size (RW Data + ZI Data)              2488 (   2.43kB)
+    Total ROM Size (Code + RO Data + RW Data)      20620 (  20.14kB)
 
 ==============================================================================
 

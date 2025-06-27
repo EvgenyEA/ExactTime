@@ -1,12 +1,10 @@
 #include "fsm.h"
 #include "event_manager.h" 
 
-
 State Fsm;
 
 const uint32_t _100_MS_TIME = 99;
 const uint32_t _1000_MS_TIME = 999;
-
 
 /*! -------------------------------------------------------------------------
 \brief Constructor
@@ -91,7 +89,6 @@ states_t State::GetCurrentState()
 void State::SetStateWork()
 {
 	Events.AddEvent(EVENT_BUZZER, _100_MS_TIME);
-	//Events.AddEvent(EVENT_POWER_VOLTAGE, _1000_MS_TIME);
 	Events.AddEvent(EVENT_WDT, 0);
 	Events.AddEvent(EVENT_RTC, _1000_MS_TIME);
 	Events.AddEvent(EVENT_LED, _1000_MS_TIME);

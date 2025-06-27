@@ -101,7 +101,7 @@ public:
     // THE ABOVE COMMENT IS CORRECT FOR LOCAL TIME; TO USE THIS COMMAND TO
     // OBTAIN TRUE UNIX TIME SINCE EPOCH, YOU MUST CALL THIS COMMAND AFTER
     // SETTING YOUR CLOCK TO UTC
-    uint32_t unixtime(void) const;
+
 protected:
     uint8_t yOff, m, d, hh, mm, ss;
 };
@@ -136,9 +136,6 @@ class DS3231 {
 		// Note that none of these check for sensibility: You can set the
 		// date to July 42nd and strange things will probably result.
 
-		// set epoch function gives the epoch as parameter and feeds the RTC
-		// epoch = UnixTime and starts at 01.01.1970 00:00:00
-		void setEpoch(time_t epoch = 0, bool flag_localtime = false);
 
 		bool setSecond(const uint8_t seconds); 							// In addition to setting the seconds, this clears the "Oscillator Stop Flag".
 		bool setMinute(const uint8_t minutes);							// Sets the minute

@@ -26,15 +26,13 @@ class DeviceClass
 		bool StartEventNow(const uint8_t event_number);
 		
 	protected:
-		bool EventButtonMinutes();	uint32_t event_button_minutes_time;			// 1
-		bool EventButtonHours();		uint32_t event_button_hours_time;				// 2
-		bool EventBuzzer();					uint32_t event_buzzer_time;					// 
-		bool EventLed();						uint32_t event_led_time;						// 
-																uint8_t charge_counter;
-		bool EventPowerVoltage();		uint32_t event_power_voltage_time;	// 														
-		bool EventTimer();					uint32_t event_timer_time;					// 
-		bool EventWdt();																								// 
-		bool EventFlash();					uint32_t event_flash_time;					//
+		bool EventButtonMinutes();	uint32_t event_button_minutes_time;	
+		bool EventButtonHours();		uint32_t event_button_hours_time;	
+		bool EventBuzzer();					uint32_t event_buzzer_time;					 
+		bool EventLed();						uint32_t event_led_time;						 									
+		bool EventTimer();					uint32_t event_timer_time;					 
+		bool EventWdt();																								 
+		bool EventFlash();					uint32_t event_flash_time;					
 		bool EventRtc();						uint32_t event_rtc_time;		
 		
 		bool CheckEventTime(uint32_t &time);
@@ -53,7 +51,7 @@ class DeviceClass
 		uint32_t set_time_timeout_sec; 
 		uint8_t sount_times;
 	
-			// Parameters
+		// Parameters
 		bool WriteParamToFlah();
 };
 

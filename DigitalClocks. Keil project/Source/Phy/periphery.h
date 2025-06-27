@@ -20,9 +20,6 @@
 // PA12 - BUTTON HOURS
 #define BUTTON_HOURS_STATE 					(GPIOA->IDR & GPIO_IDR_ID12)					// High level is active
 
-
-
-//const uint32_t MCU_FREQUENCY = 48000000;
 const uint32_t MCU_FREQUENCY = 64000000;
 const uint16_t MCU_POWER_VOLTAGE_MV = 3300;
 const uint16_t MCU_ADC_SCALE = 4096;
@@ -31,7 +28,6 @@ const uint16_t LSI_FREQUENCY = 32000;
 // I2C
 typedef enum _I2C_Direction {I2C_Transmitter = 0, I2C_Receiver = 1} I2C_Direction;
 
-//static const uint16_t SIN_DOTS = 360;
 
 uint8_t extern sound_sin[500];
 
@@ -39,9 +35,6 @@ class Periphery
 {
 	public:
 		void InitPhy();
-
-		// RTC
-		bool RTCInterruptEnable(); 
 	
 		// TIM
 		bool DelayUs(uint16_t);	
@@ -108,7 +101,6 @@ class Periphery
 		void InitTim17DisplayUpdate();
 
 		bool InitRTC();
-		void InitPowerMode();
 	
 		bool InitIWDT();
 		bool InitWWDG();

@@ -1,5 +1,8 @@
 #include "periphery.h"
 
+/*! -------------------------------------------------------------------------
+\brief Tick settings
+*/
 bool Periphery::InitTick()
 {
 	bool function_failed = true; 
@@ -7,23 +10,12 @@ bool Periphery::InitTick()
 	RCC->CFGR &= ~RCC_CFGR_SWS_Msk;						// SystemClock selected from internal HSI RC
 	RCC->CR |= RCC_CR_HSION;									// HSI RC ON (16 MHz)
 	RCC->CR |= RCC_CR_HSIDIV_0;								// 001: divide by 2
-	// As result frequnecy equal to 8 MHz
-	
-	
-	// При помощи PLL частота генератора делится пополам и умножается на 12. В итоге имеем
-	// на SYSCLK 48 Мгц.	
 
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLSRC_1;
 	RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLSRC_0;		// HSI as clock source
-	
 	RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLM_Msk;		// 0: PLLM = 1
-	
 	RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLN_Msk;
-	//RCC->PLLCFGR |= RCC_PLLCFGR_PLLN_0;
-	//RCC->PLLCFGR |= RCC_PLLCFGR_PLLN_1;				// 11
-	//RCC->PLLCFGR |= RCC_PLLCFGR_PLLN_3;				// 8: PLLN = 8
-	RCC->PLLCFGR |= RCC_PLLCFGR_PLLN_4;					// 16: PLLN = 16
-	
+	RCC->PLLCFGR |= RCC_PLLCFGR_PLLN_4;			
 	RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLR_Msk;
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLR_0;				// 011: PLLR = 4
 	RCC->PLLCFGR |= RCC_PLLCFGR_PLLR_1;				// 1: PLLR = 2

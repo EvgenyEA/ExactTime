@@ -463,21 +463,6 @@
               <FilePath>.\Source\Phy\interrupts.cpp</FilePath>
             </File>
             <File>
-              <FileName>PWR.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Source\Phy\PWR.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>RTC.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Source\Phy\RTC.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>TEMP_SENSOR.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Source\Phy\TEMP_SENSOR.cpp</FilePath>
-            </File>
-            <File>
               <FileName>TICK.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Source\Phy\TICK.cpp</FilePath>
@@ -521,11 +506,6 @@
               <FileName>SPI1.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Source\Phy\SPI1.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>DMA_SPI1.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Source\Phy\DMA_SPI1.cpp</FilePath>
             </File>
             <File>
               <FileName>DMA_TIM1.cpp</FileName>

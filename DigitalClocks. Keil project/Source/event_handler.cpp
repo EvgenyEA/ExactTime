@@ -3,7 +3,6 @@
 #include "event_manager.h" 
 #include "button.h"
 #include "buzzer.h" 
-#include "notes.h" 
 #include "parameters.h" 
 #include "DS3231.h" 
 #include "display_segment.h"
@@ -12,12 +11,10 @@
 
 bool button_long = false;
 
-const uint8_t BRIGHTNESS[] = 
-{
+const uint8_t BRIGHTNESS[] = {
 	0, 		0, 		0, 		2, 		4, 		7, 		10, 	15, 	22, 	30,
 	40, 	52, 	66, 	83, 	102, 	124, 	148, 	176, 	207, 	255
 };
-
 
 /*! -------------------------------------------------------------------------
 \brief Urgent start of event
@@ -31,7 +28,6 @@ bool DeviceClass::StartEventNow(const uint8_t event_number)
   {	
     case EVENT_RTC:							event_rtc_time           	= BIG_PERIOD_TIME;	break;
     case EVENT_LED:							event_led_time            = BIG_PERIOD_TIME; 	break;
-    case EVENT_POWER_VOLTAGE:   event_power_voltage_time  = BIG_PERIOD_TIME; 	break;
     default: 										function_failed = true;												break;
   }
 return function_failed;
@@ -50,7 +46,6 @@ void DeviceClass::IncrementGlobalTime()
 	if(Events.CheckIfActive(EVENT_LED))							{ event_led_time++; }
 	if(Events.CheckIfActive(EVENT_TIMER))						{ event_timer_time++; }
 	if(Events.CheckIfActive(EVENT_FLASH))						{ event_flash_time++; }
-	if(Events.CheckIfActive(EVENT_POWER_VOLTAGE)) 	{ event_power_voltage_time++; }
 	if(Events.CheckIfActive(EVENT_RTC))							{ event_rtc_time++;	}
 }	
 
@@ -89,7 +84,6 @@ bool DeviceClass::CheckWaitingEvent()
 			case EVENT_BUTTON_HOURS:	  	function_failed = EventButtonHours();			break;		// 
 			case EVENT_BUZZER:						function_failed = EventBuzzer();					break;		// 
 			case EVENT_LED:								function_failed = EventLed();							break;		// 
-			case EVENT_POWER_VOLTAGE:			function_failed = EventPowerVoltage();		break;		// 
 			case EVENT_TIMER:							function_failed = EventTimer();						break;		// 
 			case EVENT_WDT:								function_failed = EventWdt();							break;		// 
 			case EVENT_FLASH:							function_failed = EventFlash();						break;		//
@@ -108,7 +102,7 @@ bool DeviceClass::CheckWaitingEvent()
 }
 
 /*! -------------------------------------------------------------------------
-\brief Handle EVENT_BUTTON_HOURS (2)
+\brief Handle EVENT_BUTTON_HOURS
 \details  
 */
 bool DeviceClass::EventButtonHours()
@@ -225,7 +219,7 @@ bool DeviceClass::IncrementHours()
 }
 
 /*! -------------------------------------------------------------------------
-\brief Handle EVENT_BUTTON_MINUTES (1)
+\brief Handle EVENT_BUTTON_MINUTES
 \details  
 */
 bool DeviceClass::EventButtonMinutes()
@@ -349,14 +343,10 @@ bool DeviceClass::IncrementMinutes()
 */
 bool DeviceClass::TuneBrightness() {
 	bool tune_finised = false;
-	if(brightness_up) {
-		brightness_index < MAX_BRIGHTNESS_INDEX ? brightness_index++ : tune_finised = true;
-	}
-	else {
-		brightness_index > MIN_BRIGHTNESS_INDEX ? brightness_index-- : tune_finised = true;
-	}
 	
-
+	brightness_up 
+	? brightness_index < MAX_BRIGHTNESS_INDEX ? brightness_index++ : tune_finised = true
+	: brightness_index > MIN_BRIGHTNESS_INDEX ? brightness_index-- : tune_finised = true;
 	
 	IrParamWords.brightness = BRIGHTNESS[brightness_index];
 	Phy.SetDisplayBrightness(BRIGHTNESS[brightness_index]);
@@ -408,39 +398,17 @@ bool DeviceClass::EventLed()
 }
 
 /*! -------------------------------------------------------------------------
-\brief Handle EVENT_POWER_VOLTAGE (6)
+\brief Handle EVENT_WDT
 \details  
 */
-bool DeviceClass::EventPowerVoltage()
-{
-	if(!CheckEventTime(event_power_voltage_time))
-	{
-//		Phy.GetPowerVoltage(ParamWords.power_voltage);
-//		if(ParamWords.power_voltage < 9000) {
-//			
-//			ParamWords.error_type = ERROR_LOW_POWER_VOLTAGE;
-//		}
-//		else if(!pump_is_active) {
-//			ParamWords.error_type = ERROR_NONE;
-//		}
-	}
-	return 0;
-}
-
-/*! -------------------------------------------------------------------------
-\brief Handle EVENT_PUMP (7)
-\details  
-*/
-
 bool DeviceClass::EventWdt()
 {
 	IWDG->KR = ((uint32_t) 0x0000AAAA);
 	return 0;
 }
 
-
 /*! -------------------------------------------------------------------------
-\brief Handle EVENT_BUZZER (3)
+\brief Handle EVENT_BUZZER
 \details  
 */
 bool DeviceClass::EventBuzzer()
@@ -462,7 +430,7 @@ bool DeviceClass::EventBuzzer()
 }
 
 /*! -------------------------------------------------------------------------
-\brief Handle EVENT_SLEEP (10)
+\brief Handle EVENT_TIMER
 \details  
 */
 bool DeviceClass::EventTimer()
@@ -477,7 +445,6 @@ bool DeviceClass::EventTimer()
 			 Events.AddEvent(EVENT_FLASH, 100);
 		 }
 	 }
-	 
  }
   return 0;
 }
@@ -491,19 +458,13 @@ bool DeviceClass::EventRtc()
  if(!CheckEventTime(event_rtc_time)) {
 	 
 	 bool oscillator_faile = false;
-	 if(!RTC_DS3231.oscillatorCheck(oscillator_faile))
-	 {
+	 if(!RTC_DS3231.oscillatorCheck(oscillator_faile)) {
 		 if(oscillator_faile) {					// received data isn't valid
 			 RTC_DS3231.setSecond(0);
 			 RTC_DS3231.setMinute(0);
 			 RTC_DS3231.setHour(0);
 		 }
 	 }
-	 
-//	 float temperature = 0;
-//	 if(!RTC_DS3231.getTemperature(temperature)) {
-//		 IrParamWords.ds3231_temperature = temperature * 100;
-//		}
 	 
 	uint8_t seconds = 0;
 	 if(!RTC_DS3231.getSeconds(seconds)) {
@@ -521,34 +482,12 @@ bool DeviceClass::EventRtc()
 		if(!RTC_DS3231.getHours(hours, h12, pm_time)) {
 		 IrParamWords.ds3231_hours = hours;
 		}
-		
-//		uint8_t DoW = 0;
-//		if(!RTC_DS3231.getDoW(DoW)) {
-//		 IrParamWords.ds3231_day = DoW;
-//		}
-//		
-//		uint8_t date = 0;
-//		if(!RTC_DS3231.getDate(date)) {
-//		 IrParamWords.ds3231_date = date;
-//		}
-//		
-//		uint8_t month = 0;
-//		bool century = false;
-//		if(!RTC_DS3231.getMonth(month, century)){
-//			IrParamWords.ds3231_month = month;
-//		}
-//		
-//		uint8_t year = 0;
-//		if(!RTC_DS3231.getYear(year)) {
-//		 IrParamWords.ds3231_years = year;
-//		}
-
 	}
   return 0;
 }
 
 /*! -------------------------------------------------------------------------
-\brief Handle EVENT_FLASH (11)
+\brief Handle EVENT_FLASH 
 \details  
 */
 bool DeviceClass::EventFlash()
@@ -568,12 +507,8 @@ bool DeviceClass::EventFlash()
 		
 		for(uint8_t n = 0; n < 8; n++) {
 			if(data_check[n] != data_write[n]) {
-					write_success = false;
+				write_success = false;
 			}
-		}
-		
-		if(write_success) {
-			asm("nop");
 		}
 		
 		Events.ClearEvent(EVENT_FLASH);
