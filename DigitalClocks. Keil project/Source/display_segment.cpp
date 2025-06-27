@@ -10,7 +10,6 @@ uint16_t display_data[DISPLAY_DATA_SIZE];
 
 SevenSegmentDisplay::SevenSegmentDisplay()
 {
-
 	postion_counter = 0;
 }
 

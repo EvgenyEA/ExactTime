@@ -17,23 +17,19 @@ bool DataManager::InitParameters()
 	bool function_failed = false;
 	
 	// internal variables
-	
 	uint8_t flash_read[FLASH_DATA_SIZE];
 	function_failed |= Phy.FlashRead(FLASH_PARAM_ADDRESS, flash_read, FLASH_DATA_SIZE);
-	if(flash_read[0] != 0xFF && flash_read[1] != 0xFF) {
-
-
+	if(flash_read[0] != 0 && flash_read[7] == 0xEA) {
+		IrParamWords.brightness = flash_read[0];
 	}
 	else {
-	
+		IrParamWords.brightness = 0xFF;
 	}
 	
 	// IR initialization
-	IrParamWords.device_type = 0x0C;
-	IrParamWords.device_number = 1;
+	IrParamWords.device_type      = 0x0C;
+	IrParamWords.device_number    = 1;
 	IrParamWords.program_verstion = 1;	
-	
-	IrParamWords.brightness = 255;
 	
 	return function_failed;
 }

@@ -90,9 +90,8 @@ states_t State::GetCurrentState()
 */
 void State::SetStateWork()
 {
-	Events.ClearAllEvents();
 	Events.AddEvent(EVENT_BUZZER, _100_MS_TIME);
-	Events.AddEvent(EVENT_POWER_VOLTAGE, _1000_MS_TIME);
+	//Events.AddEvent(EVENT_POWER_VOLTAGE, _1000_MS_TIME);
 	Events.AddEvent(EVENT_WDT, 0);
 	Events.AddEvent(EVENT_RTC, _1000_MS_TIME);
 	Events.AddEvent(EVENT_LED, _1000_MS_TIME);

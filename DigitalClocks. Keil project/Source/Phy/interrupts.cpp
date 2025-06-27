@@ -24,18 +24,13 @@ void Periphery::InitInterrupts()
 	NVIC_SetPriority(EXTI4_15_IRQn, 2);
 	NVIC_EnableIRQ (EXTI4_15_IRQn);
 	
-	// RTC interupt
-	// NVIC_EnableIRQ(RTC_TAMP_IRQn);	
-	// NVIC_SetPriority(RTC_TAMP_IRQn, 2);
-	// EXTI->IMR1 |= EXTI_IMR1_IM19; 											// Enable interrupt from EXTI line 19 (RTC Alarm)
-	
 	// Buzzer note duration timer
 	NVIC_EnableIRQ(TIM16_IRQn);	
 	NVIC_SetPriority(TIM16_IRQn,2);
 	
 	// Dispaly update timer
 	NVIC_EnableIRQ(TIM17_IRQn);	
-	NVIC_SetPriority(TIM17_IRQn,1);
+	NVIC_SetPriority(TIM17_IRQn, 1);
 	
 	// DMA1 interrupt
 	NVIC_EnableIRQ(DMA1_Channel1_IRQn);	

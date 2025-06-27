@@ -3,8 +3,7 @@
 
 #include <stdint.h>
 
-const uint32_t FLASH_PARAM_ADDRESS = 0x08003C00;
-const uint32_t FLASH_FIRMWARE_ADDRESS = 0x08004800;
+const uint32_t FLASH_PARAM_ADDRESS = 0x08007800;
 const uint8_t FLASH_DATA_SIZE = 24;
 
 const uint8_t ILLUM_ARRAY_SIZE = 6;
@@ -31,7 +30,7 @@ const uint8_t DEFAULT_DINNER_STOP = 13;
 const uint8_t SECONDS_IN_MINUTE = 60;
 
 const uint16_t ILLUMINATION_HISTERESIS = 7;
-const uint16_t ILLUMINATION_THRESHOLD = 165;
+const uint16_t ILLUMINATION_THRESHOLD = 170; // 165 for original BPW34;
 
 enum error_codes {
 	ERROR_NONE = 0,

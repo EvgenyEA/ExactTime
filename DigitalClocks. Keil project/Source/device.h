@@ -12,6 +12,9 @@ typedef enum illumination_level {
 	ILLUMINATION_MIN = 2
 } illumination_level_t;
 
+const uint8_t MIN_BRIGHTNESS_INDEX = 9;
+const uint8_t MAX_BRIGHTNESS_INDEX = 19;
+
 class DeviceClass
 {
 	public:
@@ -43,8 +46,6 @@ class DeviceClass
 		bool IncrementHours();
 		bool IncrementMinutes();
 	
-		static const uint8_t MIN_BRIGHTNESS_INDEX = 9;
-		static const uint8_t MAX_BRIGHTNESS_INDEX = 19;
 		bool brightness_up; 
 		uint8_t brightness_index; 
 		uint8_t illumination_adc_index;

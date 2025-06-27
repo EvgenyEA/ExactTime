@@ -22,16 +22,6 @@ bool DeviceClass::InitDevice()
 	
 	Phy.DelayMs(300);
 	Parameters.InitParameters();
-	
-	uint8_t flash_param[4] = {0, 0, 0, 0};
-	Phy.FlashRead(FLASH_PARAM_ADDRESS - 8, flash_param, 4);
-	if(flash_param[0] == 0xFF && flash_param[1] == 0xFF) {
-		
-	}
-	else {
-//		ParamWords.touch_calib_value = flash_param[0];
-	}
-	
 	Phy.SetDisplayBrightness(IrParamWords.brightness);
 	
 	brightness_up = false; 
@@ -39,8 +29,6 @@ bool DeviceClass::InitDevice()
 	illumination_adc_index = 0;
 	illumination_level = ILLUMINATION_UNDEFINED;
 	sount_times = 1;
-	
-//	Buzzer.PlayMusic(MUSIC_TONE_C1, DURATION_TONE_C1, TEMPO_TONE_C1, SIZE_TONE_C1);
 	
 	return function_failed;
 }
@@ -107,18 +95,6 @@ extern "C"
 		}
 	}
 	
-	// RTC interrupt
-	void RTC_TAMP_IRQHandler()
-	{
-		/*
-		Fsm.SetWakeUpSource(WAKE_UP_SRC_RTC);	
-		if(Schedule.IncrementTime()) {
-			Fsm.ChangeState(STATE_ACTIVE); 
-		}		
-		*/
-		RTC->SCR = RTC_SCR_CWUTF;
-	}
-	
 	// Buzzer note duration interrupt
 	void TIM16_IRQHandler()	{
 		if(TIM16->SR & TIM_SR_UIF)
@@ -141,9 +117,6 @@ extern "C"
 				if(!REG_ST_STATE) {
 					break;
 				}
-				if(n > 50) {
-					asm("nop");
-				}
 			}
 			Phy.DelayUs(100);
 			
@@ -155,18 +128,9 @@ extern "C"
 					break;
 				}
 			}
-					
-			
-		//	REG_ST_SET;
-
-			
-	//	REG_ST_RESET;	
-	//	Phy.StartDMACh1(1);
-						
 
 			TIM17->CNT = 0;
-			TIM17->SR &= ~TIM_SR_UIF;
-			TIM17->SR &= ~TIM_SR_CC1IF;
+			TIM17->SR &= ~(TIM_SR_UIF | TIM_SR_CC1IF);
 			TIM17->CR1 |= TIM_CR1_CEN;	
 		}
 	}

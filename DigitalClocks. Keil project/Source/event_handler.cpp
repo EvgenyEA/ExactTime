@@ -124,20 +124,20 @@ bool DeviceClass::EventButtonHours()
 			case BUTTON_WAIT:
 			{
 				if(current_state == STATE_TIME) {
-						if(BUTTON_HOURS_STATE) {
-							set_time_timeout_sec = 0;
-							IncrementHours();
-							Buttons.ButtonHoursPressed();
-							Events.AddEvent(EVENT_BUTTON_HOURS, 350);
-						}
+					if(BUTTON_HOURS_STATE) {
+						set_time_timeout_sec = 0;
+						IncrementHours();
+						Buttons.ButtonHoursPressed();
+						Events.AddEvent(EVENT_BUTTON_HOURS, 350);
 					}
+				}
 				else if(current_state == STATE_BRIGHTNESS) {
-						if(BUTTON_HOURS_STATE) {
-							set_time_timeout_sec = 0;
-							brightness_up = true;
-							TuneBrightness();
-							Events.AddEvent(EVENT_BUTTON_HOURS, 350);
-						}
+					if(BUTTON_HOURS_STATE) {
+						set_time_timeout_sec = 0;
+						brightness_up = true;
+						TuneBrightness();
+						Events.AddEvent(EVENT_BUTTON_HOURS, 650);
+					}
 				}
 			}
 			break;
@@ -145,49 +145,48 @@ bool DeviceClass::EventButtonHours()
 			case BUTTON_HOURS_SHORT: {
 				set_time_timeout_sec = 0;
 				if(current_state == STATE_TIME) {				
-						uint8_t current_hours = IrParamWords.ds3231_hours;
-						if(!button_long) {
-							current_hours++;
-							if(current_hours > 23) {
-								current_hours = 0;
-							}
-							RTC_DS3231.setHour(current_hours);
-							Device.StartEventNow(EVENT_RTC);
+					uint8_t current_hours = IrParamWords.ds3231_hours;
+					if(!button_long) {
+						current_hours++;
+						if(current_hours > 23) {
+							current_hours = 0;
+						}
+						RTC_DS3231.setHour(current_hours);
+						Device.StartEventNow(EVENT_RTC);
 							
-							Events.AddEvent(EVENT_BUZZER, 1);
-						}
-						else {
-							asm("nop");
-						}
-						
-						button_long = false;
-						Events.ClearEvent(EVENT_BUTTON_HOURS);
+						Events.AddEvent(EVENT_BUZZER, 1);
 					}
+					else {
+						asm("nop");
+					}
+						
+					button_long = false;
+					Events.ClearEvent(EVENT_BUTTON_HOURS);
+				}
 				else if(current_state == STATE_BRIGHTNESS) {
 					Events.AddEvent(EVENT_BUZZER, 1);
 					brightness_up = true;
 					TuneBrightness();
-				}
-				
-				}
-				break;
+				}	
+			}
+			break;
 				
 			case BUTTON_HOURS_HALF_LONG: {
-					if(current_state == STATE_WORK) {
-						Events.AddEvent(EVENT_BUZZER, 1);
-					}
+				if(current_state == STATE_WORK) {
+					Events.AddEvent(EVENT_BUZZER, 1);
 				}
-				break;
+			}
+			break;
 				
-				case BUTTON_HOURS_LONG: {
-					if(current_state == STATE_WORK) {
-						sount_times = 2;
-						Events.AddEvent(EVENT_BUZZER, 1);
-						Fsm.ChangeState(STATE_TIME);
-						Events.ClearEvent(EVENT_BUTTON_HOURS);
-					}
+			case BUTTON_HOURS_LONG: {
+				if(current_state == STATE_WORK) {
+					sount_times = 2;
+					Events.AddEvent(EVENT_BUZZER, 1);
+					Fsm.ChangeState(STATE_TIME);
+					Events.ClearEvent(EVENT_BUTTON_HOURS);
 				}
-				break;
+			}
+			break;
 				
 			case BUTTONS_1_AND_2_LONG: {
 				Events.AddEvent(EVENT_BUZZER, 1);
@@ -222,7 +221,6 @@ bool DeviceClass::IncrementHours()
 		Events.AddEvent(EVENT_BUZZER, 1);
 	}
 	
-							//Buttons.ButtonHoursPressed();
 	button_long = true;
 }
 
@@ -242,101 +240,71 @@ bool DeviceClass::EventButtonMinutes()
 			case BUTTON_WAIT:
 			{
 				if(current_state == STATE_TIME) {
-						if(BUTTON_MINUTES_STATE) {
-							set_time_timeout_sec = 0;
-							IncrementMinutes();
-							Buttons.ButtonMinutesPressed();
-							Events.AddEvent(EVENT_BUTTON_MINUTES, 260);
-						}
+					if(BUTTON_MINUTES_STATE) {
+						set_time_timeout_sec = 0;
+						IncrementMinutes();
+						Buttons.ButtonMinutesPressed();
+						Events.AddEvent(EVENT_BUTTON_MINUTES, 260);
 					}
+				}
 				else if(current_state == STATE_BRIGHTNESS) {
-						if(BUTTON_MINUTES_STATE) {
-							set_time_timeout_sec = 0;
-							brightness_up = false;
-							TuneBrightness();
-							Events.AddEvent(EVENT_BUTTON_MINUTES, 350);
-						}
+					if(BUTTON_MINUTES_STATE) {
+						set_time_timeout_sec = 0;
+						brightness_up = false;
+						TuneBrightness();
+						Events.AddEvent(EVENT_BUTTON_MINUTES, 650);
+					}
 				}
 			}
 			break;
 			
 			case BUTTON_MINUTES_SHORT: 
-				{
-					set_time_timeout_sec = 0;
-					if(current_state == STATE_TIME) {				
-						uint8_t current_minutes = IrParamWords.ds3231_minutes;
-						if(!button_long) {
-							current_minutes++;
+			{
+				set_time_timeout_sec = 0;
+				if(current_state == STATE_TIME) {				
+					uint8_t current_minutes = IrParamWords.ds3231_minutes;
+					if(!button_long) {
+						current_minutes++;
 							
-							if(current_minutes > 59) {
-								current_minutes = 0;
-							}
-							RTC_DS3231.setSecond(0);
-							RTC_DS3231.setMinute(current_minutes);
-							Device.StartEventNow(EVENT_RTC);
+						if(current_minutes > 59) {
+							current_minutes = 0;
+						}
+						RTC_DS3231.setSecond(0);
+						RTC_DS3231.setMinute(current_minutes);
+						Device.StartEventNow(EVENT_RTC);
 							
-							Events.AddEvent(EVENT_BUZZER, 1);
-						}
-						else {
-							asm("nop");
-						}
-						button_long = false;
-						Events.ClearEvent(EVENT_BUTTON_MINUTES);
-					}
-					else if(current_state == STATE_BRIGHTNESS) {
 						Events.AddEvent(EVENT_BUZZER, 1);
-						brightness_up = false;
-						TuneBrightness();
 					}
+					else {
+						asm("nop");
+					}
+					button_long = false;
+					Events.ClearEvent(EVENT_BUTTON_MINUTES);
 				}
-				break;
+				else if(current_state == STATE_BRIGHTNESS) {
+					Events.AddEvent(EVENT_BUZZER, 1);
+					brightness_up = false;
+					TuneBrightness();
+				}
+			}
+			break;
 				
 			case BUTTON_MINUTES_HALF_LONG: 	{
-					if(current_state == STATE_WORK) {
-						Events.AddEvent(EVENT_BUZZER, 1);
-					}
-				
-				
-//					states_t current_state = Fsm.GetCurrentState();
-//					if(current_state == STATE_WORK) {
-//						Events.AddEvent(EVENT_BUZZER, 1);
-//					}
-//					else if(current_state == STATE_TIME) {
-//						if(BUTTON_HOURS_STATE) {
-//							event_flash_time = 0;
-//							Events.ClearEvent(EVENT_FLASH);
-//							Events.AddEvent(EVENT_BUTTON_MINUTES, 500);
-//							Buttons.ButtonMinutesPressed();
-//							button_long = true;
-//							if(TuneBrightness()) {
-//								Events.ClearEvent(EVENT_BUTTON_HOURS);
-//								Events.ClearEvent(EVENT_BUTTON_MINUTES);
-//								button_long = false;
-//							}
-//							Events.AddEvent(EVENT_FLASH, 5000);
-//							break;			
-//						}
-//						else {
-//							IncrementMinutes();
-//						}
-//						
-//					}
-					
-					
-				}
-				break;
+				if(current_state == STATE_WORK) {
+					Events.AddEvent(EVENT_BUZZER, 1);
+				}			
+			}
+			break;
 			
-				
 			case BUTTON_MINUTES_LONG: {
-					if(current_state == STATE_WORK) {
-						sount_times = 2;
-						Events.AddEvent(EVENT_BUZZER, 1);
-						Fsm.ChangeState(STATE_TIME);
-						Events.ClearEvent(EVENT_BUTTON_MINUTES);
-					}
-
+				if(current_state == STATE_WORK) {
+					sount_times = 2;
+					Events.AddEvent(EVENT_BUZZER, 1);
+					Fsm.ChangeState(STATE_TIME);
+					Events.ClearEvent(EVENT_BUTTON_MINUTES);
 				}
-				break;	
+			}
+			break;	
 				
 			case BUTTONS_1_AND_2_LONG: {
 				Events.AddEvent(EVENT_BUZZER, 1);
@@ -370,7 +338,7 @@ bool DeviceClass::IncrementMinutes()
 	if(button_long == false) {
 		Events.AddEvent(EVENT_BUZZER, 1);
 	}
-//	Events.AddEvent(EVENT_BUTTON_MINUTES, 100);
+
 	Buttons.ButtonMinutesPressed();
 	button_long = true;
 }
@@ -388,13 +356,11 @@ bool DeviceClass::TuneBrightness() {
 		brightness_index > MIN_BRIGHTNESS_INDEX ? brightness_index-- : tune_finised = true;
 	}
 	
+
+	
 	IrParamWords.brightness = BRIGHTNESS[brightness_index];
 	Phy.SetDisplayBrightness(BRIGHTNESS[brightness_index]);
 	
-//	if(tune_finised) {	
-//		brightness_up ? brightness_up = false : brightness_up = true;
-//		return 1;
-//	}
 	return 0;
 }
 
@@ -437,15 +403,7 @@ bool DeviceClass::EventLed()
 				illumination_level = ILLUMINATION_MIN;
 			}
 		}
-		
-//		if(LED_STATE) {
-//			LED_DISABLE;
-//		}
-//		else {
-//			LED_ENABLE;
-//		}
 	}
-//	Events.ClearEvent(EVENT_CHARGE);
 	return 0;
 }
 
@@ -487,8 +445,7 @@ bool DeviceClass::EventWdt()
 */
 bool DeviceClass::EventBuzzer()
 {
-	if(!CheckEventTime(event_buzzer_time)) {
-	//	Buzzer.PlayMusic(MUSIC_TONE_C1, DURATION_TONE_C1, TEMPO_TONE_C1, SIZE_TONE_C1);	
+	if(!CheckEventTime(event_buzzer_time)) {	
 		Buzzer.ClearValues();
 		Buzzer.PlayNote();
 		
@@ -517,6 +474,7 @@ bool DeviceClass::EventTimer()
 		 if(set_time_timeout_sec > MAX_SET_TIME_TIMEOUT_SEC) {
 			 Fsm.ChangeState(STATE_WORK);
 			 set_time_timeout_sec = 0;
+			 Events.AddEvent(EVENT_FLASH, 100);
 		 }
 	 }
 	 
@@ -603,9 +561,10 @@ bool DeviceClass::EventFlash()
 		
 		Phy.FlashErasePage(15);
 		
-//		Phy.FlashWrite(FLASH_PARAM_ADDRESS, data_write, 8);
-//		
-//		Phy.FlashRead(FLASH_PARAM_ADDRESS, data_check, 8);
+		data_write[0] = IrParamWords.brightness;
+		data_write[7] = 0xEA; 																// write end delimeter
+		Phy.FlashWrite(FLASH_PARAM_ADDRESS, data_write, 8);
+		Phy.FlashRead(FLASH_PARAM_ADDRESS, data_check, 8);
 		
 		for(uint8_t n = 0; n < 8; n++) {
 			if(data_check[n] != data_write[n]) {
@@ -614,8 +573,10 @@ bool DeviceClass::EventFlash()
 		}
 		
 		if(write_success) {
-			Events.ClearEvent(EVENT_FLASH);
+			asm("nop");
 		}
+		
+		Events.ClearEvent(EVENT_FLASH);
  }
   return 0;
 }

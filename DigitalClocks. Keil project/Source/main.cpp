@@ -13,8 +13,6 @@ int main()
 {
 	Phy.InitPhy();
 	Buzzer.InitBuzzer();
-	
-//	Phy.RTCInterruptEnable(); 
 	Device.InitDevice();
 	
 	while(1)

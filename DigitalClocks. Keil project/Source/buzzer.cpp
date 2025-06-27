@@ -81,7 +81,6 @@ bool SoundBuzzer::PlayNote()
 		Phy.StartDMACh2(selected_note_dotes);
 		Phy.UpdateTIM16(1);
 	}
-
 	
 	if(A != 0) {
 		for(uint16_t n = 0; n < selected_note_dotes; n++) {
@@ -104,62 +103,6 @@ bool SoundBuzzer::PlayNote()
 				
 		}
 	}
-		
-
-	
-	/*
-	if(buzzer_state == BUZZER_IDLE)
-	{
-		StopMusic();
-		return 1;
-	}
-	
-	bool pause = false;
-	uint16_t current_play_note_time = play_note_time;
-	uint8_t duration = current_duration[note_counter];
-	
-	if(duration > T_1)		// Note duration and pause duration differ only by flag "pause"
-	{
-		pause = true;
-		duration -= T_1;
-	}
-	switch(duration)
-	{
-		case 16: 	current_play_note_time *= 4;																break;		// T_1
-		case 15:	current_play_note_time = (current_play_note_time * 15)/4;		break;		// At first multiplication
-		case 14:	current_play_note_time = (current_play_note_time * 14)/4;		break;
-		case 13:	current_play_note_time = (current_play_note_time * 13)/4;		break;	
-		case 12:	current_play_note_time *= 3;																break;	
-		case 11:	current_play_note_time = (current_play_note_time * 11)/4;		break;	
-		case 10:	current_play_note_time = (current_play_note_time * 10)/4;		break;	
-		case 9:		current_play_note_time = (current_play_note_time * 9)/4;		break;	
-		case 8: 	current_play_note_time *= 2;																break;		// T_1_2
-		case 7:		current_play_note_time = (current_play_note_time * 7)/4;		break;	
-		case 6:		current_play_note_time = (current_play_note_time * 6)/4;		break;	
-		case 5:		current_play_note_time = (current_play_note_time * 5)/4;		break;	
-		case 4:																																break;		// T_1_4 (do nothing)
-		case 3:		current_play_note_time = (current_play_note_time * 3)/4;		break;	
-		case 2:		current_play_note_time /= 2;																break;		// T_1_8
-		case 1:		current_play_note_time /= 4;																break;		// T_1_16
-	}
-
-	switch(buzzer_state)
-	{
-		case BUZZER_PLAY:
-			if(!pause) {	SetTimers(tone[current_music[note_counter]], current_play_note_time - silent_note_time); }
-			else {	SetTimers(0, current_play_note_time - silent_note_time); }
-			buzzer_state = BUZZER_PAUSE;
-			break;
-		
-		case BUZZER_PAUSE:
-			SetTimers(0, silent_note_time);
-			buzzer_state = BUZZER_PLAY;
-			note_counter++;
-			if(note_counter >= current_play_size)
-				buzzer_state = BUZZER_IDLE;
-			break;
-	}
-	*/
 	
 	return 0;
 }
