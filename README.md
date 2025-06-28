@@ -1,8 +1,4 @@
 # ExactTime
-Файлы проекта настольных часов ExactTime
-
-Электронные часы
-the Exact Time
 
 ![Настройка часов](https://github.com/EvgenyEA/ExactTime/blob/main/ExactTime.jpg)
  
