@@ -1,5 +1,9 @@
 #include "periphery.h"
 
+/*! -------------------------------------------------------------------------
+\brief Interrupts initialization
+\param[out] 
+*/
 void Periphery::InitInterrupts()
 {
 	RCC->APBENR2 |= RCC_APBENR2_SYSCFGEN;
@@ -7,7 +11,7 @@ void Periphery::InitInterrupts()
 	// PA0 - BUTTTON MINUTES
 	EXTI->EXTICR[0] &= ~EXTI_EXTICR1_EXTI0_Msk;					// PA on EXTI0
 	EXTI->IMR1 |= EXTI_IMR1_IM0;
-//	EXTI->EMR1 |= EXTI_EMR1_EM0;												// Event request is not masked (for wake up from stop)
+//	EXTI->EMR1 |= EXTI_EMR1_EM0;											// Event request is not masked (for wake up from stop)
   EXTI->RTSR1 |= EXTI_RTSR1_RT0;											// Rising trigger selection
   EXTI->RPR1 = EXTI_RPR1_RPIF0;
 	
@@ -17,7 +21,7 @@ void Periphery::InitInterrupts()
 	// PA12 - BUTTON HOURS
 	EXTI->EXTICR[3] &= ~EXTI_EXTICR4_EXTI12_Msk;				// PA on EXTI12
 	EXTI->IMR1 |= EXTI_IMR1_IM12;
-//	EXTI->EMR1 |= EXTI_EMR1_EM12;												// Event request is not masked (for wake up from stop)
+//	EXTI->EMR1 |= EXTI_EMR1_EM12;											// Event request is not masked (for wake up from stop)
   EXTI->RTSR1 |= EXTI_RTSR1_RT12;											// Rising trigger selection
   EXTI->RPR1 = EXTI_RPR1_RPIF12;
 	
@@ -36,5 +40,3 @@ void Periphery::InitInterrupts()
 	NVIC_EnableIRQ(DMA1_Channel1_IRQn);	
 	NVIC_SetPriority(DMA1_Channel1_IRQn, 1);
 }
-
-
