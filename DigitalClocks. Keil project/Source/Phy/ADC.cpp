@@ -1,7 +1,8 @@
 #include "periphery.h"
 
-/** ---------------------------------------------------------------------------
-Initialization of ADC
+/*! -------------------------------------------------------------------------
+\brief ADC initialization
+\param[out] 
 */
 bool Periphery::InitADC()
 {
@@ -67,12 +68,6 @@ bool Periphery::InitADC()
 	ADC1->CFGR1 &= ~ADC_CFGR1_RES_1;
 	adc_resolution_scale = 4096;								// 2^12 = 4096
 	
-	/*
-	ADC1->CFGR1 &= ~ADC_CFGR1_RES_0;					// Data resolution: 00 - 12 bits, 01 - 10 bits, 10 - 8 bits, 11 - 6 bits
-	ADC1->CFGR1 |= ADC_CFGR1_RES_1;
-	adc_resolution_scale = 256;														// 2^8 = 4096
-	*/
-	
 	// ADC1->CR |= ADC_CR_ADEN;									// Power on ADC1
 	// ADC1->CR |= ADC_CR_ADSTART;							// Start of conversation
 	
@@ -105,8 +100,7 @@ uint32_t Periphery::GetAdcTemperature()
 	
 	// 3) Start measures
 	ADC1->CR |= ADC_CR_ADSTART; 
-	for(uint16_t n = 0; n < 60000; n++)
-	{
+	for(uint16_t n = 0; n < 60000; n++) {
 		if(ADC1->ISR & ADC_ISR_EOC) { break; }
 	}
 
@@ -147,8 +141,7 @@ uint32_t Periphery::GetAdcReference()
 	
 	// 3) Start measures
 	ADC1->CR |= ADC_CR_ADSTART; 
-	for(uint16_t n = 0; n < 60000; n++)
-	{
+	for(uint16_t n = 0; n < 60000; n++) {
 		if(ADC1->ISR & ADC_ISR_EOC) 
 		{ 
 			break; 
@@ -205,18 +198,4 @@ bool Periphery::GetIlluminationAdcValue(uint16_t &illumination_adc)
 	ADC1->CR |= ADC_CR_ADDIS; 
 	
 	return function_failed1 | function_failed2;
-}
-
-/*! -------------------------------------------------------------------------
-\brief Get power supply voltage
-\details  
-*/
-bool Periphery::GetPowerVoltage(uint16_t &voltage)
-{
-//	uint16_t adc_power_voltage = GetBatteryAdcValue();
-//	float power_voltage = (adc_power_voltage * 3300.0) / 4096.0;
-//	power_voltage /= 0.23;
-//	voltage = uint16_t(power_voltage);
-	
-	return 0;
 }

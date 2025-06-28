@@ -55,7 +55,6 @@ class Periphery
 		// Work ADC
 		int32_t GetTemperature();
 		uint32_t GetAdcReference();
-		bool GetPowerVoltage(uint16_t &voltage);
 		bool GetIlluminationAdcValue(uint16_t &illumination_adc);
 		
 		// GPIO
@@ -85,8 +84,6 @@ class Periphery
 		// TIM
 		bool SetDisplayBrightness(const uint8_t brightness);
 		
-		void EnterStopMode();
-		
 	private:	
 		bool InitTick();
 		
@@ -99,12 +96,8 @@ class Periphery
 		void InitTim14DisplayBrightness();
 		void InitTim16Buzzer();
 		void InitTim17DisplayUpdate();
-
 		bool InitRTC();
-	
 		bool InitIWDT();
-		bool InitWWDG();
-	
 		void InitDMACh1();
 		void InitDMACh2();
 	

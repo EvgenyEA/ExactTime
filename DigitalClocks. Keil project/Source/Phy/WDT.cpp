@@ -21,11 +21,3 @@ bool Periphery::InitIWDT()
 	return 0;
 }
 
-bool Periphery::InitWWDG()
-{
-	WWDG->CR |= (127 << WWDG_CR_T_Pos);
-	
-
-	WWDG->CR |= WWDG_CR_WDGA;								// Start WWDG
-	return 0;
-}
